@@ -266,6 +266,15 @@ img{max-width:100%;display:block}
 .svc-float.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-4deg)}
 .svc-float .slot{width:100%;height:100%;box-shadow:0 30px 60px rgba(0,0,0,.5)}
 
+/* Back to top */
+.to-top{position:fixed;right:calc(20px + env(safe-area-inset-right, 0px));bottom:calc(20px + env(safe-area-inset-bottom, 0px));z-index:25;width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:var(--accent-ink);text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.45);opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .3s, transform .35s var(--ease), background-color .2s, color .2s}
+.to-top.on{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{background:var(--signal);color:var(--signal-ink)}
+.to-top:hover svg{transform:translateY(-3px)}
+.to-top svg{transition:transform .25s var(--ease)}
+.to-top::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--signal);transform-origin:0 50%;transform:scaleX(var(--sp,0))}
+.to-top:hover::after{background:var(--signal-ink)}
+
 /* Generic cards */
 .duo{display:flex;flex-wrap:wrap;gap:20px}
 .card{flex:1 1 380px;min-width:0;background:var(--surface);border:1px solid var(--line);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:20px}
@@ -416,6 +425,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
 </head>
 <body style="margin:0">
 <div class="progress" id="progress" aria-hidden="true"></div>
+<a href="#topo" class="to-top" id="to-top" aria-label="Voltar ao topo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
 <div class="svc-float" id="svc-float" aria-hidden="true"></div>
 
 <header class="top">
@@ -618,15 +628,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
       <div class="about">
         <div class="about-side">
           <div class="about-photo rv"><img src="img/victor.jpg" alt="Victor Renan, de chapéu e óculos escuros, sorrindo em frente a um muro grafitado" width="1000" height="1000" loading="lazy"><span class="photo-tag mono">Victor Renan – vulgo Labamba</span></div>
-          <div class="player rv" role="img" aria-label="La Bamba">
-            <div class="player-top mono muted"><span data-i="pl.now">Tocando agora</span><span>♪ 01/01</span></div>
-            <div class="player-body">
-              <div><div class="song">La Bamba</div><div class="mono muted" style="margin-top:8px" data-i="pl.sub">Clássico latino-americano</div></div>
-              <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="seek" aria-hidden="true"></div>
-              <div class="ctrls" aria-hidden="true"><span>⏮</span><span class="pp">❚❚</span><span>⏭</span></div>
-            </div>
-          </div>
         </div>
         <div class="about-text rv">
           <p data-i="ab.p1"><strong>Victor Renan</strong> é paranaense de nascimento e goianiense por escolha: adotou Goiânia como casa e foi lá que construiu toda a carreira. Está em agência desde 2008 e, desde 2023, é Coordenador de Arte, liderando times em contas de varejo, sua grande especialidade.</p>
@@ -731,8 +732,8 @@ const catLabel = c => (lang === 'es' ? (CAT_ES[c] || c) : c);
 
 /* Strings used by scripts */
 const UI = {
-  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'Solução', scope: 'Entregas', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR' },
-  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'Solución', scope: 'Entregables', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419' }
+  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'Solução', scope: 'Entregas', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', top: 'Voltar ao topo', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR' },
+  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'Solución', scope: 'Entregables', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', top: 'Volver arriba', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419' }
 };
 
 /* Spanish (Latam) for every element marked data-i. Portuguese stays in the HTML. */
@@ -894,6 +895,23 @@ document.querySelectorAll('[data-slot]').forEach(el => fillSlot(el, IMAGES[el.da
   document.getElementById('strip').innerHTML = half.map((o, i) => one(o, i >= items.length)).join('') + half.map(o => one(o, true)).join('');
 })();
 
+// Back to top: shows after the first screen, its bottom bar fills with scroll progress
+(function(){
+  const btn = document.getElementById('to-top');
+  if (!btn) return;
+  let ticking = false;
+  function update(){
+    const max = document.documentElement.scrollHeight - innerHeight;
+    btn.classList.toggle('on', scrollY > innerHeight * 0.6);
+    btn.style.setProperty('--sp', max > 0 ? (scrollY / max).toFixed(3) : '0');
+    ticking = false;
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', update);
+  btn.addEventListener('click', e => { e.preventDefault(); scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+  update();
+})();
+
 /* ================= Language ================= */
 const PT = {};
 document.querySelectorAll('[data-i]').forEach(el => { PT[el.dataset.i] = el.innerHTML; });
@@ -912,6 +930,7 @@ function setLang(next, animate){
   });
   document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
   document.querySelectorAll('.copy').forEach(b => { b.textContent = T().copy; });
+  $('#to-top').setAttribute('aria-label', T().top);
   $('#wpp-link').href = 'https://wa.me/' + String(CONTACT.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent(T().wa);
   renderServices(); renderFilters(); renderCases();
   try { localStorage.setItem('labamba-lang', lang); } catch (_) {}
