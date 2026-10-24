@@ -187,31 +187,94 @@
   "carreira": [
     {
       "ano": "2008",
-      "titulo_pt": "Primeira agência",
-      "titulo_es": "Primera agencia",
-      "texto_pt": "Começa na publicidade e aprende o ofício no ritmo de agência: prazos curtos, muitas peças e varejo desde cedo.",
-      "texto_es": "Empieza en la publicidad y aprende el oficio al ritmo de agencia: plazos cortos, muchas piezas y retail desde temprano."
+      "empresa": "Jordão Publicidade",
+      "cargo_pt": "Arte final",
+      "cargo_es": "Arte final",
+      "atual": false
     },
     {
-      "ano": "Varejo",
-      "titulo_pt": "Especialista em varejo",
-      "titulo_es": "Especialista en retail",
-      "texto_pt": "Lidera times em contas de varejo: ofertas, datas sazonais, PDV e campanhas que precisam vender na semana.",
-      "texto_es": "Lidera equipos en cuentas de retail: ofertas, fechas estacionales, PDV y campañas que tienen que vender en la semana."
+      "ano": "2010",
+      "empresa": "Oxigênio Propaganda",
+      "cargo_pt": "Assistente de arte",
+      "cargo_es": "Asistente de arte",
+      "atual": false
+    },
+    {
+      "ano": "2011",
+      "empresa": "Crispim + Veiga",
+      "cargo_pt": "Assistente de arte",
+      "cargo_es": "Asistente de arte",
+      "atual": false
+    },
+    {
+      "ano": "2011",
+      "empresa": "Jordão Publicidade",
+      "cargo_pt": "Diretor de arte Jr.",
+      "cargo_es": "Director de arte Jr.",
+      "atual": false
+    },
+    {
+      "ano": "2012",
+      "empresa": "Bees/Inquieta",
+      "cargo_pt": "Diretor de arte",
+      "cargo_es": "Director de arte",
+      "atual": false
+    },
+    {
+      "ano": "2015",
+      "empresa": "New Comunicação",
+      "cargo_pt": "Diretor de arte",
+      "cargo_es": "Director de arte",
+      "atual": false
+    },
+    {
+      "ano": "2017",
+      "empresa": "Agência Zig",
+      "cargo_pt": "Diretor de arte",
+      "cargo_es": "Director de arte",
+      "atual": false
+    },
+    {
+      "ano": "2021",
+      "empresa": "Stylus Propaganda",
+      "cargo_pt": "Diretor de arte",
+      "cargo_es": "Director de arte",
+      "atual": false
+    },
+    {
+      "ano": "2022",
+      "empresa": "Espaço",
+      "cargo_pt": "Diretor de arte",
+      "cargo_es": "Director de arte",
+      "atual": false
+    },
+    {
+      "ano": "2022",
+      "empresa": "InPulse Marketing",
+      "cargo_pt": "Diretor de arte",
+      "cargo_es": "Director de arte",
+      "atual": false
+    },
+    {
+      "ano": "2022",
+      "empresa": "Agência Zig",
+      "cargo_pt": "Diretor de arte",
+      "cargo_es": "Director de arte",
+      "atual": false
     },
     {
       "ano": "2023",
-      "titulo_pt": "Coordenador de Arte",
-      "titulo_es": "Coordinador de Arte",
-      "texto_pt": "Assume a coordenação de arte em agência, à frente de times e de contas de grandes marcas de Goiás.",
-      "texto_es": "Asume la coordinación de arte en agencia, al frente de equipos y de cuentas de grandes marcas de Goiás."
+      "empresa": "Agência Zig",
+      "cargo_pt": "Coordenador de criação",
+      "cargo_es": "Coordinador creativo",
+      "atual": true
     },
     {
       "ano": "2026",
-      "titulo_pt": "Labamba Studio",
-      "titulo_es": "Labamba Studio",
-      "texto_pt": "Abre o próprio estúdio para atender agências e marcas no Brasil e na América Latina.",
-      "texto_es": "Abre su propio estudio para atender agencias y marcas en Brasil y Latinoamérica."
+      "empresa": "Labamba Studio",
+      "cargo_pt": "Fundador",
+      "cargo_es": "Fundador",
+      "atual": true
     }
   ]
 }

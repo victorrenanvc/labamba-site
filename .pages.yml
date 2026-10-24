@@ -44,27 +44,27 @@ content:
       - name: carreira
         label: Trajetória (linha do tempo na seção Sobre)
         type: object
-        description: Cada item vira um ponto na linha do tempo, na ordem da lista.
+        description: Itens com o mesmo ano aparecem juntos, na ordem da lista.
         list:
           collapsible:
             collapsed: true
-            summary: "{ano} · {titulo_pt}"
+            summary: "{ano} · {empresa}"
         fields:
           - name: ano
-            label: "Ano ou rótulo (por exemplo 2008)"
+            label: Ano
             type: string
-          - name: titulo_pt
-            label: Título (português)
+          - name: empresa
+            label: Empresa ou agência
             type: string
-          - name: titulo_es
-            label: Título (espanhol)
+          - name: cargo_pt
+            label: Cargo (português)
             type: string
-          - name: texto_pt
-            label: Texto (português)
-            type: text
-          - name: texto_es
-            label: Texto (espanhol)
-            type: text
+          - name: cargo_es
+            label: Cargo (espanhol)
+            type: string
+          - name: atual
+            label: Emprego atual (mostra o selo "Atual")
+            type: boolean
 
       - name: marcas
         label: Marcas atendidas (carrossel de logos)
