@@ -37,6 +37,35 @@ content:
         type: image
         description: Formato quadrado ou vertical funciona melhor.
 
+      - name: carreira_inicio
+        label: Ano em que começou na carreira (calcula os "anos de agência")
+        type: number
+
+      - name: carreira
+        label: Trajetória (linha do tempo na seção Sobre)
+        type: object
+        description: Cada item vira um ponto na linha do tempo, na ordem da lista.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{ano} · {titulo_pt}"
+        fields:
+          - name: ano
+            label: "Ano ou rótulo (por exemplo 2008)"
+            type: string
+          - name: titulo_pt
+            label: Título (português)
+            type: string
+          - name: titulo_es
+            label: Título (espanhol)
+            type: string
+          - name: texto_pt
+            label: Texto (português)
+            type: text
+          - name: texto_es
+            label: Texto (espanhol)
+            type: text
+
       - name: marcas
         label: Marcas atendidas (carrossel de logos)
         type: object

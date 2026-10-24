@@ -182,5 +182,36 @@
       "descricao_es": "Pitches y decks con narrativa y diseño a la altura de lo que se está vendiendo.",
       "imagem": "img/servico-apresentacoes.jpg"
     }
+  ],
+  "carreira_inicio": 2008,
+  "carreira": [
+    {
+      "ano": "2008",
+      "titulo_pt": "Primeira agência",
+      "titulo_es": "Primera agencia",
+      "texto_pt": "Começa na publicidade e aprende o ofício no ritmo de agência: prazos curtos, muitas peças e varejo desde cedo.",
+      "texto_es": "Empieza en la publicidad y aprende el oficio al ritmo de agencia: plazos cortos, muchas piezas y retail desde temprano."
+    },
+    {
+      "ano": "Varejo",
+      "titulo_pt": "Especialista em varejo",
+      "titulo_es": "Especialista en retail",
+      "texto_pt": "Lidera times em contas de varejo: ofertas, datas sazonais, PDV e campanhas que precisam vender na semana.",
+      "texto_es": "Lidera equipos en cuentas de retail: ofertas, fechas estacionales, PDV y campañas que tienen que vender en la semana."
+    },
+    {
+      "ano": "2023",
+      "titulo_pt": "Coordenador de Arte",
+      "titulo_es": "Coordinador de Arte",
+      "texto_pt": "Assume a coordenação de arte em agência, à frente de times e de contas de grandes marcas de Goiás.",
+      "texto_es": "Asume la coordinación de arte en agencia, al frente de equipos y de cuentas de grandes marcas de Goiás."
+    },
+    {
+      "ano": "2026",
+      "titulo_pt": "Labamba Studio",
+      "titulo_es": "Labamba Studio",
+      "texto_pt": "Abre o próprio estúdio para atender agências e marcas no Brasil e na América Latina.",
+      "texto_es": "Abre su propio estudio para atender agencias y marcas en Brasil y Latinoamérica."
+    }
   ]
 }

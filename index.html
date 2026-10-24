@@ -275,6 +275,27 @@ img{max-width:100%;display:block}
 .to-top::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--signal);transform-origin:0 50%;transform:scaleX(var(--sp,0))}
 .to-top:hover::after{background:var(--signal-ink)}
 
+/* Career timeline */
+.career{margin-top:clamp(48px,6vw,80px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
+.career-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px 24px;flex-wrap:wrap;margin-bottom:32px}
+.career-years{font-family:var(--display);font-stretch:125%;font-weight:850;text-transform:uppercase;font-size:clamp(28px,3.4vw,48px);line-height:1;letter-spacing:-.02em}
+.career-years b{color:var(--signal);font-variant-numeric:tabular-nums}
+.career-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px 24px;position:relative}
+.career-list::before{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:var(--line)}
+.career-item{position:relative;padding-top:36px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.career-item::before{content:"";position:absolute;top:0;left:0;width:16px;height:16px;box-sizing:border-box;background:var(--surface);border:2px solid var(--accent-hi);z-index:1;transition:transform .3s var(--ease)}
+.career-item:hover::before{transform:scale(1.25)}
+.career-item:last-child::before{background:var(--signal);border-color:var(--signal)}
+.career-item .yr{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-hi)}
+.career-item:last-child .yr{color:var(--signal)}
+.career-item h4{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:22px;line-height:1.1}
+.career-item p{margin:0;color:var(--muted);font-size:16px;max-width:34ch}
+@media (max-width:700px){
+  .career-list{grid-template-columns:1fr}
+  .career-list::before{left:7px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .career-item{padding-top:0;padding-left:36px}
+}
+
 /* Generic cards */
 .duo{display:flex;flex-wrap:wrap;gap:20px}
 .card{flex:1 1 380px;min-width:0;background:var(--surface);border:1px solid var(--line);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:20px}
@@ -399,6 +420,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
 @keyframes slideL{from{transform:translateX(2%)}to{transform:translateX(-26%)}}
 @keyframes slideR{from{transform:translateX(-26%)}to{transform:translateX(2%)}}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @keyframes numIn{from{transform:scale(.55) translateY(20px);opacity:.15}to{transform:none;opacity:1}}
 
 @supports (animation-timeline: view()) {
@@ -418,6 +440,9 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
     .step:nth-child(4){animation-range:entry 15% cover 37%}
     .step:nth-child(5){animation-range:entry 20% cover 42%}
     .lp,.svc{animation:rv linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+    .career-item{animation:rv linear both;animation-timeline:view();animation-range:entry calc(var(--i) * 6%) cover calc(30% + var(--i) * 6%)}
+    .career-list::after{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:var(--accent-hi);transform-origin:0 50%;animation:grow linear both;animation-timeline:view();animation-range:entry 30% cover 55%}
+    @media (max-width:700px){.career-list::after{left:7px;right:auto;top:0;bottom:0;width:2px;height:auto;transform-origin:50% 0;animation-name:growY;animation-range:entry 10% cover 60%}}
   }
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
@@ -646,6 +671,10 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
           <div class="ctas"><a class="btn btn-primary magnetic" href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener" data-i="ab.cta">Ver trajetória no LinkedIn ↗</a></div>
         </div>
       </div>
+      <div class="career" id="trajetoria">
+        <div class="career-head"><span class="mono muted" data-i="tr.k">Trajetória</span><span class="career-years"><b id="career-yrs">18</b> <span data-i="tr.y">anos de agência</span></span></div>
+        <ol class="career-list" id="career"></ol>
+      </div>
     </div>
   </section>
 
@@ -705,7 +734,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
 <script>
 /* ================= Conteúdo ================= */
 /* Tudo o que é editável no painel vive em content.json. Esta cópia é só a reserva caso o arquivo não carregue. */
-const DEFAULT_CONTENT = {"contato": {"email": "victor.renanvc@gmail.com", "whatsapp": "5562992960963", "whatsapp_exibicao": "+55 62 99296-0963", "linkedin": "https://www.linkedin.com/in/victorrenan/", "agenda_aberta": true}, "foto": "img/victor.jpg", "marcas": [{"nome": "City Soluções Urbanas", "logo": "img/logos/logo-01.png"}, {"nome": "Flamboyant", "logo": "img/logos/logo-02.png"}, {"nome": "Fujioka", "logo": "img/logos/logo-03.png"}, {"nome": "Irmãos Soares", "logo": "img/logos/logo-04.png"}, {"nome": "WV Maldi Incorporações", "logo": "img/logos/logo-05.png"}, {"nome": "Novo Mundo", "logo": "img/logos/logo-06.png"}, {"nome": "São Jorge Shopping da Construção", "logo": "img/logos/logo-07.png"}, {"nome": "TV Anhanguera", "logo": "img/logos/logo-08.png"}], "cases": [{"categoria": "Identidade", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 01]", "titulo_es": "[Título del proyecto 01]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Logo, manual, papelaria, aplicações.]", "entregas_es": "[Logo, manual, papelería, aplicaciones.]", "galeria": []}, {"categoria": "Campanha", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 02]", "titulo_es": "[Título del proyecto 02]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[KV, mídia OOH, digital, social.]", "entregas_es": "[KV, medios OOH, digital, social.]", "galeria": []}, {"categoria": "Social", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 03]", "titulo_es": "[Título del proyecto 03]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Linha editorial, templates, posts.]", "entregas_es": "[Línea editorial, plantillas, posts.]", "galeria": []}, {"categoria": "Motion", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 04]", "titulo_es": "[Título del proyecto 04]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Vinheta, animação de marca.]", "entregas_es": "[Viñeta, animación de marca.]", "galeria": []}, {"categoria": "Campanha", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 05]", "titulo_es": "[Título del proyecto 05]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Conceito, desdobramentos.]", "entregas_es": "[Concepto, despliegues.]", "galeria": []}, {"categoria": "Identidade", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 06]", "titulo_es": "[Título del proyecto 06]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Rebranding completo.]", "entregas_es": "[Rebranding completo.]", "galeria": []}], "imagens": {"faixa": ["img/faixa-01.jpg", "img/faixa-02.jpg", "img/faixa-03.jpg", "img/faixa-04.jpg", "img/faixa-05.jpg", "img/faixa-06.jpg"], "agencias": "img/para-agencias.jpg", "empresas": "img/para-empresas.jpg"}, "servicos": [{"nome_pt": "Identidade visual", "descricao_pt": "Marca, sistema visual e manual para a marca ser reconhecida em qualquer lugar.", "nome_es": "Identidad visual", "descricao_es": "Marca, sistema visual y manual para que la marca sea reconocida en cualquier lugar.", "imagem": "img/servico-identidade.jpg"}, {"nome_pt": "Campanhas", "descricao_pt": "Conceito criativo e desdobramento para mídia on e off com unidade do começo ao fim.", "nome_es": "Campañas", "descricao_es": "Concepto creativo y despliegue para medios on y off, con unidad de principio a fin.", "imagem": "img/servico-campanhas.jpg"}, {"nome_pt": "Key visual", "descricao_pt": "A imagem-mãe de um lançamento, evento ou temporada, pensada para desdobrar bem.", "nome_es": "Key visual", "descricao_es": "La imagen madre de un lanzamiento, evento o temporada, pensada para desplegarse bien.", "imagem": "img/servico-key-visual.jpg"}, {"nome_pt": "Social e conteúdo", "descricao_pt": "Linha editorial visual, templates e produção recorrente com consistência.", "nome_es": "Social y contenido", "descricao_es": "Línea editorial visual, plantillas y producción recurrente con consistencia.", "imagem": "img/servico-social.jpg"}, {"nome_pt": "Motion", "descricao_pt": "Animação de marca, vinhetas e peças em movimento para telas e redes.", "nome_es": "Motion", "descricao_es": "Animación de marca, viñetas y piezas en movimiento para pantallas y redes.", "imagem": "img/servico-motion.jpg"}, {"nome_pt": "Apresentações", "descricao_pt": "Pitches e decks com narrativa e design à altura do que está sendo vendido.", "nome_es": "Presentaciones", "descricao_es": "Pitches y decks con narrativa y diseño a la altura de lo que se está vendiendo.", "imagem": "img/servico-apresentacoes.jpg"}]};
+const DEFAULT_CONTENT = {"contato": {"email": "victor.renanvc@gmail.com", "whatsapp": "5562992960963", "whatsapp_exibicao": "+55 62 99296-0963", "linkedin": "https://www.linkedin.com/in/victorrenan/", "agenda_aberta": true}, "foto": "img/victor.jpg", "marcas": [{"nome": "City Soluções Urbanas", "logo": "img/logos/logo-01.png"}, {"nome": "Flamboyant", "logo": "img/logos/logo-02.png"}, {"nome": "Fujioka", "logo": "img/logos/logo-03.png"}, {"nome": "Irmãos Soares", "logo": "img/logos/logo-04.png"}, {"nome": "WV Maldi Incorporações", "logo": "img/logos/logo-05.png"}, {"nome": "Novo Mundo", "logo": "img/logos/logo-06.png"}, {"nome": "São Jorge Shopping da Construção", "logo": "img/logos/logo-07.png"}, {"nome": "TV Anhanguera", "logo": "img/logos/logo-08.png"}], "cases": [{"categoria": "Identidade", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 01]", "titulo_es": "[Título del proyecto 01]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Logo, manual, papelaria, aplicações.]", "entregas_es": "[Logo, manual, papelería, aplicaciones.]", "galeria": []}, {"categoria": "Campanha", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 02]", "titulo_es": "[Título del proyecto 02]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[KV, mídia OOH, digital, social.]", "entregas_es": "[KV, medios OOH, digital, social.]", "galeria": []}, {"categoria": "Social", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 03]", "titulo_es": "[Título del proyecto 03]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Linha editorial, templates, posts.]", "entregas_es": "[Línea editorial, plantillas, posts.]", "galeria": []}, {"categoria": "Motion", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 04]", "titulo_es": "[Título del proyecto 04]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Vinheta, animação de marca.]", "entregas_es": "[Viñeta, animación de marca.]", "galeria": []}, {"categoria": "Campanha", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 05]", "titulo_es": "[Título del proyecto 05]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Conceito, desdobramentos.]", "entregas_es": "[Concepto, despliegues.]", "galeria": []}, {"categoria": "Identidade", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 06]", "titulo_es": "[Título del proyecto 06]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Rebranding completo.]", "entregas_es": "[Rebranding completo.]", "galeria": []}], "imagens": {"faixa": ["img/faixa-01.jpg", "img/faixa-02.jpg", "img/faixa-03.jpg", "img/faixa-04.jpg", "img/faixa-05.jpg", "img/faixa-06.jpg"], "agencias": "img/para-agencias.jpg", "empresas": "img/para-empresas.jpg"}, "servicos": [{"nome_pt": "Identidade visual", "descricao_pt": "Marca, sistema visual e manual para a marca ser reconhecida em qualquer lugar.", "nome_es": "Identidad visual", "descricao_es": "Marca, sistema visual y manual para que la marca sea reconocida en cualquier lugar.", "imagem": "img/servico-identidade.jpg"}, {"nome_pt": "Campanhas", "descricao_pt": "Conceito criativo e desdobramento para mídia on e off com unidade do começo ao fim.", "nome_es": "Campañas", "descricao_es": "Concepto creativo y despliegue para medios on y off, con unidad de principio a fin.", "imagem": "img/servico-campanhas.jpg"}, {"nome_pt": "Key visual", "descricao_pt": "A imagem-mãe de um lançamento, evento ou temporada, pensada para desdobrar bem.", "nome_es": "Key visual", "descricao_es": "La imagen madre de un lanzamiento, evento o temporada, pensada para desplegarse bien.", "imagem": "img/servico-key-visual.jpg"}, {"nome_pt": "Social e conteúdo", "descricao_pt": "Linha editorial visual, templates e produção recorrente com consistência.", "nome_es": "Social y contenido", "descricao_es": "Línea editorial visual, plantillas y producción recurrente con consistencia.", "imagem": "img/servico-social.jpg"}, {"nome_pt": "Motion", "descricao_pt": "Animação de marca, vinhetas e peças em movimento para telas e redes.", "nome_es": "Motion", "descricao_es": "Animación de marca, viñetas y piezas en movimiento para pantallas y redes.", "imagem": "img/servico-motion.jpg"}, {"nome_pt": "Apresentações", "descricao_pt": "Pitches e decks com narrativa e design à altura do que está sendo vendido.", "nome_es": "Presentaciones", "descricao_es": "Pitches y decks con narrativa y diseño a la altura de lo que se está vendiendo.", "imagem": "img/servico-apresentacoes.jpg"}], "carreira_inicio": 2008, "carreira": [{"ano": "2008", "titulo_pt": "Primeira agência", "titulo_es": "Primera agencia", "texto_pt": "Começa na publicidade e aprende o ofício no ritmo de agência: prazos curtos, muitas peças e varejo desde cedo.", "texto_es": "Empieza en la publicidad y aprende el oficio al ritmo de agencia: plazos cortos, muchas piezas y retail desde temprano."}, {"ano": "Varejo", "titulo_pt": "Especialista em varejo", "titulo_es": "Especialista en retail", "texto_pt": "Lidera times em contas de varejo: ofertas, datas sazonais, PDV e campanhas que precisam vender na semana.", "texto_es": "Lidera equipos en cuentas de retail: ofertas, fechas estacionales, PDV y campañas que tienen que vender en la semana."}, {"ano": "2023", "titulo_pt": "Coordenador de Arte", "titulo_es": "Coordinador de Arte", "texto_pt": "Assume a coordenação de arte em agência, à frente de times e de contas de grandes marcas de Goiás.", "texto_es": "Asume la coordinación de arte en agencia, al frente de equipos y de cuentas de grandes marcas de Goiás."}, {"ano": "2026", "titulo_pt": "Labamba Studio", "titulo_es": "Labamba Studio", "texto_pt": "Abre o próprio estúdio para atender agências e marcas no Brasil e na América Latina.", "texto_es": "Abre su propio estudio para atender agencias y marcas en Brasil y Latinoamérica."}]};
 const CAT_ES = { 'Identidade': 'Identidad', 'Campanha': 'Campaña', 'Social': 'Social', 'Motion': 'Motion', 'Key visual': 'Key visual', 'Apresentações': 'Presentaciones' };
 const TONES = [['var(--accent)','var(--accent-ink)'],['var(--surface-2)','var(--fg)'],['var(--signal)','var(--signal-ink)']];
 const asset = v => String(v || '').replace(/^\/+/, '');
@@ -780,6 +809,7 @@ const ES = {
   'ab.p2': 'Hijo de padre paraguayo-argentino y madre brasileña, creció con lo mejor de los dos lados de la frontera: la cintura brasileña y el sabor latino de quien toma tereré y escucha cumbia sin pedir permiso. Súmale los años como baterista profesional y es fácil entender de dónde viene el ritmo de su trabajo.',
   'ab.f1': 'En agencias', 'ab.f1v': 'Desde 2008', 'ab.f2': 'Coordinación de arte', 'ab.f2v': 'Desde 2023', 'ab.f3': 'Especialidad', 'ab.f3v': 'Retail',
   'ab.cta': 'Ver trayectoria en LinkedIn ↗',
+  'tr.k': 'Trayectoria', 'tr.y': 'años de agencia',
   'ct.k': 'Próximo paso', 'ct.h2': 'Trae tu próximo proyecto.',
   'ct.p': 'Cuéntame el desafío, el plazo y dónde va a salir la pieza. Respondo con una propuesta clara de alcance, etapas e inversión.',
   'ct.li': 'Conectemos', 'ct.wa': 'Escribir ↗', 'ct.mail': 'Correo',
@@ -912,6 +942,28 @@ document.querySelectorAll('[data-slot]').forEach(el => fillSlot(el, IMAGES[el.da
   update();
 })();
 
+// Career timeline
+const CAREER = (C.carreira || []);
+const CAREER_START = Number(C.carreira_inicio) || 2008;
+function renderCareer(){
+  const el = $('#career'); if (!el) return;
+  el.innerHTML = CAREER.map((c, i) => `<li class="career-item" style="--i:${i}"><span class="yr">${esc(c.ano || '')}</span><h4>${esc((lang === 'es' ? c.titulo_es : c.titulo_pt) || c.titulo_pt || '')}</h4><p>${esc((lang === 'es' ? c.texto_es : c.texto_pt) || c.texto_pt || '')}</p></li>`).join('');
+  const box = $('#trajetoria'); if (box) box.hidden = !CAREER.length;
+}
+(function(){
+  const out = $('#career-yrs'); if (!out) return;
+  const years = Math.max(1, new Date().getFullYear() - CAREER_START);
+  out.textContent = years;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return; io.disconnect();
+    const t0 = performance.now(), dur = 1200;
+    const step = now => { const p = Math.max(0, Math.min(1, (now - t0) / dur)); out.textContent = Math.round(years * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }), { threshold: .6 });
+  io.observe(out);
+})();
+
 /* ================= Language ================= */
 const PT = {};
 document.querySelectorAll('[data-i]').forEach(el => { PT[el.dataset.i] = el.innerHTML; });
@@ -932,7 +984,7 @@ function setLang(next, animate){
   document.querySelectorAll('.copy').forEach(b => { b.textContent = T().copy; });
   $('#to-top').setAttribute('aria-label', T().top);
   $('#wpp-link').href = 'https://wa.me/' + String(CONTACT.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent(T().wa);
-  renderServices(); renderFilters(); renderCases();
+  renderServices(); renderFilters(); renderCases(); renderCareer();
   try { localStorage.setItem('labamba-lang', lang); } catch (_) {}
 }
 document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang, true)));
