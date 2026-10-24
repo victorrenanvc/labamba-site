@@ -77,7 +77,7 @@ img{max-width:100%;display:block}
 .brand:hover .brand-mark i:nth-child(2){background:var(--fg);transition:background .2s}
 .brand b{font-family:var(--display);font-stretch:125%;font-weight:850;font-size:20px;letter-spacing:-.01em}
 .nav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 24px}
-.nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav a{text-decoration:none;color:var(--muted);transition:color .2s;white-space:nowrap;display:inline-block}
 .nav a:hover{color:var(--fg)}
 .nav .btn{min-height:44px;padding:0 18px;font-size:13px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
 .lang{display:inline-flex;border:1px solid var(--line)}
@@ -1068,9 +1068,10 @@ const MAP = {"nx":95,"ny":104,"g":["","011111","00110111111111","001100111111111
 
 /* ================= Motion ================= */
 if (!reduce) {
-  const GLYPHS = '█▓▒░<>/\\_#01=+*';
+  const GLYPHS = '#%&*+=<>/_-01';
   function scramble(el, finalText, dur = 700){
     if (el._scr) cancelAnimationFrame(el._scr);
+    if (!el._lockW) { el._lockW = true; el.style.minWidth = el.getBoundingClientRect().width + 'px'; }
     const start = performance.now();
     const len = finalText.length;
     function frame(now){
@@ -1079,7 +1080,7 @@ if (!reduce) {
       let out = finalText.slice(0, fixed);
       for (let i = fixed; i < len; i++) out += finalText[i] === ' ' ? ' ' : GLYPHS[(Math.random() * GLYPHS.length) | 0];
       el.textContent = out;
-      if (p < 1) el._scr = requestAnimationFrame(frame); else { el.textContent = finalText; el._scr = 0; }
+      if (p < 1) el._scr = requestAnimationFrame(frame); else { el.textContent = finalText; el._scr = 0; el.style.minWidth = ''; el._lockW = false; }
     }
     el._scr = requestAnimationFrame(frame);
   }
