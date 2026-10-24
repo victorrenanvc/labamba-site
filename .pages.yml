@@ -1,0 +1,146 @@
+media:
+  input: img
+  output: /img
+  categories: [image]
+
+content:
+  - name: site
+    label: Site Labamba
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: contato
+        label: Contatos
+        type: object
+        fields:
+          - name: email
+            label: E-mail
+            type: string
+          - name: whatsapp
+            label: WhatsApp (só números, com 55 e DDD)
+            type: string
+            description: "Exemplo: 5562992960963. É o número usado no botão Chamar."
+          - name: whatsapp_exibicao
+            label: WhatsApp (como aparece no site)
+            type: string
+            description: "Exemplo: +55 62 99296-0963"
+          - name: linkedin
+            label: Link do LinkedIn
+            type: string
+          - name: agenda_aberta
+            label: Mostrar selo "Agenda aberta" no topo
+            type: boolean
+
+      - name: foto
+        label: Sua foto (seção Quem está por trás)
+        type: image
+        description: Formato quadrado ou vertical funciona melhor.
+
+      - name: marcas
+        label: Marcas atendidas (carrossel de logos)
+        type: object
+        description: Logos em PNG com fundo transparente ou SVG, de preferência brancos ou claros.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nome}"
+        fields:
+          - name: nome
+            label: Nome da marca
+            type: string
+          - name: logo
+            label: Logo
+            type: image
+
+      - name: cases
+        label: Portfólio (cases)
+        type: object
+        description: Cada item vira um card no portfólio e abre uma ficha ao clicar.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{titulo_pt}"
+        fields:
+          - name: categoria
+            label: Categoria (filtro)
+            type: select
+            options:
+              values: [Identidade, Campanha, Social, Motion, Key visual, Apresentações]
+          - name: cliente
+            label: Cliente
+            type: string
+          - name: titulo_pt
+            label: Título (português)
+            type: string
+          - name: titulo_es
+            label: Título (espanhol)
+            type: string
+          - name: capa
+            label: Imagem de capa (formato 4:3)
+            type: image
+          - name: desafio_pt
+            label: Desafio (português)
+            type: text
+          - name: desafio_es
+            label: Desafio (espanhol)
+            type: text
+          - name: solucao_pt
+            label: Solução (português)
+            type: text
+          - name: solucao_es
+            label: Solução (espanhol)
+            type: text
+          - name: entregas_pt
+            label: Entregas (português)
+            type: string
+          - name: entregas_es
+            label: Entregas (espanhol)
+            type: string
+          - name: galeria
+            label: Galeria da ficha do case (até 8 imagens)
+            type: image
+            options:
+              multiple:
+                max: 8
+
+      - name: imagens
+        label: Imagens do site
+        type: object
+        fields:
+          - name: faixa
+            label: Faixa de imagens (formato vertical 4:5)
+            type: image
+            options:
+              multiple:
+                max: 12
+          - name: agencias
+            label: Card "Agências" (formato 16:9)
+            type: image
+          - name: empresas
+            label: Card "Empresas" (formato 16:9)
+            type: image
+
+      - name: servicos
+        label: Serviços
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nome_pt}"
+        fields:
+          - name: nome_pt
+            label: Nome (português)
+            type: string
+          - name: descricao_pt
+            label: Descrição (português)
+            type: text
+          - name: nome_es
+            label: Nome (espanhol)
+            type: string
+          - name: descricao_es
+            label: Descrição (espanhol)
+            type: text
+          - name: imagem
+            label: Imagem que aparece ao passar o mouse (formato 4:3)
+            type: image

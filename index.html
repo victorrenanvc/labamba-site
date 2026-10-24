@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Labamba Studio · Criação no ritmo certo</title>
+<meta name="theme-color" content="#0A0C10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 23'%3E%3Crect width='10' height='10' fill='%233D4EFF'/%3E%3Crect y='13' width='10' height='10' fill='%233D4EFF'/%3E%3Crect x='13' y='13' width='10' height='10' fill='%23FF5B1F'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Labamba Studio · Criação no ritmo certo">
+<meta property="og:description" content="Estúdio de criação latino-americano para agências e marcas. Curadoria, método e qualidade, por Victor Renan.">
+<meta property="og:image" content="/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Labamba Studio: estúdio de criação latino-americano para agências e marcas. Curadoria, método e qualidade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: dark "studio console" — expanded grotesk headlines on a faint technical grid,
+   mono labels as instrument readouts, cobalt as the one bold color, orange only as a signal light.
+   Motion is tied to scroll: reveals, parallax, kinetic type and a velocity-driven marquee. */
+:root{
+  --bg:#0A0C10;
+  --surface:#11141A;
+  --surface-2:#171B23;
+  --line:#262B36;
+  --line-soft:#1B1F28;
+  --fg:#ECEDF1;
+  --muted:#9A9EAA;
+  --accent:#3D4EFF;
+  --accent-hi:#5262FF;
+  --accent-ink:#FFFFFF;
+  --signal:#FF5B1F;
+  --signal-ink:#0A0C10;
+  --display:'Archivo', 'Arial Narrow', system-ui, sans-serif;
+  --body:'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+img{max-width:100%;display:block}
+
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(clamp(16px,4vw,48px), env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4vw,48px), env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.muted{color:var(--muted)}
+.display{font-family:var(--display);font-stretch:125%;font-weight:850;text-transform:uppercase;letter-spacing:-.025em;line-height:.92;text-wrap:balance;margin:0}
+.h2{font-size:clamp(34px,4.6vw,68px)}
+.sec{padding-block:clamp(72px,9vw,128px)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 32px;margin-bottom:clamp(36px,4.5vw,64px)}
+.sec-head p{margin:0;max-width:46ch;color:var(--muted)}
+.tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:6px 10px;color:var(--fg)}
+.dot{width:8px;height:8px;background:var(--signal);display:inline-block;flex:none}
+.blink{animation:pulse 1.6s ease-in-out infinite}
+
+/* Scroll progress */
+.progress{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:3px;z-index:40;background:var(--signal);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:0 28px;font-family:var(--body);font-weight:700;font-size:17px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background-color .2s ease, color .2s ease, border-color .2s ease, transform .35s var(--ease);will-change:transform}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-hi)}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--fg)}
+.btn-ghost:hover{background:var(--fg);color:var(--bg)}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,12,16,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{display:grid;grid-template-columns:repeat(2,10px);grid-template-rows:repeat(2,10px);gap:3px}
+.brand-mark i{display:block}
+.brand:hover .brand-mark i:nth-child(2){background:var(--fg);transition:background .2s}
+.brand b{font-family:var(--display);font-stretch:125%;font-weight:850;font-size:20px;letter-spacing:-.01em}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 24px}
+.nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--fg)}
+.nav .btn{min-height:44px;padding:0 18px;font-size:13px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
+.lang{display:inline-flex;border:1px solid var(--line)}
+.lang button{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;min-width:44px;min-height:44px;padding:0 10px;border:0;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.lang button:hover{color:var(--fg)}
+.lang button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+@media (max-width:980px){.nav a:not(.btn){display:none}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before,.hero .spot{content:"";position:absolute;inset:0;pointer-events:none;background-size:48px 48px}
+.hero::before{
+  background-image:linear-gradient(var(--line-soft) 1px, transparent 1px),linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%);mask-image:radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%)}
+.hero .spot{
+  background-image:linear-gradient(rgba(61,78,255,.55) 1px, transparent 1px),linear-gradient(90deg, rgba(61,78,255,.55) 1px, transparent 1px);
+  -webkit-mask-image:radial-gradient(240px circle at var(--mx,70%) var(--my,35%), #000, transparent 70%);mask-image:radial-gradient(240px circle at var(--mx,70%) var(--my,35%), #000, transparent 70%);
+  opacity:0;transition:opacity .4s}
+.hero:hover .spot{opacity:1}
+.hero .wrap{position:relative;padding-block:clamp(48px,7vw,96px) clamp(56px,7vw,104px)}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-bottom:clamp(24px,3vw,40px)}
+.hero h1{font-size:clamp(44px,7vw,108px)}
+.hero h1 .ln{display:block;animation:rise .9s var(--ease) both}
+.hero h1 .ln:nth-child(2){animation-delay:.08s}
+.hero h1 .ln:nth-child(3){animation-delay:.16s}
+.hl{color:var(--accent-ink);padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background:linear-gradient(var(--accent),var(--accent)) no-repeat 0 0 / 100% 100%;animation:sweep 1s var(--ease) .45s both}
+.hero-grid{display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:center}
+.hero-left{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:clamp(28px,3.4vw,48px)}
+.hero-copy{min-width:0;display:flex;flex-direction:column;gap:32px}
+.hero-copy p{margin:0;font-size:clamp(18px,1.4vw,20px);line-height:1.5;max-width:52ch;color:#C9CCD6}
+@media (max-width:640px){.hero-copy br.lb{display:none}}
+.hero-copy strong{color:var(--fg);font-weight:700}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Hero visual: retail post exploded into layers */
+.stage{--p:0;--rx:0deg;--ry:0deg;position:relative;flex:1 1 420px;min-width:0;max-width:600px;min-height:clamp(420px,44vw,580px);perspective:1800px;display:flex;align-items:center;justify-content:center}
+.stage::before{content:"";position:absolute;inset:4%;background-image:radial-gradient(var(--line) 1px, transparent 1.5px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(circle at 50% 50%, #000 40%, transparent 72%);mask-image:radial-gradient(circle at 50% 50%, #000 40%, transparent 72%)}
+.post{position:relative;width:min(340px,66vw);aspect-ratio:4/5;max-width:100%;transform-style:preserve-3d;
+  transform:rotateX(calc(var(--p) * 56deg + var(--rx))) rotateZ(calc(var(--p) * -36deg)) rotateY(var(--ry)) scale(calc(1 - var(--p) * .08))}
+.layer{position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(calc(var(--p) * var(--z)))}
+.layer:not(.l1)::before{content:"";position:absolute;inset:0;border:1px dashed rgba(236,237,241,calc(var(--p) * .4));background:rgba(61,78,255,calc(var(--p) * .05))}
+.layer.sel{outline:2px solid var(--signal)}
+.layer.sel::after{content:"";position:absolute;inset:-5px;pointer-events:none;
+  background:linear-gradient(var(--signal),var(--signal)) 0 0/9px 9px no-repeat,linear-gradient(var(--signal),var(--signal)) 100% 0/9px 9px no-repeat,linear-gradient(var(--signal),var(--signal)) 0 100%/9px 9px no-repeat,linear-gradient(var(--signal),var(--signal)) 100% 100%/9px 9px no-repeat}
+.l1{background:var(--accent);overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.l1 .rays{position:absolute;inset:-40%;background:repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,.09) 0deg 9deg, transparent 9deg 18deg);animation:spin 40s linear infinite}
+.l1 .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:30px 30px}
+.l2 svg{position:absolute;left:50%;bottom:16%;width:44%;transform:translateX(-50%)}
+.l3 .head{position:absolute;left:7%;top:7%;right:7%;display:flex;flex-direction:column;gap:4px;color:#fff}
+.l3 .kick{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.l3 .big{font-family:var(--display);font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(28px,4vw,42px);line-height:.88;letter-spacing:-.02em}
+.l4 .seal{position:absolute;right:6%;top:40%;width:34%;aspect-ratio:1;max-width:100%;background:var(--signal);color:var(--signal-ink);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-12deg);box-shadow:0 0 0 4px var(--signal-ink)}
+.l4 .seal b{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(20px,2.6vw,28px);line-height:1}
+.l4 .seal span{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em}
+.l5 .bar{position:absolute;left:7%;right:7%;bottom:6%;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.l5 .cta{background:#fff;color:#0A0C10;font-weight:800;font-size:13px;padding:9px 12px;white-space:nowrap}
+.l5 .logo-b{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:20px;color:#fff;letter-spacing:-.02em}
+.ltag{position:absolute;left:calc(100% + 14px);top:6px;white-space:nowrap;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:4px 8px;opacity:clamp(0, calc((var(--p) - .45) * 2), 1);pointer-events:none;transition:background-color .2s,color .2s,border-color .2s}
+.layer.sel .ltag{background:var(--signal);color:var(--signal-ink);border-color:var(--signal)}
+.stage{cursor:crosshair}
+@media (max-width:640px){.ltag{display:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.panel{flex:1 1 420px;min-width:0;max-width:560px;background:var(--surface);border:1px solid var(--line);box-shadow:10px 10px 0 var(--accent)}
+.panel-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.panel-bar .lights{display:flex;gap:6px}
+.panel-bar .lights i{width:10px;height:10px;border:1.5px solid var(--muted);display:block}
+.panel-bar .lights i:last-child{background:var(--muted)}
+.cells{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;padding:clamp(16px,2.4vw,28px)}
+.cells i{display:block;aspect-ratio:1/1;max-width:100%;transition:transform .3s var(--ease), background-color .3s}
+.cells .e{border:1px dashed var(--line)}
+.cells .e:hover{background:var(--line)}
+.cells .b{background:var(--accent);animation:pop .55s var(--ease) both}
+.cells .b:hover{transform:scale(.8);background:var(--accent-hi)}
+.cells .o{background:var(--signal);animation:pop .55s var(--ease) 2s both, pulse 1.6s ease-in-out 2.6s infinite}
+.readout{border-top:1px solid var(--line);padding:6px 16px 12px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.readout div{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.readout div:last-child{border-bottom:0}
+.readout .lead{flex:1;border-bottom:1.5px dotted #4A4F5C;transform:translateY(-3px)}
+.readout .ok{color:var(--fg);display:inline-flex;align-items:center;gap:8px}
+.readout .k{color:var(--muted)}
+
+/* Marquees */
+.band{overflow:hidden;border-bottom:1px solid var(--line)}
+.band-skew{transition:transform .2s linear;will-change:transform}
+.track{display:flex;width:max-content;animation:marquee 40s linear infinite}
+.svc-band{background:var(--accent);color:var(--accent-ink);padding-block:22px}
+.svc-band .track span{display:inline-flex;align-items:center;gap:28px;padding-right:28px;font-family:var(--display);font-stretch:125%;font-weight:850;text-transform:uppercase;font-size:clamp(22px,2.6vw,36px);letter-spacing:-.01em;white-space:nowrap}
+.svc-band .track span::after{content:"";width:14px;height:14px;background:var(--signal);display:inline-block}
+
+.clients{padding-block:clamp(48px,6vw,80px);border-top:1px solid var(--line)}
+.clients-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-bottom:28px}
+.logo-band{border-bottom:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.logo-band:hover .track{animation-play-state:paused}
+.logo-band .track{animation-duration:55s}
+.logo{flex:none;width:clamp(140px,14vw,190px);height:84px;margin-right:16px;border:1px solid var(--line);background:var(--surface);display:flex;align-items:center;justify-content:center;padding:18px;color:var(--muted);transition:color .25s, border-color .25s}
+.logo:hover{color:var(--fg);border-color:#3A404E}
+.logo img{max-height:44px;width:auto;filter:grayscale(1) brightness(1.6) contrast(.9);opacity:.75;transition:opacity .25s, filter .25s}
+.logo:hover img{filter:none;opacity:1}
+.logo .ph{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em}
+
+/* Portfolio */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;min-height:40px;padding:0 14px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.chip:hover{color:var(--fg);border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.grid-cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:28px 20px;perspective:1200px}
+.case{display:flex;flex-direction:column;gap:14px;text-align:left;background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer;animation:fadeup .6s var(--ease) both}
+.case-img{position:relative;aspect-ratio:4/3;max-width:100%;width:100%;overflow:hidden;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease), box-shadow .4s var(--ease);transform-style:preserve-3d}
+.case:hover .case-img{box-shadow:0 24px 48px rgba(0,0,0,.45)}
+.case-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.case:hover .case-img img{transform:scale(1.05)}
+.case-img .ph{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.case-img .open{position:absolute;right:12px;bottom:12px;background:var(--bg);color:var(--fg);font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;transform:translateY(8px);opacity:0;transition:all .25s}
+.case:hover .open,.case:focus-visible .open{transform:none;opacity:1}
+.case-meta{display:flex;justify-content:space-between;gap:16px}
+.case h3{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:24px;line-height:1.15}
+
+/* LATAM */
+.latam{position:relative;overflow:hidden;border-bottom:1px solid var(--line);padding-block:clamp(64px,8vw,112px) clamp(72px,9vw,128px)}
+.kinetic{display:flex;flex-direction:column;gap:4px;margin-bottom:clamp(48px,6vw,88px)}
+.kinetic{position:relative;z-index:1}
+.kinetic .row{white-space:nowrap;font-family:var(--display);font-stretch:112%;font-weight:850;text-transform:uppercase;font-size:clamp(48px,9vw,148px);line-height:.95;letter-spacing:-.02em;will-change:transform}
+.kinetic .row span{display:inline-flex;align-items:center;gap:.3em;padding-right:.3em}
+.kinetic .row span::after{content:"";width:.28em;height:.28em;background:currentColor;opacity:.5}
+.kinetic .r1{color:var(--fg)}
+.kinetic .r2{color:var(--accent-hi)}
+.kinetic .r2 span:nth-child(even){color:var(--signal)}
+.latam .wrap{position:relative;z-index:1}
+.latam-map{position:absolute;z-index:0;top:clamp(120px,14vw,260px);right:max(-4%, -60px);height:min(1180px, calc(100% - 120px));aspect-ratio:95/104;max-width:100%;pointer-events:none}
+.latam-map canvas{width:100%;height:100%;display:block}
+@media (max-width:760px){.latam-map{opacity:.6;right:-30%}}
+.latam-grid{display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,72px);align-items:flex-start}
+.latam-intro{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.latam-intro p{margin:0;font-size:clamp(19px,1.6vw,23px);max-width:40ch;color:#C9CCD6}
+.latam-intro strong{color:var(--fg)}
+.clock{flex:0 1 460px;min-width:0;border:1px solid var(--line);background:var(--surface)}
+.clock-top{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.clock-time{font-family:var(--mono);font-weight:700;font-size:clamp(40px,5vw,64px);letter-spacing:-.02em;padding:20px 16px 6px;font-variant-numeric:tabular-nums}
+.clock-sub{padding:0 16px 18px}
+.codes{display:flex;flex-wrap:wrap;gap:6px;padding:14px 16px 16px;border-top:1px solid var(--line)}
+.codes span{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;padding:5px 8px;border:1px solid var(--line);color:var(--muted);transition:all .2s}
+.codes span:hover,.codes span.on{color:var(--signal-ink);background:var(--signal);border-color:var(--signal)}
+.codes span.home{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
+.latam-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px;margin-top:clamp(40px,5vw,64px)}
+.lp{border-top:2px solid var(--fg);padding-top:18px;display:flex;flex-direction:column;gap:10px}
+.lp h3{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:24px}
+.lp p{margin:0;color:var(--muted)}
+
+/* Name story + player */
+.story{display:flex;flex-direction:column;gap:14px;padding:clamp(20px,2.4vw,32px);border:1px solid var(--line);border-top:2px solid var(--signal);background:var(--bg)}
+.story h3{margin:0;font-family:var(--display);font-stretch:125%;font-weight:850;text-transform:uppercase;font-size:clamp(28px,3.2vw,44px);line-height:.95;letter-spacing:-.02em;text-wrap:balance;color:var(--signal)}
+.story p{margin:0;font-size:clamp(18px,1.4vw,20px);max-width:58ch;color:#C9CCD6}
+.about-side{flex:0 1 380px;min-width:0;width:100%;display:flex;flex-direction:column;gap:28px}
+.about-side .about-photo{flex:none}
+.player{min-width:0;border:1px solid var(--line);background:var(--bg);box-shadow:10px 10px 0 var(--signal)}
+.player-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.player-body{padding:20px 16px;display:flex;flex-direction:column;gap:18px}
+.song{font-family:var(--display);font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(36px,4vw,54px);line-height:.9;letter-spacing:-.02em}
+.eq{display:flex;align-items:flex-end;gap:4px;height:64px}
+.eq i{flex:1;height:100%;background:var(--accent);transform-origin:50% 100%;animation:eq 1.1s ease-in-out infinite}
+.eq i:nth-child(3n){background:var(--accent-hi);animation-duration:.8s}
+.eq i:nth-child(4n){animation-duration:1.4s}
+.eq i:nth-child(5n){background:var(--signal);animation-duration:.95s}
+.eq i:nth-child(7n){animation-duration:1.25s}
+.seek{height:3px;background:var(--line);position:relative;overflow:hidden}
+.seek::after{content:"";position:absolute;inset:0;background:var(--signal);transform-origin:0 50%;animation:play 14s linear infinite}
+.ctrls{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:14px;color:var(--muted)}
+.ctrls .pp{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:var(--fg);color:var(--bg);font-size:16px}
+
+/* Image slots (filled with your own images; empty ones show a placeholder) */
+.slot{position:relative;overflow:hidden;background:var(--surface-2);border:1px dashed #3A404E;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;color:var(--muted);padding:14px;max-width:100%}
+.slot.has{border:1px solid var(--line);padding:0}
+.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.slot .f{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--fg)}
+.slot .h{font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+.strip{padding-block:clamp(28px,3vw,40px);border-bottom:1px solid var(--line)}
+.strip:hover .track{animation-play-state:paused}
+.strip .track{animation-duration:70s;animation-direction:reverse}
+.strip .slot{flex:none;width:clamp(220px,22vw,320px);aspect-ratio:4/5;margin-right:16px}
+.strip .slot:hover img{transform:scale(1.05)}
+.card .slot{aspect-ratio:16/9;width:100%}
+.card.alt .slot{background:rgba(10,12,16,.25);border-color:rgba(255,255,255,.35);color:#E3E6FF}
+.card.alt .slot .f{color:#fff}
+.svc-float{position:fixed;left:0;top:0;z-index:15;width:240px;aspect-ratio:4/3;pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(.85) rotate(-4deg);transition:opacity .25s, transform .35s var(--ease)}
+.svc-float.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-4deg)}
+.svc-float .slot{width:100%;height:100%;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+
+/* Generic cards */
+.duo{display:flex;flex-wrap:wrap;gap:20px}
+.card{flex:1 1 380px;min-width:0;background:var(--surface);border:1px solid var(--line);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:20px}
+.card.alt{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.card.alt p,.card.alt li{color:#E3E6FF}
+.card-top{display:flex;justify-content:space-between;align-items:center}
+.card .big{font-family:var(--display);font-stretch:125%;font-weight:850;font-size:56px;line-height:1}
+.card h3{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:clamp(24px,2.2vw,32px);line-height:1.1;letter-spacing:-.01em}
+.card p{margin:0;font-size:18px;color:#BFC2CC}
+.card ul{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-family:var(--mono);font-size:14px}
+.card li{display:flex;gap:10px}
+.card li::before{content:"";width:8px;height:8px;background:var(--signal);margin-top:6px;flex:none}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;background:var(--fg);color:var(--bg)}
+.card.alt .pill{background:var(--signal);color:var(--signal-ink)}
+
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));border-top:1px solid var(--line)}
+.pillar{padding:32px 28px 40px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.pillar .n{font-family:var(--display);font-stretch:125%;font-weight:850;font-size:88px;line-height:.9;color:var(--signal);transform-origin:0 100%}
+.pillar h3{margin:0;font-family:var(--display);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:30px;letter-spacing:-.01em}
+.pillar p{margin:0;color:var(--muted);max-width:34ch;font-size:18px}
+
+.steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.step{position:relative;display:flex;flex-direction:column;gap:16px;padding:24px;min-height:260px;background:var(--surface);border:1px solid var(--line);transition:border-color .25s, background-color .25s}
+.step:hover{border-color:var(--accent);background:var(--surface-2)}
+.step::after{content:"";position:absolute;left:-1px;right:-1px;bottom:-1px;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--ease)}
+.step:hover::after{transform:scaleX(1)}
+.step-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.08em}
+.step-top i{width:12px;height:12px;border:1.5px solid var(--muted);display:block}
+.step:last-child .step-top i{background:var(--signal);border-color:var(--signal)}
+.step h3{margin:0;font-family:var(--display);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:24px;letter-spacing:-.01em}
+.step p{margin:0;font-size:16px;color:var(--muted)}
+
+.services{border-top:1px solid var(--line)}
+.svc{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:background-color .25s, padding .25s, color .25s}
+.svc:hover{background:var(--fg);color:var(--bg);padding-inline:20px}
+.svc .n{font-family:var(--mono);font-size:14px;font-weight:700;width:40px}
+.svc .t{flex:1 1 360px;font-family:var(--display);font-stretch:125%;font-weight:850;text-transform:uppercase;font-size:clamp(26px,3.2vw,46px);line-height:1;letter-spacing:-.015em}
+.svc .d{flex:1 1 300px;font-size:17px;color:var(--muted);transition:color .25s}
+.svc:hover .d{color:#30343F}
+.svc .ar{font-size:32px;font-weight:700;transition:transform .25s}
+.svc:hover .ar{transform:translateX(6px) rotate(-45deg)}
+
+.about{display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,72px);align-items:flex-start}
+.about-photo{position:relative;flex:0 1 380px;aspect-ratio:4/5;max-width:100%;width:100%;border:1px solid var(--line);background:var(--surface-2);display:flex;align-items:center;justify-content:center;color:var(--muted);overflow:hidden}
+.about-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 40%;filter:saturate(.9);transition:transform .8s var(--ease), filter .5s}
+.about-photo:hover img{transform:scale(1.04);filter:saturate(1.1)}
+.photo-tag{position:absolute;left:12px;bottom:12px;z-index:1;background:var(--bg);color:var(--fg);padding:6px 10px;font-size:12px}
+.about-photo::after{z-index:1;content:"";position:absolute;left:0;right:0;height:2px;background:var(--signal);top:0;opacity:.7;animation:scan 4s linear infinite}
+.about-text{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.about-text p{margin:0;font-size:clamp(18px,1.5vw,21px);max-width:58ch;color:#C9CCD6}
+.about-text strong{color:var(--fg)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:4px}
+.facts div{background:var(--bg);padding:18px;display:flex;flex-direction:column;gap:6px}
+.facts b{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:22px}
+
+/* Contact */
+.contact{background:var(--signal);color:var(--signal-ink);overflow:hidden}
+.contact .display{font-size:clamp(40px,6.6vw,104px);max-width:14ch}
+.contact .tag{border-color:var(--signal-ink);color:var(--signal-ink)}
+.contact-row{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-end;margin-top:clamp(40px,5vw,64px)}
+.contact-row > p{margin:0;font-size:clamp(18px,1.5vw,22px);max-width:40ch}
+.channels{display:flex;flex-direction:column;gap:10px;min-width:0;flex:0 1 500px}
+.li-card{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--accent);color:var(--accent-ink);padding:22px 22px;text-decoration:none;min-height:96px;transition:background-color .2s, transform .35s var(--ease)}
+.li-card:hover{background:var(--accent-hi)}
+.li-card .l1{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.li-card .l2{font-family:var(--display);font-stretch:125%;font-weight:850;text-transform:uppercase;font-size:clamp(22px,2.4vw,30px);line-height:1}
+.li-card .ar{font-size:34px;font-weight:700;transition:transform .25s}
+.li-card:hover .ar{transform:translate(4px,-4px)}
+.channel{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;background:var(--signal-ink);color:var(--fg);padding:10px 10px 10px 18px;min-height:60px}
+.channel .lbl{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:84px;flex:none}
+.channel .val{flex:1 1 160px;min-width:0;font-weight:700;font-size:18px;user-select:all;overflow-wrap:anywhere}
+.channel .acts{display:flex;gap:6px}
+.copy,.go{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;min-height:44px;padding:0 14px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;flex:none;display:inline-flex;align-items:center;text-decoration:none}
+.copy:hover,.go:hover{background:var(--fg);color:var(--bg)}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;padding-block:48px}
+footer .display{font-size:clamp(40px,6vw,88px)}
+footer nav{display:flex;flex-wrap:wrap;gap:20px}
+footer nav a{text-decoration:none}
+footer nav a:hover{color:var(--fg)}
+
+/* Case dialog */
+dialog{width:min(980px,calc(100% - 32px));max-height:calc(100% - 48px);padding:0;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+dialog[open]{animation:dlgIn .35s var(--ease)}
+dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
+.dlg-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 18px;background:var(--surface);border-bottom:1px solid var(--line);z-index:1}
+.dlg-body{padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;gap:24px}
+.dlg-body h2{font-size:clamp(30px,4vw,52px)}
+.dlg-cols{display:flex;flex-wrap:wrap;gap:20px 40px}
+.dlg-cols > div{flex:1 1 260px;min-width:0}
+.dlg-cols h4{margin:0 0 6px}
+.dlg-cols p{margin:0;color:#C9CCD6}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.gallery div{position:relative;overflow:hidden;aspect-ratio:16/10;max-width:100%;border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.gallery div.has{border-style:solid}
+.gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.x{min-width:44px;min-height:44px;border:1px solid var(--line);background:transparent;color:var(--fg);font-size:20px;cursor:pointer}
+.x:hover{background:var(--fg);color:var(--bg)}
+
+/* Language switch flash */
+.swap{animation:swapIn .45s var(--ease)}
+
+/* Keyframes */
+@keyframes pop{from{transform:scale(.3);opacity:.15}to{transform:scale(1);opacity:1}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes rise{from{transform:translateY(40%);opacity:.15}to{transform:none;opacity:1}}
+@keyframes sweep{from{background-size:0% 100%}to{background-size:100% 100%}}
+@keyframes fadeup{from{transform:translateY(16px);opacity:.2}to{transform:none;opacity:1}}
+@keyframes scan{0%{top:0}100%{top:100%}}
+@keyframes dlgIn{from{transform:translateY(20px) scale(.98);opacity:.3}to{transform:none;opacity:1}}
+@keyframes eq{0%,100%{transform:scaleY(.18)}50%{transform:scaleY(1)}}
+@keyframes play{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes swapIn{from{opacity:.35;filter:blur(3px)}to{opacity:1;filter:none}}
+
+/* Scroll-driven motion (browsers that support it; others show everything static) */
+@keyframes rv{from{opacity:.12;transform:translateY(56px)}to{opacity:1;transform:none}}
+@keyframes rvTitle{from{opacity:.1;transform:translateY(70px) skewY(5deg)}to{opacity:1;transform:none}}
+@keyframes heroOut{from{transform:none;opacity:1}to{transform:translateY(-90px) scale(.96);opacity:.25}}
+@keyframes drift{from{transform:translateY(50px)}to{transform:translateY(-50px)}}
+@keyframes slideL{from{transform:translateX(2%)}to{transform:translateX(-26%)}}
+@keyframes slideR{from{transform:translateX(-26%)}to{transform:translateX(2%)}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes numIn{from{transform:scale(.55) translateY(20px);opacity:.15}to{transform:none;opacity:1}}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .progress{animation:grow linear both;animation-timeline:scroll(root)}
+    .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+    .rv-title{animation:rvTitle linear both;animation-timeline:view();animation-range:entry 0% cover 32%}
+    .hero-out{animation:heroOut linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+    .stage{animation:drift linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+    .kinetic .r1{animation:slideL linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+    .kinetic .r2{animation:slideR linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+    .pillar .n{animation:numIn linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+    .step{animation:rv linear both;animation-timeline:view()}
+    .step:nth-child(1){animation-range:entry 0% cover 22%}
+    .step:nth-child(2){animation-range:entry 5% cover 27%}
+    .step:nth-child(3){animation-range:entry 10% cover 32%}
+    .step:nth-child(4){animation-range:entry 15% cover 37%}
+    .step:nth-child(5){animation-range:entry 20% cover 42%}
+    .lp,.svc{animation:rv linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+  }
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body style="margin:0">
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="svc-float" id="svc-float" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Labamba Studio">
+      <span class="brand-mark" aria-hidden="true"><i style="background:var(--accent)"></i><i></i><i style="background:var(--accent)"></i><i style="background:var(--signal)"></i></span>
+      <b>LABAMBA</b><span class="mono">Studio</span>
+    </a>
+    <nav class="nav mono" aria-label="Principal">
+      <a href="#portfolio" data-scramble data-i="nav.portfolio">Portfólio</a>
+      <a href="#latam" data-scramble data-i="nav.latam">Latam</a>
+      <a href="#como-fazemos" data-scramble data-i="nav.como">Como fazemos</a>
+      <a href="#servicos" data-scramble data-i="nav.servicos">Serviços</a>
+      <a href="#sobre" data-scramble data-i="nav.sobre">Sobre</a>
+      <a href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener" data-scramble>LinkedIn ↗</a>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="pt" aria-pressed="true" title="Português">PT</button>
+        <button type="button" data-lang="es" aria-pressed="false" title="Español">ES</button>
+      </div>
+      <a class="btn btn-primary magnetic" href="#contato" data-i="nav.cta">Iniciar projeto →</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="topo">
+    <div class="spot" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-grid">
+      <div class="hero-left">
+      <div class="hero-out">
+        <div class="hero-meta mono muted">
+          <span class="tag"><span class="dot blink" aria-hidden="true"></span><span data-i="hero.tag">Agenda aberta</span></span>
+          <span data-i="hero.meta">Estúdio de criação latino-americano</span>
+        </div>
+        <h1 class="display" data-i="hero.h1"><span class="ln">Criação</span><span class="ln">no <span class="hl">ritmo</span></span><span class="ln"><span class="hl">certo.</span></span></h1>
+      </div>
+        <div class="hero-copy">
+          <p data-i="hero.p">Prazo curto, demanda alta e time no limite?<br class="lb">Pode chamar. A Labamba vira a sua criação:<br class="lb"><strong>entende o briefing de primeira,<br class="lb">entrega no prazo e manda arte pronta pra rodar</strong>,<br class="lb">com o molho latino que faz<br class="lb">a marca ser lembrada.</p>
+          <div class="ctas">
+            <a class="btn btn-primary magnetic" href="#portfolio" data-i="hero.cta1">Ver portfólio <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost magnetic" href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener" data-i="hero.cta2">Conectar no LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+        <div class="stage" id="stage" role="img" aria-label="Peça de varejo separada em camadas: fundo, produto, tipografia, selo de oferta e chamada">
+          <div class="post" aria-hidden="true">
+            <div class="layer l1" data-layer="1" style="--z:0px"><div class="rays"></div><div class="grid"></div><span class="ltag" data-i="ly.1">01 · Fundo</span></div>
+            <div class="layer l2" data-layer="2" style="--z:70px">
+              <svg viewBox="0 0 120 200"><ellipse cx="60" cy="192" rx="46" ry="7" fill="rgba(0,0,0,.35)"/><rect x="22" y="22" width="76" height="166" rx="14" fill="#ECEDF1"/><rect x="22" y="22" width="76" height="20" rx="10" fill="#C9CCD6"/><rect x="34" y="10" width="52" height="16" rx="6" fill="#9A9EAA"/><rect x="22" y="70" width="76" height="62" fill="#FF5B1F"/><rect x="22" y="132" width="76" height="8" fill="#0A0C10"/><circle cx="60" cy="101" r="17" fill="#ECEDF1"/><path d="M53 101h14M60 94v14" stroke="#FF5B1F" stroke-width="4" stroke-linecap="round"/><rect x="30" y="152" width="40" height="5" rx="2" fill="#9A9EAA"/><rect x="30" y="162" width="26" height="5" rx="2" fill="#9A9EAA"/></svg>
+              <span class="ltag" data-i="ly.2">02 · Produto</span>
+            </div>
+            <div class="layer l3" data-layer="3" style="--z:140px"><div class="head"><span class="kick" data-i="pt.kick">Semana Brisa</span><span class="big" data-i="pt.big">Super<br>oferta</span></div><span class="ltag" data-i="ly.3">03 · Tipografia</span></div>
+            <div class="layer l4" data-layer="4" style="--z:210px"><div class="seal"><span>R$</span><b>9,99</b><span>-40%</span></div><span class="ltag" data-i="ly.4">04 · Oferta</span></div>
+            <div class="layer l5" data-layer="5" style="--z:280px"><div class="bar"><span class="cta" data-i="pt.cta">Compre agora →</span><span class="logo-b">brisa.</span></div><span class="ltag" data-i="ly.5">05 · CTA + marca</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES MARQUEE -->
+  <div class="band svc-band band-skew" aria-hidden="true">
+    <div class="track" id="svcband"></div>
+  </div>
+
+  <!-- IMAGE STRIP -->
+  <div class="band strip band-skew" aria-label="Galeria">
+    <div class="track" id="strip"></div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <section class="sec" id="portfolio">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display h2 rv-title" data-i="pf.h2">Portfólio</h2>
+        <div class="filters" role="group" aria-label="Filtro" id="filters"></div>
+      </div>
+      <div class="grid-cases" id="cases"></div>
+    </div>
+  </section>
+
+  <!-- CLIENT LOGOS -->
+  <section class="clients" aria-labelledby="clients-title">
+    <div class="wrap clients-head">
+      <h2 id="clients-title" class="mono" data-i="cl.h2">Marcas atendidas ao longo da carreira</h2>
+      <span class="mono muted" data-i="cl.hint">Passe o mouse para pausar</span>
+    </div>
+    <div class="band logo-band band-skew">
+      <div class="track" id="logos"></div>
+    </div>
+  </section>
+
+  <!-- LATAM -->
+  <section class="latam" id="latam" aria-labelledby="latam-title" style="border-top:1px solid var(--line)">
+    <div class="latam-map" aria-hidden="true"><canvas id="map"></canvas></div>
+    <div class="kinetic" aria-hidden="true">
+      <div class="row r1"><span>Criatividade latina</span><span>Creatividad latina</span><span>Criatividade latina</span></div>
+      <div class="row r2"><span>Padrão global</span><span>Estándar global</span><span>Padrão global</span><span>Estándar global</span></div>
+    </div>
+    <div class="wrap">
+      <div class="latam-grid">
+        <div class="latam-intro rv">
+          <span class="mono muted">Hecho en Latinoamérica</span>
+          <h2 id="latam-title" class="display h2" style="max-width:15ch" data-i="la.h2">Um criativo latino para marcas que querem ir longe</h2>
+          <p data-i="la.p">A América Latina tem cor, ritmo, humor e calor próprios. A Labamba traduz esse repertório em marca <strong>com o método e o acabamento que o mercado global exige</strong>, para agências e empresas de toda a região.</p>
+        </div>
+        <div class="clock rv">
+          <div class="clock-top mono muted"><span>Base · Goiânia, BR</span><span>GMT−3</span></div>
+          <div class="clock-time" id="clock" aria-label="Horário local">--:--:--</div>
+          <div class="clock-sub mono muted" data-i="la.clock">No fuso de boa parte da América do Sul</div>
+          <div class="codes" id="codes" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="latam-points">
+        <div class="lp"><span class="mono muted" data-i="lp1.k">Repertório</span><h3 data-i="lp1.h">Olhar latino, sem clichê</h3><p data-i="lp1.p">Referências da nossa cultura usadas com critério, para criar marcas com personalidade e não caricatura.</p></div>
+        <div class="lp"><span class="mono muted" data-i="lp2.k">Alcance</span><h3 data-i="lp2.h">Atendimento remoto na região</h3><p data-i="lp2.p">Do Brasil para a América Latina, com rotina de trabalho e entregas pensadas para times distribuídos.</p></div>
+        <div class="lp"><span class="mono muted" data-i="lp3.k">Padrão</span><h3 data-i="lp3.h">Execução de nível global</h3><p data-i="lp3.p">Processo documentado, arquivos organizados e acabamento pronto para rodar em qualquer mercado.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM -->
+  <section class="sec" id="para-quem">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display h2 rv-title" style="max-width:14ch" data-i="pq.h2">Dois jeitos de trabalhar com a gente</h2>
+        <span class="mono muted" data-i="pq.k">Para quem</span>
+      </div>
+      <div class="duo">
+        <article class="card rv">
+          <div class="slot" data-slot="agencias"></div>
+          <div class="card-top"><span class="pill" data-i="pq.a.k">Agências</span><span class="big" aria-hidden="true" style="color:var(--accent)">A</span></div>
+          <h3 data-i="pq.a.h">Um time criativo extra, sem aumentar a folha.</h3>
+          <p data-i="pq.a.p">Entramos no seu fluxo quando a demanda aperta ou o job pede uma especialidade. Seguimos seu processo, sua marca e seu prazo, e a entrega sai com a assinatura da agência.</p>
+          <ul data-i="pq.a.ul"><li>Sob demanda ou por fee mensal</li><li>White label, com sigilo total</li><li>Arquivos organizados para o seu time</li></ul>
+        </article>
+        <article class="card alt rv">
+          <div class="slot" data-slot="empresas"></div>
+          <div class="card-top"><span class="pill">Empresas</span><span class="big" aria-hidden="true">E</span></div>
+          <h3 data-i="pq.e.h">Direção criativa para marcas que querem subir de nível.</h3>
+          <p data-i="pq.e.p">Da identidade visual à campanha, cuidamos da imagem da sua marca com o rigor de uma grande agência, num formato mais próximo e direto.</p>
+          <ul data-i="pq.e.ul"><li>Especialistas em varejo</li><li>Projetos fechados ou recorrência</li><li>Contato direto com quem cria</li><li>Marca consistente em todo ponto de contato</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILARES -->
+  <section class="sec" style="background:var(--surface);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display h2 rv-title" style="max-width:16ch" data-i="pi.h2">O que sustenta cada entrega</h2>
+        <span class="mono muted" data-i="pi.k">Pilares</span>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><span class="n">01</span><h3 data-i="pi.1.h">Curadoria</h3><p data-i="pi.1.p">Antes de criar, a gente escolhe. Referências filtradas, repertório amplo e critério para separar tendência de tiro certo para a marca.</p></div>
+        <div class="pillar"><span class="n">02</span><h3>Método</h3><p data-i="pi.2.p">Cada projeto passa pelas mesmas etapas, com entregas e aprovações combinadas no início. Você sabe o que vem, quando vem e por quê.</p></div>
+        <div class="pillar"><span class="n">03</span><h3 data-i="pi.3.h">Qualidade</h3><p data-i="pi.3.p">Acabamento é parte do conceito. Revisão em camadas, atenção a cada pixel e arquivos prontos para produção, sem surpresa na hora de rodar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FAZEMOS -->
+  <section class="sec" id="como-fazemos">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display h2 rv-title" style="max-width:15ch" data-i="cf.h2">Como fazemos</h2>
+        <p data-i="cf.p">Do briefing à entrega em cinco etapas. Sem caixa-preta: você acompanha cada uma.</p>
+      </div>
+      <ol class="steps">
+        <li class="step"><div class="step-top"><span>ETAPA 01</span><i aria-hidden="true"></i></div><h3 data-i="s1.h">Imersão</h3><p data-i="s1.p">Entendemos negócio, público, objetivo e restrições. Sai daqui um briefing que todo mundo assina.</p></li>
+        <li class="step"><div class="step-top"><span>ETAPA 02</span><i aria-hidden="true"></i></div><h3 data-i="s2.h">Curadoria</h3><p data-i="s2.p">Pesquisa e seleção de referências para alinhar o caminho visual antes de qualquer arte.</p></li>
+        <li class="step"><div class="step-top"><span>ETAPA 03</span><i aria-hidden="true"></i></div><h3 data-i="s3.h">Criação</h3><p data-i="s3.p">Desenvolvimento do conceito e das peças-chave, com a narrativa que sustenta cada escolha.</p></li>
+        <li class="step"><div class="step-top"><span>ETAPA 04</span><i aria-hidden="true"></i></div><h3 data-i="s4.h">Refino</h3><p data-i="s4.p">Ajustes guiados por critério, rodadas combinadas e revisão técnica de cada detalhe.</p></li>
+        <li class="step"><div class="step-top"><span>ETAPA 05</span><i aria-hidden="true"></i></div><h3>Entrega</h3><p data-i="s5.p">Arquivos finais organizados, prontos para produção e para o seu time seguir rodando.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="sec" id="servicos" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display h2 rv-title" data-i="sv.h2">O que a gente faz</h2>
+        <span class="mono muted" data-i="sv.k">Serviços</span>
+      </div>
+      <div class="services" id="services"></div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sec" id="sobre" style="background:var(--surface);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display h2 rv-title" data-i="ab.h2">Quem está por trás</h2>
+        <span class="mono muted" data-i="ab.k">Sobre</span>
+      </div>
+      <div class="about">
+        <div class="about-side">
+          <div class="about-photo rv"><img src="img/victor.jpg" alt="Victor Renan, de chapéu e óculos escuros, sorrindo em frente a um muro grafitado" width="1000" height="1000" loading="lazy"><span class="photo-tag mono">Victor Renan – vulgo Labamba</span></div>
+          <div class="player rv" role="img" aria-label="La Bamba">
+            <div class="player-top mono muted"><span data-i="pl.now">Tocando agora</span><span>♪ 01/01</span></div>
+            <div class="player-body">
+              <div><div class="song">La Bamba</div><div class="mono muted" style="margin-top:8px" data-i="pl.sub">Clássico latino-americano</div></div>
+              <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="seek" aria-hidden="true"></div>
+              <div class="ctrls" aria-hidden="true"><span>⏮</span><span class="pp">❚❚</span><span>⏭</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text rv">
+          <p data-i="ab.p1"><strong>Victor Renan</strong> é paranaense de nascimento e goianiense por escolha: adotou Goiânia como casa e foi lá que construiu toda a carreira. Está em agência desde 2008 e, desde 2023, é Coordenador de Arte, liderando times em contas de varejo, sua grande especialidade.</p>
+          <p data-i="ab.p2">Filho de pai paraguaio-argentino e mãe brasileira, cresceu com o melhor dos dois lados da fronteira: o jogo de cintura brasileiro e o molho latino de quem toma tereré e escuta cumbia sem pedir licença. Some a isso os anos como baterista profissional e fica fácil entender de onde vem o ritmo do trabalho.</p>
+          <div class="facts">
+            <div><span class="mono muted" data-i="ab.f1">Em agência</span><b data-i="ab.f1v">Desde 2008</b></div>
+            <div><span class="mono muted" data-i="ab.f2">Coordenação de arte</span><b data-i="ab.f2v">Desde 2023</b></div>
+            <div><span class="mono muted" data-i="ab.f3">Especialidade</span><b data-i="ab.f3v">Varejo</b></div>
+            <div><span class="mono muted">Base</span><b>Goiânia · GO</b></div>
+          </div>
+          <div class="story">
+            <span class="mono muted" data-i="st.k">Por que Labamba?</span>
+            <h3 data-i="st.h">Um nome com molho</h3>
+            <p data-i="st.p1">Labamba vem de La Bamba, uma das músicas mais famosas da América Latina, daquelas que tiram todo mundo da cadeira em qualquer festa. O nome é uma homenagem às raízes do lado de lá da fronteira e um lembrete do que a gente busca em cada projeto: ritmo, personalidade e um pouco de graça.</p>
+          </div>
+          <div class="ctas"><a class="btn btn-primary magnetic" href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener" data-i="ab.cta">Ver trajetória no LinkedIn ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="sec contact" id="contato">
+    <div class="wrap">
+      <span class="tag mono" style="margin-bottom:32px" data-i="ct.k">Próximo passo</span>
+      <h2 class="display rv-title" data-i="ct.h2">Traga seu próximo projeto.</h2>
+      <div class="contact-row">
+        <p data-i="ct.p">Conte o desafio, o prazo e onde a peça vai rodar. Respondo com uma proposta clara de escopo, etapas e investimento.</p>
+        <div class="channels">
+          <a class="li-card magnetic" href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener">
+            <span style="display:flex;flex-direction:column;gap:8px"><span class="l1">LinkedIn · Victor Renan</span><span class="l2" data-i="ct.li">Bora conectar</span></span>
+            <span class="ar" aria-hidden="true">↗</span>
+          </a>
+          <div class="channel">
+            <span class="lbl">WhatsApp</span><span class="val" id="c-wpp">+55 62 99296-0963</span>
+            <span class="acts"><a class="go" id="wpp-link" href="#" target="_blank" rel="noopener" data-i="ct.wa">Chamar ↗</a><button class="copy" type="button" data-copy="c-wpp">Copiar</button></span>
+          </div>
+          <div class="channel">
+            <span class="lbl" data-i="ct.mail">E-mail</span><span class="val" id="c-mail">victor.renanvc@gmail.com</span>
+            <span class="acts"><button class="copy" type="button" data-copy="c-mail">Copiar</button></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span class="display">LABAMBA</span>
+      <span class="mono muted" data-i="ft.tag">Curadoria · Método · Qualidade · Hecho en Latam</span>
+    </div>
+    <nav class="mono muted" aria-label="Links">
+      <a href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://wa.me/5562992960963" target="_blank" rel="noopener">WhatsApp ↗</a>
+      <span>© <span id="yr">2026</span> Labamba Studio</span>
+    </nav>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg-head"><span class="mono muted" id="dlg-tag"></span><button class="x" type="button" id="dlg-close" aria-label="Fechar">×</button></div>
+  <div class="dlg-body">
+    <h2 class="display" id="dlg-title"></h2>
+    <div class="dlg-cols">
+      <div><h4 class="mono muted" id="dlg-h1"></h4><p id="dlg-challenge"></p></div>
+      <div><h4 class="mono muted" id="dlg-h2"></h4><p id="dlg-solution"></p></div>
+      <div><h4 class="mono muted" id="dlg-h3"></h4><p id="dlg-scope"></p></div>
+    </div>
+    <div class="gallery" id="dlg-gallery"></div>
+  </div>
+</dialog>
+
+<script>
+/* ================= Conteúdo ================= */
+/* Tudo o que é editável no painel vive em content.json. Esta cópia é só a reserva caso o arquivo não carregue. */
+const DEFAULT_CONTENT = {"contato": {"email": "victor.renanvc@gmail.com", "whatsapp": "5562992960963", "whatsapp_exibicao": "+55 62 99296-0963", "linkedin": "https://www.linkedin.com/in/victorrenan/", "agenda_aberta": true}, "foto": "img/victor.jpg", "marcas": [{"nome": "City Soluções Urbanas", "logo": "img/logos/logo-01.png"}, {"nome": "Flamboyant", "logo": "img/logos/logo-02.png"}, {"nome": "Fujioka", "logo": "img/logos/logo-03.png"}, {"nome": "Irmãos Soares", "logo": "img/logos/logo-04.png"}, {"nome": "WV Maldi Incorporações", "logo": "img/logos/logo-05.png"}, {"nome": "Novo Mundo", "logo": "img/logos/logo-06.png"}, {"nome": "São Jorge Shopping da Construção", "logo": "img/logos/logo-07.png"}, {"nome": "TV Anhanguera", "logo": "img/logos/logo-08.png"}], "cases": [{"categoria": "Identidade", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 01]", "titulo_es": "[Título del proyecto 01]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Logo, manual, papelaria, aplicações.]", "entregas_es": "[Logo, manual, papelería, aplicaciones.]", "galeria": []}, {"categoria": "Campanha", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 02]", "titulo_es": "[Título del proyecto 02]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[KV, mídia OOH, digital, social.]", "entregas_es": "[KV, medios OOH, digital, social.]", "galeria": []}, {"categoria": "Social", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 03]", "titulo_es": "[Título del proyecto 03]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Linha editorial, templates, posts.]", "entregas_es": "[Línea editorial, plantillas, posts.]", "galeria": []}, {"categoria": "Motion", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 04]", "titulo_es": "[Título del proyecto 04]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Vinheta, animação de marca.]", "entregas_es": "[Viñeta, animación de marca.]", "galeria": []}, {"categoria": "Campanha", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 05]", "titulo_es": "[Título del proyecto 05]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Conceito, desdobramentos.]", "entregas_es": "[Concepto, despliegues.]", "galeria": []}, {"categoria": "Identidade", "cliente": "[CLIENTE]", "titulo_pt": "[Título do projeto 06]", "titulo_es": "[Título del proyecto 06]", "capa": "", "desafio_pt": "[Qual era o problema ou objetivo do cliente.]", "desafio_es": "[Cuál era el problema u objetivo del cliente.]", "solucao_pt": "[A ideia central e por que ela funciona.]", "solucao_es": "[La idea central y por qué funciona.]", "entregas_pt": "[Rebranding completo.]", "entregas_es": "[Rebranding completo.]", "galeria": []}], "imagens": {"faixa": ["img/faixa-01.jpg", "img/faixa-02.jpg", "img/faixa-03.jpg", "img/faixa-04.jpg", "img/faixa-05.jpg", "img/faixa-06.jpg"], "agencias": "img/para-agencias.jpg", "empresas": "img/para-empresas.jpg"}, "servicos": [{"nome_pt": "Identidade visual", "descricao_pt": "Marca, sistema visual e manual para a marca ser reconhecida em qualquer lugar.", "nome_es": "Identidad visual", "descricao_es": "Marca, sistema visual y manual para que la marca sea reconocida en cualquier lugar.", "imagem": "img/servico-identidade.jpg"}, {"nome_pt": "Campanhas", "descricao_pt": "Conceito criativo e desdobramento para mídia on e off com unidade do começo ao fim.", "nome_es": "Campañas", "descricao_es": "Concepto creativo y despliegue para medios on y off, con unidad de principio a fin.", "imagem": "img/servico-campanhas.jpg"}, {"nome_pt": "Key visual", "descricao_pt": "A imagem-mãe de um lançamento, evento ou temporada, pensada para desdobrar bem.", "nome_es": "Key visual", "descricao_es": "La imagen madre de un lanzamiento, evento o temporada, pensada para desplegarse bien.", "imagem": "img/servico-key-visual.jpg"}, {"nome_pt": "Social e conteúdo", "descricao_pt": "Linha editorial visual, templates e produção recorrente com consistência.", "nome_es": "Social y contenido", "descricao_es": "Línea editorial visual, plantillas y producción recurrente con consistencia.", "imagem": "img/servico-social.jpg"}, {"nome_pt": "Motion", "descricao_pt": "Animação de marca, vinhetas e peças em movimento para telas e redes.", "nome_es": "Motion", "descricao_es": "Animación de marca, viñetas y piezas en movimiento para pantallas y redes.", "imagem": "img/servico-motion.jpg"}, {"nome_pt": "Apresentações", "descricao_pt": "Pitches e decks com narrativa e design à altura do que está sendo vendido.", "nome_es": "Presentaciones", "descricao_es": "Pitches y decks con narrativa y diseño a la altura de lo que se está vendiendo.", "imagem": "img/servico-apresentacoes.jpg"}]};
+const CAT_ES = { 'Identidade': 'Identidad', 'Campanha': 'Campaña', 'Social': 'Social', 'Motion': 'Motion', 'Key visual': 'Key visual', 'Apresentações': 'Presentaciones' };
+const TONES = [['var(--accent)','var(--accent-ink)'],['var(--surface-2)','var(--fg)'],['var(--signal)','var(--signal-ink)']];
+const asset = v => String(v || '').replace(/^\/+/, '');
+async function loadContent(){
+  try { const r = await fetch('content.json', { cache: 'no-store' }); if (r.ok) return Object.assign({}, DEFAULT_CONTENT, await r.json()); } catch (_) {}
+  return DEFAULT_CONTENT;
+}
+loadContent().then(boot);
+
+function boot(C){
+const BRANDS = (C.marcas || []).map(m => ({ name: m.nome || '', src: asset(m.logo) }));
+const CASES = (C.cases || []).map((c, i) => ({
+  cat: c.categoria || 'Identidade', client: c.cliente || '', n: String(i + 1).padStart(2, '0'),
+  tone: TONES[i % 3][0], ink: TONES[i % 3][1], img: asset(c.capa),
+  title: { pt: c.titulo_pt || '', es: c.titulo_es || c.titulo_pt || '' },
+  challenge: { pt: c.desafio_pt || '', es: c.desafio_es || c.desafio_pt || '' },
+  solution: { pt: c.solucao_pt || '', es: c.solucao_es || c.solucao_pt || '' },
+  scope: { pt: c.entregas_pt || '', es: c.entregas_es || c.entregas_pt || '' },
+  gallery: (c.galeria || []).filter(Boolean).map(asset)
+}));
+const SERVICES = (C.servicos || []).map(s => ({ pt: [s.nome_pt || '', s.descricao_pt || ''], es: [s.nome_es || s.nome_pt || '', s.descricao_es || s.descricao_pt || ''] }));
+const CONTACT = C.contato || DEFAULT_CONTENT.contato;
+const catLabel = c => (lang === 'es' ? (CAT_ES[c] || c) : c);
+
+/* Strings used by scripts */
+const UI = {
+  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'Solução', scope: 'Entregas', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR' },
+  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'Solución', scope: 'Entregables', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419' }
+};
+
+/* Spanish (Latam) for every element marked data-i. Portuguese stays in the HTML. */
+const ES = {
+  'nav.portfolio': 'Portafolio', 'nav.latam': 'Latam', 'nav.como': 'Cómo lo hacemos', 'nav.servicos': 'Servicios', 'nav.sobre': 'Sobre mí', 'nav.cta': 'Iniciar proyecto →',
+  'hero.tag': 'Agenda abierta', 'hero.meta': 'Estudio creativo latinoamericano',
+  'hero.h1': '<span class="ln">Creatividad</span><span class="ln">al <span class="hl">ritmo</span></span><span class="ln"><span class="hl">justo.</span></span>',
+  'hero.p': '¿Plazos cortos, mucha demanda y el equipo al límite?<br class="lb">Llámanos. Labamba se vuelve tu equipo creativo:<br class="lb"><strong>entiende el brief a la primera,<br class="lb">entrega a tiempo y envía piezas listas para salir</strong>,<br class="lb">con el sabor latino que hace<br class="lb">que la marca se recuerde.',
+  'hero.cta1': 'Ver portafolio <span aria-hidden="true">→</span>', 'hero.cta2': 'Conectar en LinkedIn ↗',
+  'ro.k1': 'Brief', 'ro.v1': 'Recibido', 'ro.k2': 'Curaduría', 'ro.v2': 'En curso', 'ro.k3': 'Cómo lo hacemos', 'ro.v3': 'En marcha', 'ro.k4': 'Entrega', 'ro.v4': 'Impecable',
+  'ly.1': '01 · Fondo', 'ly.2': '02 · Producto', 'ly.3': '03 · Tipografía', 'ly.4': '04 · Oferta', 'ly.5': '05 · CTA + marca',
+  'pt.kick': 'Semana Brisa', 'pt.big': 'Súper<br>oferta', 'pt.cta': 'Compra ahora →',
+  'pf.h2': 'Portafolio',
+  'cl.h2': 'Marcas atendidas a lo largo de la carrera', 'cl.hint': 'Pasa el mouse para pausar',
+  'la.h2': 'Un creativo latino para marcas que quieren llegar lejos',
+  'la.p': 'Latinoamérica tiene color, ritmo, humor y calidez propios. Labamba traduce ese repertorio en marca <strong>con el método y la terminación que exige el mercado global</strong>, para agencias y empresas de toda la región.',
+  'la.clock': 'En el huso horario de buena parte de Sudamérica',
+  'lp1.k': 'Repertorio', 'lp1.h': 'Mirada latina, sin clichés', 'lp1.p': 'Referencias de nuestra cultura usadas con criterio, para crear marcas con personalidad y no caricaturas.',
+  'lp2.k': 'Alcance', 'lp2.h': 'Atención remota en la región', 'lp2.p': 'De Brasil para toda Latinoamérica, con rutinas de trabajo y entregas pensadas para equipos distribuidos.',
+  'lp3.k': 'Estándar', 'lp3.h': 'Ejecución de nivel global', 'lp3.p': 'Proceso documentado, archivos organizados y terminación lista para salir en cualquier mercado.',
+  'st.k': '¿Por qué Labamba?', 'st.h': 'Un nombre con sabor',
+  'st.p1': 'Labamba viene de La Bamba, una de las canciones más famosas de Latinoamérica, de esas que levantan a todos en cualquier fiesta. El nombre es un homenaje a las raíces del otro lado de la frontera y un recordatorio de lo que buscamos en cada proyecto: ritmo, personalidad y una poca de gracia.',
+  'pl.now': 'Sonando ahora', 'pl.sub': 'Clásico latinoamericano',
+  'pq.h2': 'Dos formas de trabajar con nosotros', 'pq.k': 'Para quién', 'pq.a.k': 'Agencias',
+  'pq.a.h': 'Un equipo creativo extra, sin aumentar la nómina.',
+  'pq.a.p': 'Entramos en tu flujo cuando la demanda aprieta o el proyecto pide una especialidad. Seguimos tu proceso, tu marca y tus plazos, y la entrega sale con la firma de la agencia.',
+  'pq.a.ul': '<li>Por demanda o con fee mensual</li><li>White label, con total confidencialidad</li><li>Archivos organizados para tu equipo</li>',
+  'pq.e.h': 'Dirección creativa para marcas que quieren subir de nivel.',
+  'pq.e.p': 'De la identidad visual a la campaña, cuidamos la imagen de tu marca con el rigor de una gran agencia, en un formato más cercano y directo.',
+  'pq.e.ul': '<li>Especialistas en retail</li><li>Proyectos cerrados o recurrentes</li><li>Contacto directo con quien crea</li><li>Marca consistente en cada punto de contacto</li>',
+  'pi.h2': 'Lo que sostiene cada entrega', 'pi.k': 'Pilares',
+  'pi.1.h': 'Curaduría', 'pi.1.p': 'Antes de crear, elegimos. Referencias filtradas, repertorio amplio y criterio para separar la tendencia del acierto para la marca.',
+  'pi.2.p': 'Cada proyecto pasa por las mismas etapas, con entregas y aprobaciones acordadas desde el inicio. Sabes qué viene, cuándo viene y por qué.',
+  'pi.3.h': 'Calidad', 'pi.3.p': 'La terminación es parte del concepto. Revisión en capas, atención a cada píxel y archivos listos para producción, sin sorpresas a la hora de salir.',
+  'cf.h2': 'Cómo lo hacemos', 'cf.p': 'Del brief a la entrega en cinco etapas. Sin caja negra: acompañas cada una.',
+  's1.h': 'Inmersión', 's1.p': 'Entendemos negocio, público, objetivo y restricciones. De aquí sale un brief que todos firman.',
+  's2.h': 'Curaduría', 's2.p': 'Investigación y selección de referencias para alinear el camino visual antes de cualquier arte.',
+  's3.h': 'Creación', 's3.p': 'Desarrollo del concepto y de las piezas clave, con la narrativa que sostiene cada decisión.',
+  's4.h': 'Refinamiento', 's4.p': 'Ajustes guiados por criterio, rondas acordadas y revisión técnica de cada detalle.',
+  's5.p': 'Archivos finales organizados, listos para producción y para que tu equipo siga avanzando.',
+  'sv.h2': 'Lo que hacemos', 'sv.k': 'Servicios',
+  'ab.h2': 'Quién está detrás', 'ab.k': 'Sobre mí', 'ab.photo': '[ Tu foto ]',
+  'ab.p1': '<strong>Victor Renan</strong> nació en Paraná, Brasil, y es goianiense por elección: adoptó Goiânia como su casa y ahí construyó toda su carrera. Trabaja en agencias desde 2008 y, desde 2023, es Coordinador de Arte, liderando equipos en cuentas de retail, su gran especialidad.',
+  'ab.p2': 'Hijo de padre paraguayo-argentino y madre brasileña, creció con lo mejor de los dos lados de la frontera: la cintura brasileña y el sabor latino de quien toma tereré y escucha cumbia sin pedir permiso. Súmale los años como baterista profesional y es fácil entender de dónde viene el ritmo de su trabajo.',
+  'ab.f1': 'En agencias', 'ab.f1v': 'Desde 2008', 'ab.f2': 'Coordinación de arte', 'ab.f2v': 'Desde 2023', 'ab.f3': 'Especialidad', 'ab.f3v': 'Retail',
+  'ab.cta': 'Ver trayectoria en LinkedIn ↗',
+  'ct.k': 'Próximo paso', 'ct.h2': 'Trae tu próximo proyecto.',
+  'ct.p': 'Cuéntame el desafío, el plazo y dónde va a salir la pieza. Respondo con una propuesta clara de alcance, etapas e inversión.',
+  'ct.li': 'Conectemos', 'ct.wa': 'Escribir ↗', 'ct.mail': 'Correo',
+  'ft.tag': 'Curaduría · Método · Calidad · Hecho en Latam'
+};
+
+/* ================= Render ================= */
+const $ = (s) => document.querySelector(s);
+const esc = (t) => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+let lang = 'pt';
+const T = () => UI[lang];
+
+
+
+// Logos marquee, repeated so half the loop is wider than big screens
+const logoItem = (b, hidden) => `<div class="logo"${hidden ? ' aria-hidden="true"' : ''}>${b.src ? `<img src="${esc(b.src)}" alt="${hidden ? '' : esc(b.name)}">` : `<span class="ph">${esc(b.name)}</span>`}</div>`;
+const reps = Math.max(1, Math.ceil(12 / BRANDS.length));
+const half = Array.from({length: reps}, () => BRANDS).flat();
+$('#logos').innerHTML = half.map((b, i) => logoItem(b, i >= BRANDS.length)).join('') + half.map(b => logoItem(b, true)).join('');
+
+// Country codes: home countries highlighted
+const CODES = ['AR','BO','BR','CL','CO','CR','EC','GT','MX','PA','PE','PY','UY','VE'];
+const HOME = ['BR','PY','AR'];
+$('#codes').innerHTML = CODES.map(c => `<span data-c="${c}"${HOME.includes(c) ? ' class="home"' : ''}>${c}</span>`).join('');
+
+function renderServices(){
+  const words = SERVICES.map(s => s[lang][0]).concat([T().artDir]);
+  $('#svcband').innerHTML = words.concat(words).map(w => `<span>${esc(w)}</span>`).join('');
+  $('#services').innerHTML = SERVICES.map((s, i) => `
+    <a class="svc" href="#contato"><span class="n">${String(i+1).padStart(2,'0')}</span><span class="t">${esc(s[lang][0])}</span><span class="d">${esc(s[lang][1])}</span><span class="ar" aria-hidden="true">→</span></a>`).join('');
+}
+
+let current = 'all';
+function renderFilters(){
+  const keys = ['all', ...new Set(CASES.map(c => c.cat))];
+  $('#filters').setAttribute('aria-label', T().filter);
+  $('#filters').innerHTML = keys.map(c => `<button type="button" class="chip" aria-pressed="${c === current}" data-cat="${c}">${esc(c === 'all' ? T().all : catLabel(c))}</button>`).join('');
+}
+function renderCases(){
+  $('#cases').innerHTML = CASES.map((c, i) => ({c, i})).filter(({c}) => current === 'all' || c.cat === current).map(({c, i}, n) => `
+    <button type="button" class="case" data-idx="${i}" style="animation-delay:${n * 0.06}s" aria-label="${esc(T().openAria)}: ${esc(c.title[lang] || T().title(c.n))}">
+      <div class="case-img" style="background:${c.tone};color:${c.ink}">
+        ${c.img ? `<img src="${esc(c.img)}" alt="">` : `<span class="ph">${esc(T().img(c.n))}</span>`}
+        <span class="open">${esc(T().open)}</span>
+      </div>
+      <div class="case-meta mono muted"><span>${esc(c.client)}</span><span>${esc(catLabel(c.cat))}</span></div>
+      <h3>${esc(c.title[lang] || T().title(c.n))}</h3>
+    </button>`).join('');
+}
+$('#filters').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  current = b.dataset.cat; renderFilters(); renderCases();
+});
+
+// Case dialog
+const dlg = $('#dlg');
+$('#cases').addEventListener('click', e => {
+  const b = e.target.closest('.case'); if (!b) return;
+  const c = CASES[+b.dataset.idx], t = T();
+  $('#dlg-tag').textContent = `${c.client} · ${catLabel(c.cat)}`;
+  $('#dlg-title').textContent = c.title[lang] || t.title(c.n);
+  $('#dlg-h1').textContent = t.challenge; $('#dlg-h2').textContent = t.solution; $('#dlg-h3').textContent = t.scope;
+  $('#dlg-challenge').textContent = c.challenge[lang] || t.chText;
+  $('#dlg-solution').textContent = c.solution[lang] || t.soText;
+  $('#dlg-scope').textContent = c.scope[lang];
+  $('#dlg-close').setAttribute('aria-label', t.close);
+  $('#dlg-gallery').innerHTML = c.gallery.length ? c.gallery.map(src => `<div class="has"><img src="${esc(src)}" alt="" loading="lazy"></div>`).join('') : [1,2,3,4].map(n => `<div class="mono">${esc(t.gal(n))}</div>`).join('');
+  if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+});
+$('#dlg-close').addEventListener('click', () => dlg.close ? dlg.close() : dlg.removeAttribute('open'));
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+// Copy buttons
+document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', () => {
+  const el = document.getElementById(btn.dataset.copy);
+  const text = el.textContent.trim();
+  const reset = () => setTimeout(() => { btn.textContent = T().copy; }, 1600);
+  const done = () => { btn.textContent = T().copied; reset(); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = T().selected; reset(); };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (_) { fallback(); }
+}));
+
+// Live clock (studio time)
+const fmt = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+const tick = () => { $('#clock').textContent = fmt.format(new Date()); };
+tick(); setInterval(tick, 1000);
+$('#yr').textContent = new Date().getFullYear();
+
+/* ================= Imagens (gere e me envie; o arquivo vai em "src") ================= */
+const IMAGES = {
+  strip: ((C.imagens && C.imagens.faixa) || []).map(src => ({ src: asset(src), file: '', hint: '' })),
+  agencias: { src: asset(C.imagens && C.imagens.agencias), file: 'para-agencias.jpg', hint: '' },
+  empresas: { src: asset(C.imagens && C.imagens.empresas), file: 'para-empresas.jpg', hint: '' },
+  services: (C.servicos || []).map(sv => ({ src: asset(sv.imagem), file: '', hint: sv.nome_pt || '' }))
+};
+// Contacts and photo from content
+document.querySelectorAll('a[href^="https://www.linkedin.com/in/"]').forEach(a => { if (CONTACT.linkedin) a.href = CONTACT.linkedin; });
+document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a => { a.href = 'https://wa.me/' + String(CONTACT.whatsapp).replace(/\D/g, ''); });
+if ($('#c-wpp')) $('#c-wpp').textContent = CONTACT.whatsapp_exibicao || CONTACT.whatsapp;
+if ($('#c-mail')) $('#c-mail').textContent = CONTACT.email;
+const photo = document.querySelector('.about-photo img'); if (photo && C.foto) photo.src = asset(C.foto);
+if (CONTACT.agenda_aberta === false) { const tg = document.querySelector('.hero-meta .tag'); if (tg) tg.hidden = true; }
+const slotInner = (o) => o.src ? `<img src="${esc(o.src)}" alt="" loading="lazy">` : `<span class="f">${esc(o.file)}</span><span class="h">${esc(o.hint)}</span>`;
+function fillSlot(el, o){ el.classList.toggle('has', !!o.src); el.innerHTML = slotInner(o); }
+document.querySelectorAll('[data-slot]').forEach(el => fillSlot(el, IMAGES[el.dataset.slot]));
+(function(){
+  const items = IMAGES.strip;
+  const reps = Math.max(1, Math.ceil(8 / items.length));
+  const half = Array.from({length: reps}, () => items).flat();
+  const one = (o, hidden) => `<div class="slot${o.src ? ' has' : ''}"${hidden ? ' aria-hidden="true"' : ''}>${slotInner(o)}</div>`;
+  document.getElementById('strip').innerHTML = half.map((o, i) => one(o, i >= items.length)).join('') + half.map(o => one(o, true)).join('');
+})();
+
+/* ================= Language ================= */
+const PT = {};
+document.querySelectorAll('[data-i]').forEach(el => { PT[el.dataset.i] = el.innerHTML; });
+
+function setLang(next, animate){
+  lang = next === 'es' ? 'es' : 'pt';
+  document.documentElement.lang = T().lang;
+  document.querySelectorAll('[data-i]').forEach(el => {
+    const key = el.dataset.i;
+    const html = lang === 'es' && ES[key] != null ? ES[key] : PT[key];
+    if (html == null) return;
+    el.innerHTML = html;
+    if (el.dataset.final != null) el.dataset.final = el.textContent;
+    if (el.hasAttribute('data-scramble')) el.dataset.txt = el.textContent;
+    if (animate && !reduce) { el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); }
+  });
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  document.querySelectorAll('.copy').forEach(b => { b.textContent = T().copy; });
+  $('#wpp-link').href = 'https://wa.me/' + String(CONTACT.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent(T().wa);
+  renderServices(); renderFilters(); renderCases();
+  try { localStorage.setItem('labamba-lang', lang); } catch (_) {}
+}
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang, true)));
+
+let initial = 'pt';
+try { initial = localStorage.getItem('labamba-lang') || initial; } catch (_) {}
+if (location.hash === '#es') initial = 'es';
+if (location.hash === '#pt') initial = 'pt';
+setLang(initial, false);
+
+/* ================= Latam dot map ================= */
+const MAP = {"nx":95,"ny":104,"g":["","011111","00110111111111","001100111111111","0001101111111111011","00001001111111111111","000111001111111111111","0000011001111111111110000000000000000000000001","00000010001111111111111000000000000000000000001","0000000100011111111111100000000000000000000001","00000001000011111111111","00000000010001111111111","00000000000000111111111000000000000000010111","0000000000000011111111100000000000000000000111","000000000000001111111111000000001110000000000111","00000000000000111111111100000001111000000000001111","00000000000000011111111110000001111000000000000000001111","000000000000000011111111111011111100000000000110001111100011","0000000000000000000111111111111111","0000000000000000000001111111111111","00000000000000000000000010001111101011","0000000000000000000000000000011111111111","0000000000000000000000000000001111111111","000000000000000000000000000000000101111","000000000000000000000000000000000001111","0000000000000000000000000000000000001110000000000001101","00000000000000000000000000000000000001100000000001111111100000011","0000000000000000000000000000000000000111000000001111001111111111","00000000000000000000000000000000000000011011110111111111111111111","0000000000000000000000000000000000000000011001111111111111111111111","00000000000000000000000000000000000000000010001111111111111111111111","000000000000000000000000000000000000000000000011111111111111111111111","0000000000000000000000000000000000000000000000111111111111111111111111111","000000000000000000000000000000000000000000000011111111111111111112111111","0000000000000000000000000000000000000000000000111111111111111212222111111002","00000000000000000000000000000000000000000000001111111111111112222211111110022","00000000000000000000000000000000000000000000011111111111111111222211111222222","000000000000000000000000000000000000000000000111111111122211122222212222222222","00000000000000000000000000000000000000000001111111111112222222222222222222222","0000000000000000000000000000000000000000000111111111111222222222222222222222222","0000000000000000000000000000000000000000001111111111111222222222222222222222222222","000000000000000000000000000000000000000000111111111111122222222222222222222222222222","00000000000000000000000000000000000000000001111111111112222222222222222222222222222222202","0000000000000000000000000000000000000000001111111111111222222222222222222222222222222222222","00000000000000000000000000000000000000000011111111111222222222222222222222222222222222222222","0000000000000000000000000000000000000000001111111112222222222222222222222222222222222222222222","00000000000000000000000000000000000000000011111111122222222222222222222222222222222222222222222","00000000000000000000000000000000000000000000111111222222222222222222222222222222222222222222222","00000000000000000000000000000000000000000000111111222222222222222222222222222222222222222222222","00000000000000000000000000000000000000000000011111122222222222222222222222222222222222222222222","0000000000000000000000000000000000000000000001111111222222222222222222222222222222222222222222","000000000000000000000000000000000000000000000011111111222111222222222222222222222222222222222","00000000000000000000000000000000000000000000001111111111111122222222222222222222222222222222","00000000000000000000000000000000000000000000000111111111111112222222222222222222222222222222","000000000000000000000000000000000000000000000001111111111111111222222222222222222222222222","000000000000000000000000000000000000000000000001111111111111111111222222222222222222222222","000000000000000000000000000000000000000000000000111111111111111111222222222222222222222222","000000000000000000000000000000000000000000000000011111111111111111222222222222222222222222","000000000000000000000000000000000000000000000000000111111111111111112222222222222222222222","000000000000000000000000000000000000000000000000000001111111111111112222222222222222222222","000000000000000000000000000000000000000000000000000000111111111111111222222222222222222222","00000000000000000000000000000000000000000000000000000011111111111111122222222222222222222","00000000000000000000000000000000000000000000000000000001111111113333122222222222222222222","0000000000000000000000000000000000000000000000000000000111111111333332222222222222222222","0000000000000000000000000000000000000000000000000000000111111113333332222222222222222222","000000000000000000000000000000000000000000000000000000111144444333333332222222222222222","000000000000000000000000000000000000000000000000000000111144444433333332222222222222","000000000000000000000000000000000000000000000000000000111444444444333333322222222","00000000000000000000000000000000000000000000000000000011144444444444333332222222","0000000000000000000000000000000000000000000000000000001114444444444443334222222","0000000000000000000000000000000000000000000000000000001144444444444433334222222","0000000000000000000000000000000000000000000000000000001144444444444444442222222","0000000000000000000000000000000000000000000000000000011444444444444444422222222","000000000000000000000000000000000000000000000000000001144444444444444422222222","00000000000000000000000000000000000000000000000000000114444444444444422222222","00000000000000000000000000000000000000000000000000000144444444444444411222222","0000000000000000000000000000000000000000000000000000014444444444444411111222","000000000000000000000000000000000000000000000000000001144444444444441111112","00000000000000000000000000000000000000000000000000000114444444444444111111","0000000000000000000000000000000000000000000000000000111444444444444411111","000000000000000000000000000000000000000000000000000011444444444444444","000000000000000000000000000000000000000000000000000011444444444444444","0000000000000000000000000000000000000000000000000001144444444444444444","000000000000000000000000000000000000000000000000000111444444444444444","0000000000000000000000000000000000000000000000000001114444444444444","0000000000000000000000000000000000000000000000000001144444444444","0000000000000000000000000000000000000000000000000011144444444444","000000000000000000000000000000000000000000000000001114444444","000000000000000000000000000000000000000000000000001114444444","0000000000000000000000000000000000000000000000000011444444444","000000000000000000000000000000000000000000000000000114444444","000000000000000000000000000000000000000000000000001114444444","0000000000000000000000000000000000000000000000000111144444","0000000000000000000000000000000000000000000000000111144444","00000000000000000000000000000000000000000000000000114444444","00000000000000000000000000000000000000000000000001114444444","0000000000000000000000000000000000000000000000001111444444","000000000000000000000000000000000000000000000000111444444","00000000000000000000000000000000000000000000000001144444","00000000000000000000000000000000000000000000000001114444000000000011","000000000000000000000000000000000000000000000000011111114000000001","000000000000000000000000000000000000000000000000000111114","000000000000000000000000000000000000000000000000000110114","000000000000000000000000000000000000000000000000000001114444"],"m":{"GYN":[77.91,58.21],"ASU":[68.4,68.31],"BUE":[67.49,79.29],"PR":[77.89,68.51]}};
+(function(){
+  const canvas = document.getElementById('map');
+  const section = document.getElementById('latam');
+  if (!canvas || !canvas.getContext) return;
+  const ctx = canvas.getContext('2d');
+  const dots = [];
+  MAP.g.forEach((row, y) => { for (let x = 0; x < row.length; x++) { const t = +row[x]; if (t) dots.push({ x, y, t, h: 0 }); } });
+  const MARKS = [
+    { k: 'GYN', label: 'GYN · casa', labelEs: 'GYN · casa', main: true },
+    { k: 'PR', label: 'PR · origem', labelEs: 'PR · origen' },
+    { k: 'ASU', label: 'ASU', labelEs: 'ASU' },
+    { k: 'BUE', label: 'BUE', labelEs: 'BUE' }
+  ];
+  const BASE = [null, [36,41,54], [44,52,92], [44,52,92], [44,52,92]];
+  const HOT_ALL = [82,98,255], HOT_HOME = [255,91,31];
+  let W = 0, H = 0, cell = 1, dpr = 1, mx = -1e4, my = -1e4, active = 0, target = 0, running = false, t0 = performance.now();
+  function size(){
+    const r = canvas.getBoundingClientRect();
+    if (!r.width) return;
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = canvas.width = Math.round(r.width * dpr);
+    H = canvas.height = Math.round(r.height * dpr);
+    cell = Math.min(W / MAP.nx, H / MAP.ny);
+    draw(performance.now());
+  }
+  const mix = (a, b, k) => `rgb(${Math.round(a[0] + (b[0]-a[0])*k)},${Math.round(a[1] + (b[1]-a[1])*k)},${Math.round(a[2] + (b[2]-a[2])*k)})`;
+  function draw(now){
+    ctx.clearRect(0, 0, W, H);
+    const R = cell * 10;
+    const rad = cell * 0.3;
+    for (const d of dots) {
+      const cx = (d.x + .5) * cell, cy = (d.y + .5) * cell;
+      const dist = Math.hypot(cx - mx, cy - my);
+      const want = dist < R ? Math.pow(1 - dist / R, 1.4) * active : 0;
+      d.h += (want - d.h) * 0.18;
+      const hot = d.t >= 2 ? HOT_HOME : HOT_ALL;
+      ctx.fillStyle = mix(BASE[d.t], hot, d.h);
+      const rr = rad * (1 + d.h * 0.7);
+      ctx.fillRect(cx - rr, cy - rr, rr * 2, rr * 2);
+    }
+    // markers
+    const pulse = ((now - t0) % 2200) / 2200;
+    ctx.font = `700 ${11 * dpr}px 'JetBrains Mono', ui-monospace, monospace`;
+    ctx.textBaseline = 'middle';
+    for (const m of MARKS) {
+      const [mxk, myk] = MAP.m[m.k];
+      const x = mxk * cell, y = myk * cell;
+      const col = m.main ? '#FF5B1F' : '#5262FF';
+      ctx.strokeStyle = col; ctx.globalAlpha = 1 - pulse; ctx.lineWidth = 1.5 * dpr;
+      ctx.beginPath(); ctx.arc(x, y, cell * (0.8 + pulse * 2.6), 0, Math.PI * 2); ctx.stroke();
+      ctx.globalAlpha = 1; ctx.fillStyle = col;
+      ctx.beginPath(); ctx.arc(x, y, cell * 0.55, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = m.main ? '#ECEDF1' : '#9A9EAA';
+      ctx.fillText((typeof lang !== 'undefined' && lang === 'es') ? m.labelEs : m.label, x + cell * 1.3, y);
+    }
+  }
+  function frame(now){
+    active += (target - active) * 0.08;
+    draw(now);
+    if (running) requestAnimationFrame(frame);
+  }
+  section.addEventListener('pointermove', e => {
+    const r = canvas.getBoundingClientRect();
+    mx = (e.clientX - r.left) * dpr; my = (e.clientY - r.top) * dpr; target = 1;
+  });
+  section.addEventListener('pointerleave', () => { target = 0; });
+  window.addEventListener('resize', size);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(size);
+  size();
+  if (reduce) return;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(es => es.forEach(en => {
+      if (en.isIntersecting && !running) { running = true; requestAnimationFrame(frame); }
+      else if (!en.isIntersecting) running = false;
+    })).observe(section);
+  } else { running = true; requestAnimationFrame(frame); }
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => draw(performance.now())));
+})();
+
+/* ================= Hero layered post ================= */
+(function(){
+  const stage = document.getElementById('stage');
+  if (!stage) return;
+  const layers = [...stage.querySelectorAll('.layer')];
+  const select = n => layers.forEach(l => l.classList.toggle('sel', +l.dataset.layer === n));
+  if (reduce) { stage.style.setProperty('--p', '1'); select(3); return; }
+  // At rest the post is composed with a hint of depth. Hover (or scroll on touch) opens it into 3D layers;
+  // the layer under the cursor gets selected, and the whole piece tilts toward the cursor.
+  const REST = 0.12;
+  let p = REST, target = REST, rx = 0, ry = 0, trx = 0, tryy = 0, hovering = false, picked = 0, sel = 5, cycle = 0;
+  function frame(){
+    if (!finePointer) target = Math.max(REST, Math.min(1, REST + scrollY / 260));
+    p += (target - p) * 0.09;
+    rx += (trx - rx) * 0.1; ry += (tryy - ry) * 0.1;
+    stage.style.setProperty('--p', p.toFixed(4));
+    stage.style.setProperty('--rx', rx.toFixed(2) + 'deg');
+    stage.style.setProperty('--ry', ry.toFixed(2) + 'deg');
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  function startCycle(){
+    if (cycle) return;
+    select(sel);
+    cycle = setInterval(() => { if (!picked) { sel = sel <= 1 ? 5 : sel - 1; select(sel); } }, 1400);
+  }
+  function stopCycle(){ clearInterval(cycle); cycle = 0; select(0); }
+  if (finePointer) {
+    stage.addEventListener('pointerenter', () => { hovering = true; target = 1; startCycle(); });
+    stage.addEventListener('pointerleave', () => { hovering = false; target = REST; picked = 0; trx = tryy = 0; stopCycle(); });
+    stage.addEventListener('pointermove', e => {
+      const r = stage.getBoundingClientRect();
+      trx = ((e.clientY - (r.top + r.height / 2)) / r.height) * -14;
+      tryy = ((e.clientX - (r.left + r.width / 2)) / r.width) * 18;
+      const l = e.target.closest && e.target.closest('.layer');
+      if (l) { picked = +l.dataset.layer; sel = picked; select(picked); }
+    });
+  } else {
+    startCycle();
+  }
+})();
+
+/* ================= Motion ================= */
+if (!reduce) {
+  const GLYPHS = '█▓▒░<>/\\_#01=+*';
+  function scramble(el, finalText, dur = 700){
+    if (el._scr) cancelAnimationFrame(el._scr);
+    const start = performance.now();
+    const len = finalText.length;
+    function frame(now){
+      const p = Math.min(1, (now - start) / dur);
+      const fixed = Math.floor(p * len);
+      let out = finalText.slice(0, fixed);
+      for (let i = fixed; i < len; i++) out += finalText[i] === ' ' ? ' ' : GLYPHS[(Math.random() * GLYPHS.length) | 0];
+      el.textContent = out;
+      if (p < 1) el._scr = requestAnimationFrame(frame); else { el.textContent = finalText; el._scr = 0; }
+    }
+    el._scr = requestAnimationFrame(frame);
+  }
+  document.querySelectorAll('[data-final]').forEach((el, i) => setTimeout(() => scramble(el, el.dataset.final, 900), 700 + i * 260));
+  document.querySelectorAll('[data-scramble]').forEach(a => {
+    if (!a.dataset.txt) a.dataset.txt = a.textContent;
+    a.addEventListener('mouseenter', () => scramble(a, a.dataset.txt, 420));
+  });
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('[data-final]').forEach((el, i) => setTimeout(() => scramble(el, el.dataset.final, 600), i * 120));
+  }));
+
+  // Codes light up one by one across the region
+  const codeEls = [...document.querySelectorAll('#codes span')];
+  let ci = 0;
+  setInterval(() => {
+    codeEls.forEach(e => e.classList.remove('on'));
+    ci = (ci + 1) % codeEls.length;
+    if (!codeEls[ci].classList.contains('home')) codeEls[ci].classList.add('on');
+  }, 900);
+
+  const cssScroll = window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()');
+  const prog = $('#progress');
+
+  // Velocity-driven marquees
+  const tracks = [...document.querySelectorAll('.track')];
+  const bands = [...document.querySelectorAll('.band-skew')];
+  let lastY = scrollY, lastT = performance.now(), vel = 0, rate = 1;
+  function loop(now){
+    const dy = scrollY - lastY, dt = Math.max(16, now - lastT);
+    lastY = scrollY; lastT = now;
+    vel += ((dy / dt) - vel) * 0.2;
+    const target = 1 + Math.min(5, Math.abs(vel) * 2.2);
+    rate += (target - rate) * 0.08;
+    tracks.forEach(t => t.getAnimations && t.getAnimations().forEach(a => { a.playbackRate = rate; }));
+    const skew = Math.max(-7, Math.min(7, vel * -6));
+    bands.forEach(b => { b.style.transform = `skewX(${skew.toFixed(2)}deg)`; });
+    if (!cssScroll) {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      prog.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+    }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  // Service rows: floating image preview follows the cursor
+  if (finePointer) {
+    const fl = document.getElementById('svc-float');
+    const list = document.getElementById('services');
+    let fx = 0, fy = 0, tx = 0, ty = 0, raf = 0;
+    const follow = () => { fx += (tx - fx) * .18; fy += (ty - fy) * .18; fl.style.left = fx + 'px'; fl.style.top = fy + 'px'; raf = fl.classList.contains('on') ? requestAnimationFrame(follow) : 0; };
+    list.addEventListener('pointerover', e => {
+      const row = e.target.closest('.svc'); if (!row) return;
+      const i = [...list.children].indexOf(row);
+      const o = IMAGES.services[i]; if (!o) return;
+      fl.innerHTML = `<div class="slot${o.src ? ' has' : ''}">${slotInner(o)}</div>`;
+      if (!fl.classList.contains('on')) { const lr = list.getBoundingClientRect(); fx = tx = Math.min(e.clientX + 320, lr.right - 120); fy = ty = e.clientY - 10; }
+      fl.classList.add('on'); if (!raf) raf = requestAnimationFrame(follow);
+    });
+    list.addEventListener('pointermove', e => { const lr = list.getBoundingClientRect(); tx = Math.min(e.clientX + 320, lr.right - 120); ty = e.clientY - 10; });
+    list.addEventListener('pointerleave', () => { fl.classList.remove('on'); });
+  }
+  if (finePointer) {
+    const hero = $('.hero');
+    hero.addEventListener('pointermove', e => {
+      const r = hero.getBoundingClientRect();
+      hero.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      hero.style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+    document.querySelectorAll('.magnetic').forEach(el => {
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect();
+        el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.18}px, ${(e.clientY - r.top - r.height / 2) * 0.3}px)`;
+      });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+    });
+    $('#cases').addEventListener('pointermove', e => {
+      const img = e.target.closest('.case-img'); if (!img) return;
+      const r = img.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      img.style.transform = `rotateY(${px * 8}deg) rotateX(${py * -8}deg)`;
+    });
+    $('#cases').addEventListener('pointerout', e => {
+      const img = e.target.closest('.case-img');
+      if (img && !img.contains(e.relatedTarget)) img.style.transform = '';
+    });
+  }
+}
+} // end boot
+</script>
+</body>
+</html>
