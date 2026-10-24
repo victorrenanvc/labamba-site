@@ -84,7 +84,7 @@ img{max-width:100%;display:block}
 .lang button{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;min-width:44px;min-height:44px;padding:0 10px;border:0;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
 .lang button:hover{color:var(--fg)}
 .lang button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
-@media (max-width:980px){.nav a:not(.btn){display:none}}
+@media (max-width:1120px){.nav a:not(.btn){display:none}}
 
 /* Hero */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -1075,7 +1075,7 @@ if (!reduce) {
     const start = performance.now();
     const len = finalText.length;
     function frame(now){
-      const p = Math.min(1, (now - start) / dur);
+      const p = Math.max(0, Math.min(1, (now - start) / dur));
       const fixed = Math.floor(p * len);
       let out = finalText.slice(0, fixed);
       for (let i = fixed; i < len; i++) out += finalText[i] === ' ' ? ' ' : GLYPHS[(Math.random() * GLYPHS.length) | 0];
@@ -1087,7 +1087,7 @@ if (!reduce) {
   document.querySelectorAll('[data-final]').forEach((el, i) => setTimeout(() => scramble(el, el.dataset.final, 900), 700 + i * 260));
   document.querySelectorAll('[data-scramble]').forEach(a => {
     if (!a.dataset.txt) a.dataset.txt = a.textContent;
-    a.addEventListener('mouseenter', () => scramble(a, a.dataset.txt, 420));
+    a.addEventListener('mouseenter', () => { if (!a._scr) scramble(a, a.dataset.txt, 420); });
   });
   document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => {
     document.querySelectorAll('[data-final]').forEach((el, i) => setTimeout(() => scramble(el, el.dataset.final, 600), i * 120));
