@@ -640,9 +640,89 @@ strong,b{font-weight:600}
 .faq summary{padding:28px 0}
 .contact-row{margin-top:clamp(56px,7vw,96px)}
 footer .wrap{padding-block:72px}
+
+/* ===== Estética BeNorth ===== */
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* menu em pílulas pequenas */
+.top{background:rgba(241,236,227,.72);border-bottom:0}
+.top .wrap{padding-block:16px}
+.nav{gap:6px 6px}
+.nav > a:not(.btn){font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.nav > a:not(.btn):hover{border-color:var(--fg)}
+.nav .lang{margin-left:10px}
+.nav .lang button{min-height:32px;min-width:36px;font-size:11px}
+.nav .btn{min-height:36px;padding:0 16px;font-size:13px;margin-left:6px}
+.brand b{font-size:18px}
+/* hero em tela cheia */
+.hero.bn{position:relative;min-height:calc(100svh - 68px);overflow:hidden;border:0;display:flex;flex-direction:column;justify-content:flex-end}
+.giant{position:absolute;left:0;right:0;top:50%;transform:translateY(-58%);z-index:1;pointer-events:none;overflow:hidden}
+.giant-track{display:flex;width:max-content;animation:marquee 46s linear infinite}
+.giant-track > span{font-family:var(--display);font-weight:400;font-size:clamp(84px,15vw,260px);line-height:1;letter-spacing:-.055em;white-space:nowrap;color:var(--fg)}
+.giant .hl{padding:0 .06em;border-radius:.08em}
+.hero.bn .stickers{position:absolute;inset:0;z-index:2;min-height:0}
+.hero.bn .hola{left:38%;top:26%}
+.hero-foot{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding:0 max(clamp(20px,5vw,72px), env(safe-area-inset-left,0px)) clamp(24px,3vw,40px);pointer-events:none}
+.hero-foot > *{pointer-events:auto}
+.hero.bn .hero-copy{gap:18px;max-width:440px}
+.hero.bn .hero-copy .promise{font-size:clamp(20px,1.7vw,24px);margin:0;font-weight:500}
+.hero.bn .hero-copy p{font-size:16px;line-height:1.5}
+.hero.bn .btn{min-height:46px;padding:0 20px;font-size:15px}
+.hero-side{display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-size:11px;color:var(--muted);text-transform:uppercase}
+.hero-side .status{font-size:11px}
+.drag-hint{display:none}
+@media (max-width:760px){
+  .hero.bn{min-height:auto;padding-top:calc(min(88vw,390px) + 100px)}
+  .hero.bn .stickers{bottom:auto;height:min(100vw,430px)}
+  .giant{top:min(88vw,390px);transform:none}
+  .giant-track > span{font-size:92px}
+  .hero.bn .hola{left:auto;right:6%;top:4%}
+  .hero-foot{padding-top:24px}
+  .hero-side{align-items:flex-start}
+  .sticker{touch-action:pan-y}
+}
+/* manifesto */
+.manifesto{padding-block:clamp(96px,12vw,180px) clamp(72px,9vw,140px)}
+.big-statement{margin:0 0 32px;font-size:clamp(28px,3.6vw,54px);line-height:1.12;letter-spacing:-.03em;font-weight:400;max-width:24ch;color:var(--fg)}
+.big-statement .accent{color:var(--signal-text)}
+.pill-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--fg);border:1px solid var(--fg);border-radius:999px;padding:7px 14px;transition:background-color .4s var(--soft),color .4s var(--soft)}
+.pill-link:hover{background:var(--fg);color:var(--bg)}
+/* títulos de seção mais leves, linha fina em cima */
+.h2{font-weight:300!important;font-size:clamp(38px,4.6vw,72px)!important;letter-spacing:-.045em}
+.sec,.clients,.latam{border-top:1px solid var(--line)!important;border-bottom:0!important}
+.label{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 40px}
+/* clientes em texto corrido */
+.clients{padding-block:clamp(80px,9vw,140px)}
+.client-list{margin:0;font-size:clamp(28px,3.3vw,50px);line-height:1.18;letter-spacing:-.035em;font-weight:300;max-width:30ch}
+.client-list .cw{display:inline-block;opacity:.15;transform:translateY(.25em);transition:opacity .9s var(--soft),transform 1s var(--soft);transition-delay:calc(var(--i) * 70ms)}
+.client-list.in .cw{opacity:1;transform:none}
+/* serviços em lista leve (acordeão) */
+.svc-acc{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,96px);align-items:start;border-top:1px solid var(--line);padding-top:clamp(32px,4vw,56px)}
+.svc-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.svc-w{display:inline-flex;align-items:flex-start;gap:14px;background:none;border:0;padding:4px 0;margin:0;font-family:var(--display);font-weight:300;font-size:clamp(38px,4.6vw,68px);line-height:1.08;letter-spacing:-.045em;color:#b9b2a6;cursor:pointer;text-align:left;transition:color .5s var(--soft);position:relative}
+.svc-w sup{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:transparent;transform:translateY(.9em);transition:color .4s}
+.svc-w::after{content:"";position:absolute;left:calc(11px + 14px);right:0;bottom:2px;height:1.5px;background:var(--signal);transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--soft)}
+.svc-w.on{color:var(--fg)}
+.svc-w.on sup{color:var(--signal-text)}
+.svc-w.on::after{transform:scaleX(1)}
+.svc-panel{position:relative;min-height:280px;padding-top:12px}
+.svc-p{position:absolute;inset:12px 0 auto 0;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .5s var(--soft),transform .7s var(--soft)}
+.svc-p.on{position:relative;inset:auto;opacity:1;transform:none;pointer-events:auto}
+.svc-p h3{margin:0 0 14px;font-family:var(--display);font-weight:500;font-size:22px;letter-spacing:-.02em}
+.svc-p p{margin:0 0 22px;font-size:18px;line-height:1.55;color:var(--body-ink);max-width:42ch}
+.tags{list-style:none;margin:0 0 28px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.tags li{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--signal-text);border:1px solid var(--signal);border-radius:999px;padding:5px 12px}
+@media (max-width:860px){.svc-acc{grid-template-columns:1fr}.svc-panel{min-height:0}}
+/* faixa de trabalhos sem inclinação */
+.band-skew{transform:none!important}
+.strip{border:0}
+/* cortina de entrada */
+.intro{position:fixed;inset:0;z-index:2147483600;background:#121212;color:#F1ECE3;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:22px;font-weight:500;letter-spacing:-.02em;transition:transform 1s cubic-bezier(.76,0,.24,1)}
+.intro i{color:var(--signal);font-style:normal}
+.intro.out{transform:translateY(-100%)}
 </style>
 </head>
 <body style="margin:0">
+<div class="intro" id="intro" aria-hidden="true"><span>Labamba<i>.</i>Studio</span></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 <a href="#topo" class="to-top" id="to-top" aria-label="Voltar ao topo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
 <div class="svc-float" id="svc-float" aria-hidden="true"></div>
@@ -669,38 +749,41 @@ footer .wrap{padding-block:72px}
   </div>
 </header>
 
+<script>(function(){var seen=false;try{seen=sessionStorage.getItem('lb-intro')==='1';sessionStorage.setItem('lb-intro','1')}catch(e){}if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){var i=document.getElementById('intro');if(i)i.remove();}else{setTimeout(function(){var i=document.getElementById('intro');if(i){i.classList.add('out');setTimeout(function(){i.remove()},1100)}},1250)}})();</script>
 <main id="main">
   <!-- HERO -->
-  <section class="hero" id="topo">
-    <div class="spot" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="hero-grid">
-      <div class="hero-left">
-      <div class="hero-out">
-        <h1 class="display" data-i="hero.h1"><span class="ln">Criação</span><span class="ln">no <span class="hl">ritmo</span></span><span class="ln"><span class="hl">certo.</span></span></h1>
-      </div>
-        <div class="hero-copy">
-          <p class="promise" data-i="hero.promise">Cabeça de agência grande. <br class="lb">Contato direto com quem cria.</p>
-          <p data-i="hero.p">18 anos de campanhas para marcas como <strong>Flamboyant, Novo Mundo e TV Anhanguera</strong>.</p>
-          <div class="ctas">
-            <a class="btn btn-primary magnetic" data-wa="geral" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="hero.cta1">Pedir uma proposta ↗</a>
-            <a class="btn btn-ghost magnetic" href="#portfolio" data-i="hero.cta2">Ver o trabalho <span aria-hidden="true">↓</span></a>
-          </div>
-          <span class="status" id="agenda"><span class="dot blink" aria-hidden="true"></span><span data-i="hero.tag">Agenda aberta</span></span>
+  <section class="hero bn" id="topo">
+    <h1 class="sr-only" data-i="hero.h1sr">Labamba Studio · Criação no ritmo certo</h1>
+    <div class="giant" aria-hidden="true"><div class="giant-track">
+      <span data-i="hero.giant">Criação no <span class="hl">ritmo</span> certo ·&nbsp;</span><span data-i="hero.giant">Criação no <span class="hl">ritmo</span> certo ·&nbsp;</span><span data-i="hero.giant">Criação no <span class="hl">ritmo</span> certo ·&nbsp;</span><span data-i="hero.giant">Criação no <span class="hl">ritmo</span> certo ·&nbsp;</span>
+    </div></div>
+    <div class="stickers" id="stickers" aria-label="Trabalhos em destaque">
+      <span class="hola" data-i="hero.hola">¡Hola, Latam!</span>
+    </div>
+    <div class="hero-foot">
+      <div class="hero-copy">
+        <p class="promise" data-i="hero.promise">Cabeça de agência grande. <br class="lb">Contato direto com quem cria.</p>
+        <p data-i="hero.p">18 anos de campanhas para marcas como <strong>Flamboyant, Novo Mundo e TV Anhanguera</strong>.</p>
+        <div class="ctas">
+          <a class="btn btn-primary magnetic" data-wa="geral" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="hero.cta1">Pedir uma proposta ↗</a>
+          <a class="btn btn-ghost magnetic" href="#portfolio" data-i="hero.cta2">Ver o trabalho <span aria-hidden="true">↓</span></a>
         </div>
       </div>
-        <div class="stickers" id="stickers" aria-label="Trabalhos em destaque">
-          <span class="hola" data-i="hero.hola">¡Hola, Latam!</span>
-          <span class="drag-hint" data-i="hero.hint">Arraste as peças · cada uma abre o case</span>
-        </div>
+      <div class="hero-side mono">
+        <span class="status" id="agenda"><span class="dot blink" aria-hidden="true"></span><span data-i="hero.tag">Agenda aberta</span></span>
+        <span data-i="hero.hint">Arraste as peças · cada uma abre o case</span>
+        <span>(scroll)</span>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES MARQUEE -->
-  <div class="band svc-band band-skew" aria-hidden="true">
-    <div class="track" id="svcband"></div>
-  </div>
+  <!-- MANIFESTO -->
+  <section class="manifesto">
+    <div class="wrap">
+      <p class="big-statement"><span class="accent" data-i="mf.a">Direção de criação com cabeça de agência grande.</span> <span data-i="mf.b">Ajudo marcas e agências do Brasil e da América Latina a se comunicar com ritmo, personalidade e resultado.</span></p>
+      <a class="pill-link" href="#sobre" data-i="mf.cta">Sobre ↗</a>
+    </div>
+  </section>
 
   <!-- IMAGE STRIP -->
   <div class="band strip band-skew" aria-label="Galeria">
@@ -720,22 +803,15 @@ footer .wrap{padding-block:72px}
 
   <!-- CLIENT LOGOS -->
   <section class="clients" aria-labelledby="clients-title">
-    <div class="wrap clients-head">
-      <h2 id="clients-title" class="mono" data-i="cl.h2">Marcas atendidas ao longo da carreira</h2>
-      <span class="mono muted" data-i="cl.hint">Passe o mouse para pausar</span>
-    </div>
-    <div class="band logo-band band-skew">
-      <div class="track" id="logos"></div>
+    <div class="wrap">
+      <h2 id="clients-title" class="label" data-i="cl.h2">Marcas atendidas ao longo da carreira</h2>
+      <p class="client-list" id="client-list"></p>
     </div>
   </section>
 
   <!-- LATAM -->
   <section class="latam" id="latam" aria-labelledby="latam-title" style="border-top:1px solid var(--line)">
     <div class="latam-map" aria-hidden="true"><canvas id="map"></canvas></div>
-    <div class="kinetic" aria-hidden="true">
-      <div class="row r1"><span>Criatividade latina</span><span>Creatividad latina</span><span>Criatividade latina</span></div>
-      <div class="row r2"><span>Padrão global</span><span>Estándar global</span><span>Padrão global</span><span>Estándar global</span></div>
-    </div>
     <div class="wrap">
       <div class="latam-grid">
         <div class="latam-intro">
@@ -815,7 +891,7 @@ footer .wrap{padding-block:72px}
       <div class="sec-head">
         <h2 class="display h2" data-i="sv.h2">O que a gente faz</h2>
       </div>
-      <div class="services" id="services"></div>
+      <div class="svc-acc" id="services"></div>
     </div>
   </section>
 
@@ -972,12 +1048,15 @@ const catLabel = c => (lang === 'es' ? (CAT_ES[c] || c) : c);
 
 /* Strings used by scripts */
 const UI = {
-  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'A ideia', scope: 'Desdobramento', result: 'Resultado', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, zoom: 'Ampliar imagem', prev: 'Anterior', next: 'Próxima', copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', top: 'Voltar ao topo', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', waPonte: 'Olá Victor! Vi a parte América Latina do site e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR', wam: { geral: 'Olá Victor! Vi o site da Labamba e quero pedir uma proposta. O projeto é: ', agencia: 'Olá Victor! Sou de uma agência e quero reforçar nossa criação. O que precisamos: ', marca: 'Olá Victor! Quero cuidar da imagem da minha marca. O projeto é: ' }, waSvc: 'Olá Victor! Vi no site e quero conversar sobre: ' },
-  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'La idea', scope: 'Despliegue', result: 'Resultado', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, zoom: 'Ampliar imagen', prev: 'Anterior', next: 'Siguiente', copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', top: 'Volver arriba', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', waPonte: '¡Hola Victor! Vi la parte Latinoamérica del sitio y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419', wam: { geral: '¡Hola Victor! Vi el sitio de Labamba y quiero pedir una propuesta. El proyecto es: ', agencia: '¡Hola Victor! Soy de una agencia y queremos reforzar nuestro equipo creativo. Lo que necesitamos: ', marca: '¡Hola Victor! Quiero cuidar la imagen de mi marca. El proyecto es: ' }, waSvc: '¡Hola Victor! Lo vi en el sitio y quiero conversar sobre: ' }
+  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'A ideia', scope: 'Desdobramento', result: 'Resultado', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, zoom: 'Ampliar imagem', prev: 'Anterior', next: 'Próxima', copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', top: 'Voltar ao topo', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', waPonte: 'Olá Victor! Vi a parte América Latina do site e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR', wam: { geral: 'Olá Victor! Vi o site da Labamba e quero pedir uma proposta. O projeto é: ', agencia: 'Olá Victor! Sou de uma agência e quero reforçar nossa criação. O que precisamos: ', marca: 'Olá Victor! Quero cuidar da imagem da minha marca. O projeto é: ' }, waSvc: 'Olá Victor! Vi no site e quero conversar sobre: ', svcCta: 'Conversar sobre isso' },
+  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'La idea', scope: 'Despliegue', result: 'Resultado', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, zoom: 'Ampliar imagen', prev: 'Anterior', next: 'Siguiente', copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', top: 'Volver arriba', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', waPonte: '¡Hola Victor! Vi la parte Latinoamérica del sitio y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419', wam: { geral: '¡Hola Victor! Vi el sitio de Labamba y quiero pedir una propuesta. El proyecto es: ', agencia: '¡Hola Victor! Soy de una agencia y queremos reforzar nuestro equipo creativo. Lo que necesitamos: ', marca: '¡Hola Victor! Quiero cuidar la imagen de mi marca. El proyecto es: ' }, waSvc: '¡Hola Victor! Lo vi en el sitio y quiero conversar sobre: ', svcCta: 'Conversemos sobre esto' }
 };
 
 /* Spanish (Latam) for every element marked data-i. Portuguese stays in the HTML. */
 const ES = {
+  'hero.h1sr': 'Labamba Studio · Creatividad al ritmo justo',
+  'hero.giant': 'Creatividad al <span class="hl">ritmo</span> justo ·&nbsp;',
+  'mf.a': 'Dirección creativa con cabeza de gran agencia.', 'mf.b': 'Ayudo a marcas y agencias de Brasil y Latinoamérica a comunicar con ritmo, personalidad y resultados.', 'mf.cta': 'Sobre mí ↗',
   'hero.hola': '¡Hola, Latam!', 'hero.hint': 'Arrastra las piezas · cada una abre el caso',
   'hero.promise': 'Cabeza de gran agencia. <br class="lb">Trato directo con quien crea.',
   'hero.p': '18 años de campañas para marcas como <strong>Flamboyant, Novo Mundo y TV Anhanguera</strong>.',
@@ -1053,21 +1132,32 @@ const T = () => UI[lang];
 
 
 // Logos marquee, repeated so half the loop is wider than big screens
+const cl = document.getElementById('client-list');
+if (cl) cl.innerHTML = BRANDS.map((b, i) => `<span class="cw" style="--i:${i}">${esc(b.name)}${i < BRANDS.length - 1 ? ',' : '.'}</span>`).join(' ');
 const logoItem = (b, hidden) => `<div class="logo"${hidden ? ' aria-hidden="true"' : ''}>${b.src ? `<img src="${esc(b.src)}" alt="${hidden ? '' : esc(b.name)}">` : `<span class="ph">${esc(b.name)}</span>`}</div>`;
 const reps = Math.max(1, Math.ceil(12 / BRANDS.length));
 const half = Array.from({length: reps}, () => BRANDS).flat();
-$('#logos').innerHTML = half.map((b, i) => logoItem(b, i >= BRANDS.length)).join('') + half.map(b => logoItem(b, true)).join('');
+if ($('#logos')) $('#logos').innerHTML = half.map((b, i) => logoItem(b, i >= BRANDS.length)).join('') + half.map(b => logoItem(b, true)).join('');
 
 // Country codes: home countries highlighted
 const CODES = ['AR','BO','BR','CL','CO','CR','EC','GT','MX','PA','PE','PY','UY','VE'];
 const HOME = ['BR','PY','AR'];
 $('#codes').innerHTML = CODES.map(c => `<span data-c="${c}"${HOME.includes(c) ? ' class="home"' : ''}>${c}</span>`).join('');
 
+let svcOn = 0;
+const SVC_TAGS = {
+  pt: [['Logo','Sistema visual','Manual de marca','Aplicações'],['Conceito','Campanha 360','Desdobramentos','On e off'],['Lançamentos','Eventos','Temporadas','Imagem-mãe'],['Linha editorial','Templates','Produção recorrente'],['Vinhetas','Animação de marca','Redes'],['Pitch','Decks','Narrativa']],
+  es: [['Logo','Sistema visual','Manual de marca','Aplicaciones'],['Concepto','Campaña 360','Despliegues','On y off'],['Lanzamientos','Eventos','Temporadas','Imagen madre'],['Línea editorial','Plantillas','Producción recurrente'],['Viñetas','Animación de marca','Redes'],['Pitch','Decks','Narrativa']]
+};
+document.addEventListener('pointerover', e => { const b = e.target.closest && e.target.closest('.svc-w'); if (b) setSvc(+b.dataset.i); });
+document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('.svc-w'); if (b) setSvc(+b.dataset.i); });
+function setSvc(i){ if (i === svcOn) return; svcOn = i; document.querySelectorAll('.svc-w').forEach(b => b.classList.toggle('on', +b.dataset.i === i)); document.querySelectorAll('.svc-p').forEach(p => p.classList.toggle('on', +p.dataset.i === i)); }
 function renderServices(){
   const words = SERVICES.map(s => s[lang][0]).concat([T().artDir]);
-  $('#svcband').innerHTML = words.concat(words).map(w => `<span>${esc(w)}</span>`).join('');
-  $('#services').innerHTML = SERVICES.map((s, i) => `
-    <a class="svc" target="_blank" rel="noopener" href="${esc(waURL(T().waSvc + s[lang][0]))}"><span class="n">${String(i+1).padStart(2,'0')}</span><span class="t">${esc(s[lang][0])}</span><span class="d">${esc(s[lang][1])}</span><span class="ar" aria-hidden="true">→</span></a>`).join('');
+  const tags = SVC_TAGS[lang] || SVC_TAGS.pt;
+  const cur = Math.min(svcOn, SERVICES.length - 1);
+  $('#services').innerHTML = `<ol class="svc-list">${SERVICES.map((s, i) => `<li><button type="button" class="svc-w${i === cur ? ' on' : ''}" data-i="${i}"><sup>${String(i+1).padStart(2,'0')}</sup>${esc(s[lang][0])}</button></li>`).join('')}</ol>
+    <div class="svc-panel" aria-live="polite">${SERVICES.map((s, i) => `<div class="svc-p${i === cur ? ' on' : ''}" data-i="${i}"><h3>${esc(s[lang][0])}</h3><p>${esc(s[lang][1])}</p><ul class="tags">${(tags[i] || []).map(t => `<li>${esc(t)}</li>`).join('')}</ul><a class="pill-link" target="_blank" rel="noopener" href="${esc(waURL(T().waSvc + s[lang][0]))}">${esc(T().svcCta)} ↗</a></div>`).join('')}</div>`;
 }
 
 let current = 'all';
@@ -1249,8 +1339,8 @@ function renderCareer(){
   pool = pool.slice(0, max);
   // posições em % da área, largura em % e rotação
   const SLOTS = small
-    ? [[2,8,58,-6],[40,30,56,7],[8,58,54,-3]]
-    : [[6,0,50,6],[56,6,42,-7],[12,40,56,-3],[60,48,40,9],[-4,70,34,-10],[44,76,30,4]];
+    ? [[2,3,46,-6],[50,9,46,7],[24,30,48,-3]]
+    : [[2,9,15,-6],[24,2,11,7],[60,4,13,-4],[81,15,16,6],[45,55,15,5],[71,57,14,-8]];
   const tilt = small ? [-6,7,-3] : [6,-7,-3,9,-10,4];
   box.insertAdjacentHTML('afterbegin', pool.map((o, k) => {
     const [x, y, w] = SLOTS[k];
@@ -1260,6 +1350,7 @@ function renderCareer(){
   box.querySelectorAll('.sticker').forEach(el => {
     let sx = 0, sy = 0, ox = 0, oy = 0, moved = false, id = null;
     el.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'touch') { sx = e.clientX; sy = e.clientY; el._t = true; return; }
       id = e.pointerId; el.setPointerCapture(id); moved = false;
       sx = e.clientX; sy = e.clientY;
       ox = parseFloat(el.style.getPropertyValue('--dx')) || 0; oy = parseFloat(el.style.getPropertyValue('--dy')) || 0;
@@ -1271,7 +1362,7 @@ function renderCareer(){
       if (Math.abs(dx) + Math.abs(dy) > 6) moved = true;
       el.style.setProperty('--dx', (ox + dx) + 'px'); el.style.setProperty('--dy', (oy + dy) + 'px');
     });
-    const end = e => { if (id !== e.pointerId) return; id = null; el.classList.remove('dragging'); if (!moved) openCase(+el.dataset.idx); };
+    const end = e => { if (el._t) { el._t = false; if (Math.abs(e.clientX - sx) + Math.abs(e.clientY - sy) < 10) openCase(+el.dataset.idx); return; } if (id !== e.pointerId) return; id = null; el.classList.remove('dragging'); if (!moved) openCase(+el.dataset.idx); };
     el.addEventListener('pointerup', end); el.addEventListener('pointercancel', () => { id = null; el.classList.remove('dragging'); });
     el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCase(+el.dataset.idx); } });
   });
@@ -1318,18 +1409,20 @@ function renderQuotes(){
 // Entradas suaves em sequência
 (function(){
   const mark = (sel, cls, stagger) => document.querySelectorAll(sel).forEach((el, i) => { el.classList.add(cls); if (stagger) el.style.setProperty('--d', ((i % stagger) * 0.08).toFixed(2) + 's'); });
-  mark('.display.h2, .contact .display', 'reveal-title');
+  mark('.display.h2, .contact .display, .big-statement', 'reveal-title');
   mark('.sec-head p, .latam-intro p, .latam-intro .ctas, .clock, .about-text, .faq details, .contact-row > p, .channels', 'reveal');
   mark('.side', 'reveal', 2); mark('.card', 'reveal', 2); mark('.step', 'reveal', 5); mark('.svc', 'reveal', 6);
   mark('.career-row', 'reveal', 4); mark('.quote', 'reveal', 3);
   if (reduce || !('IntersectionObserver' in window)) { document.querySelectorAll('.reveal,.reveal-title,.reveal-img').forEach(el => el.classList.add('in')); return; }
   const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+  window.__io = io;
   const watch = root => root.querySelectorAll('.reveal:not(.in),.reveal-title:not(.in),.reveal-img:not(.in)').forEach(el => io.observe(el));
   watch(document);
   // cases são redesenhados ao filtrar/trocar idioma: marca e observa de novo
   const cases = document.getElementById('cases');
   const prep = () => { cases.querySelectorAll('.case-img').forEach((el, i) => { el.classList.add('reveal-img'); el.style.setProperty('--d', ((i % 3) * 0.1).toFixed(2) + 's'); }); watch(cases); };
   prep(); new MutationObserver(prep).observe(cases, { childList: true });
+  const cls = document.getElementById('client-list'); if (cls) io.observe(Object.assign(cls, {})), cls.classList.add('reveal-list');
   const photo = document.querySelector('.about-photo'); if (photo) { photo.classList.add('reveal-img'); io.observe(photo); }
 })();
 
@@ -1605,7 +1698,7 @@ if (!reduce) {
   // Service rows: floating image preview follows the cursor
   if (finePointer) {
     const fl = document.getElementById('svc-float');
-    const list = document.getElementById('services');
+    const list = document.getElementById('services'); if (!list || !list.querySelector('.svc')) return;
     let fx = 0, fy = 0, tx = 0, ty = 0, raf = 0;
     const follow = () => { fx += (tx - fx) * .18; fy += (ty - fy) * .18; fl.style.left = fx + 'px'; fl.style.top = fy + 'px'; raf = fl.classList.contains('on') ? requestAnimationFrame(follow) : 0; };
     list.addEventListener('pointerover', e => {
