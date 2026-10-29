@@ -183,13 +183,13 @@ img{max-width:100%;display:block}
 /* Hero stickers (arrastáveis) */
 .stickers{position:relative;flex:1 1 460px;min-width:0;min-height:clamp(520px,48vw,700px);touch-action:pan-y}
 .sticker{position:absolute;margin:0;padding:10px 10px 0;background:#fff;border-radius:6px;box-shadow:0 18px 40px rgba(60,45,25,.18),0 2px 6px rgba(60,45,25,.08);cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;
-  transform:translate(var(--dx,0px),calc(var(--dy,0px) + var(--py,0px))) rotate(var(--r,0deg));transition:box-shadow .3s, transform .6s var(--soft,ease);will-change:transform;animation:stickIn .7s var(--ease) both}
+  transform:translate3d(calc(var(--dx,0px) + var(--mx,0px)),calc(var(--dy,0px) + var(--py,0px) + var(--my,0px)),0) rotate(var(--r,0deg));transition:box-shadow .4s var(--soft,ease), scale .6s var(--soft,ease);will-change:transform;animation:stickIn .7s var(--ease) both}
 .sticker img{display:block;width:100%;height:auto;border-radius:2px;pointer-events:none}
 .sticker figcaption{font-size:12px;font-weight:600;padding:8px 2px 10px;color:#121212;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sticker:hover{box-shadow:0 26px 56px rgba(60,45,25,.26),0 2px 6px rgba(60,45,25,.08);transform:translate(var(--dx,0px),calc(var(--dy,0px) + var(--py,0px))) rotate(calc(var(--r,0deg) * .4)) scale(1.03)}
-.sticker.dragging{cursor:grabbing;transition:box-shadow .25s;box-shadow:0 34px 70px rgba(60,45,25,.3);transform:translate(var(--dx,0px),calc(var(--dy,0px) + var(--py,0px))) rotate(calc(var(--r,0deg) * .4)) scale(1.06)}
+.sticker:hover{box-shadow:0 26px 56px rgba(60,45,25,.26),0 2px 6px rgba(60,45,25,.08);transform:translate3d(calc(var(--dx,0px) + var(--mx,0px)),calc(var(--dy,0px) + var(--py,0px) + var(--my,0px)),0) rotate(var(--r,0deg));scale:1.04}
+.sticker.dragging{cursor:grabbing;transition:box-shadow .25s;box-shadow:0 34px 70px rgba(60,45,25,.3);transform:translate3d(calc(var(--dx,0px) + var(--mx,0px)),calc(var(--dy,0px) + var(--py,0px) + var(--my,0px)),0) rotate(var(--r,0deg));scale:1.07}
 .sticker:focus-visible{outline:3px solid var(--signal);outline-offset:4px}
-.hola{position:absolute;z-index:50;left:50%;top:40%;background:var(--signal);color:#121212;font-weight:800;font-size:15px;padding:8px 14px;border-radius:99px;transform:rotate(-8deg);pointer-events:none;box-shadow:0 8px 20px rgba(255,46,147,.25)}
+.hola{position:absolute;z-index:50;translate:calc(var(--hx,0) * 1px) calc(var(--hy,0) * 1px);left:50%;top:40%;background:var(--signal);color:#121212;font-weight:800;font-size:15px;padding:8px 14px;border-radius:99px;transform:rotate(-8deg);pointer-events:none;box-shadow:0 8px 20px rgba(255,46,147,.25)}
 .drag-hint{position:absolute;right:0;bottom:-6px;font-size:14px;color:var(--muted)}
 @keyframes stickIn{from{opacity:0;transform:translate(var(--dx,0px),calc(var(--dy,0px) + 40px)) rotate(calc(var(--r,0deg) * 2)) scale(.9)}to{opacity:1}}
 @media (max-width:760px){.stickers{min-height:440px;margin-top:8px}.hola{left:auto;right:4%;top:2%}.drag-hint{left:0;right:auto}}
@@ -591,7 +591,7 @@ dialog{border-radius:var(--r-lg);border:0}
 .svc{transition:background-color .5s var(--soft),padding .5s var(--soft),color .4s var(--soft)}
 .svc .ar{transition:transform .5s var(--soft)}
 /* cursor que reage aos trabalhos */
-.cursor{position:fixed;left:0;top:0;z-index:60;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:999px;background:var(--signal);pointer-events:none;
+.cursor{position:fixed;left:0;top:0;z-index:2147483000;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:999px;background:var(--signal);pointer-events:none;
   display:flex;align-items:center;justify-content:center;color:#121212;font:700 13px/1 var(--body);white-space:nowrap;
   transition:width .45s var(--soft),height .45s var(--soft),margin .45s var(--soft),opacity .3s;opacity:0;will-change:transform}
 .cursor span{opacity:0;transition:opacity .25s}
@@ -599,6 +599,8 @@ dialog{border-radius:var(--r-lg);border:0}
 .cursor.big{width:92px;height:92px;margin:-46px 0 0 -46px}
 .cursor.big span{opacity:1}
 @media (hover:none),(pointer:coarse){.cursor{display:none}}
+@media (hover:hover) and (pointer:fine){html.has-cursor,html.has-cursor *{cursor:none!important}}
+
 @media (hover:hover) and (pointer:fine){.case-img .open{display:none}}
 @media (prefers-reduced-motion:reduce){.reveal,.reveal-title,.reveal-img,.reveal-img img{opacity:1!important;transform:none!important;clip-path:none!important}}
 </style>
@@ -1304,10 +1306,27 @@ function renderQuotes(){
   addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
 })();
 
+// Adesivos flutuam com o mouse, cada um numa profundidade (leveza do BeNorth)
+(function(){
+  if (reduce || !finePointer) return;
+  const box = document.getElementById('stickers'); if (!box) return;
+  const els = [...box.querySelectorAll('.sticker')]; if (!els.length) return;
+  const depth = [26, 44, 18, 38, 52, 30];
+  let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+  const loop = () => {
+    cx += (tx - cx) * .06; cy += (ty - cy) * .06;
+    const hola = box.querySelector('.hola'); if (hola) { hola.style.setProperty('--hx', (cx * -60).toFixed(2)); hola.style.setProperty('--hy', (cy * -60).toFixed(2)); }
+    els.forEach((el, i) => { const d = depth[i % depth.length] * (i % 2 ? -1 : 1); el.style.setProperty('--mx', (cx * d).toFixed(2) + 'px'); el.style.setProperty('--my', (cy * d).toFixed(2) + 'px'); });
+    raf = (Math.abs(tx - cx) + Math.abs(ty - cy) > .001) ? requestAnimationFrame(loop) : 0;
+  };
+  addEventListener('pointermove', e => { tx = (e.clientX / innerWidth - .5) * 2; ty = (e.clientY / innerHeight - .5) * 2; if (!raf) raf = requestAnimationFrame(loop); }, { passive: true });
+})();
+
 // Cursor que cresce sobre os trabalhos
 (function(){
   if (!finePointer || reduce) return;
   const c = document.getElementById('cursor'); if (!c) return;
+  document.documentElement.classList.add('has-cursor');
   const label = c.querySelector('span');
   let x = innerWidth / 2, y = innerHeight / 2, cx = x, cy = y, raf = 0;
   const loop = () => { cx += (x - cx) * .2; cy += (y - cy) * .2; c.style.transform = `translate(${cx}px,${cy}px)`; raf = requestAnimationFrame(loop); };
@@ -1318,6 +1337,8 @@ function renderQuotes(){
   addEventListener('pointermove', e => { x = e.clientX; y = e.clientY; c.classList.add('on'); if (!raf) raf = requestAnimationFrame(loop); check(e.target); }, { passive: true });
   addEventListener('scroll', () => check(document.elementFromPoint(x, y)), { passive: true });
   document.addEventListener('pointerleave', () => c.classList.remove('on'));
+  const host = () => { const d = document.querySelector('dialog[open]'); const want = d || document.body; if (c.parentNode !== want) want.appendChild(c); };
+  new MutationObserver(host).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['open'] });
 })();
 
 /* ================= Language ================= */
