@@ -14,7 +14,7 @@
 <meta name="description" content="Direção de criação com cabeça de agência grande e contato direto com quem cria. Campanhas, identidade e key visual para marcas e agências do Brasil e da América Latina, em português e espanhol.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500;700&display=swap">
 <style>
 /* Layout: dark "studio console" — expanded grotesk headlines on a faint technical grid,
    mono labels as instrument readouts, cobalt as the one bold color, orange only as a signal light.
@@ -34,9 +34,9 @@
   --signal:#FF2E93;
   --signal-text:#C4006A;
   --signal-ink:#121212;
-  --display:'Inter', system-ui, sans-serif;
-  --body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --mono:'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --display:'Geist', 'Inter', system-ui, sans-serif;
+  --body:'Geist', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:'Geist Mono', 'JetBrains Mono', ui-monospace, Menlo, monospace;
   --ease:cubic-bezier(.2,.8,.2,1);
   color-scheme:light;
 }
@@ -603,6 +603,43 @@ dialog{border-radius:var(--r-lg);border:0}
 
 @media (hover:hover) and (pointer:fine){.case-img .open{display:none}}
 @media (prefers-reduced-motion:reduce){.reveal,.reveal-title,.reveal-img,.reveal-img img{opacity:1!important;transform:none!important;clip-path:none!important}}
+
+/* ===== Fonte e respiro (estilo BeNorth) ===== */
+body{font-size:18px;line-height:1.6;letter-spacing:-.005em}
+.display{font-weight:500;letter-spacing:-.05em;line-height:.94}
+.hero h1{font-size:clamp(58px,9vw,148px);font-weight:500}
+.h2{font-size:clamp(42px,5.6vw,92px)}
+.hero-copy .promise{font-weight:500;letter-spacing:-.02em}
+.svc .t{font-weight:500;letter-spacing:-.045em}
+.case h3,.lp h3,.side h3,.card h3,.faq summary,.facts b{font-weight:500;letter-spacing:-.02em}
+.step h3,.pillar h3,.story h3,.career-years,.li-card .l2{font-weight:500;text-transform:none;letter-spacing:-.03em}
+.step-n,.card .big,.career-row .yr,.side .dir,.kinetic .row,.svc-band .track span{font-weight:500;letter-spacing:-.04em}
+.brand b{font-weight:600;letter-spacing:-.02em}
+.mono{letter-spacing:.04em}
+strong,b{font-weight:600}
+.btn{font-weight:500}
+.nav{font-weight:400}
+.nav .btn{font-weight:500}
+/* mais respiro entre e dentro das seções */
+.wrap{max-width:1380px;padding-left:max(clamp(20px,5vw,72px), env(safe-area-inset-left,0px));padding-right:max(clamp(20px,5vw,72px), env(safe-area-inset-right,0px))}
+.sec{padding-block:clamp(96px,13vw,200px)}
+.sec-head{margin-bottom:clamp(48px,6.5vw,104px)}
+.hero .wrap{padding-block:clamp(64px,9vw,140px) clamp(72px,10vw,150px)}
+.hero-copy{gap:40px}
+.grid-cases{gap:clamp(40px,4.5vw,72px) clamp(20px,2.4vw,36px)}
+.duo{gap:clamp(20px,2.4vw,32px)}
+.card{padding:clamp(28px,3.6vw,52px);gap:24px}
+.steps{gap:clamp(12px,1.4vw,20px)}
+.step{padding:clamp(24px,2.6vw,36px)}
+.svc{padding:clamp(28px,3vw,44px) 0}
+.latam{padding-block:clamp(96px,12vw,180px)}
+.latam-sides{gap:clamp(16px,2vw,28px);margin-top:clamp(56px,7vw,104px)}
+.clients{padding-block:clamp(72px,9vw,128px)}
+.about{gap:clamp(40px,6vw,104px)}
+.career{margin-top:clamp(72px,9vw,128px)}
+.faq summary{padding:28px 0}
+.contact-row{margin-top:clamp(56px,7vw,96px)}
+footer .wrap{padding-block:72px}
 </style>
 </head>
 <body style="margin:0">
@@ -1337,7 +1374,7 @@ function renderQuotes(){
   addEventListener('pointermove', e => { x = e.clientX; y = e.clientY; c.classList.add('on'); if (!raf) raf = requestAnimationFrame(loop); check(e.target); }, { passive: true });
   addEventListener('scroll', () => check(document.elementFromPoint(x, y)), { passive: true });
   document.addEventListener('pointerleave', () => c.classList.remove('on'));
-  const host = () => { const d = document.querySelector('dialog[open]'); const want = d || document.body; if (c.parentNode !== want) want.appendChild(c); };
+  const host = () => { const all = document.querySelectorAll('dialog[open]'); const d = all[all.length - 1]; const want = d || document.body; if (c.parentNode !== want) want.appendChild(c); };
   new MutationObserver(host).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['open'] });
 })();
 
@@ -1426,7 +1463,7 @@ const MAP = {"nx":95,"ny":104,"g":["","011111","00110111111111","001100111111111
     }
     // markers
     const pulse = ((now - t0) % 2200) / 2200;
-    ctx.font = `700 ${11 * dpr}px 'JetBrains Mono', ui-monospace, monospace`;
+    ctx.font = `500 ${11 * dpr}px 'Geist Mono', ui-monospace, monospace`;
     ctx.textBaseline = 'middle';
     for (const m of MARKS) {
       const [mxk, myk] = MAP.m[m.k];
