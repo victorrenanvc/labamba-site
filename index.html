@@ -255,7 +255,8 @@ img{max-width:100%;display:block}
 .side{border:1px solid var(--line);background:var(--bg);padding:clamp(22px,2.6vw,34px);display:flex;flex-direction:column;gap:14px;transition:border-color .25s}
 .side:hover{border-color:var(--accent)}
 .side.b:hover{border-color:var(--signal)}
-.side .dir{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(44px,5.4vw,80px);line-height:.88;letter-spacing:-.025em;color:var(--accent-hi);white-space:nowrap}
+.latam-sides{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:16px;margin-top:clamp(40px,5vw,64px)}
+.side .dir{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(36px,4.2vw,64px);line-height:.88;letter-spacing:-.025em;color:var(--accent-hi);white-space:nowrap}
 .side.b .dir{color:var(--signal)}
 .side h3{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:clamp(22px,2vw,28px);line-height:1.15}
 .side ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:17px;color:#C9CCD6}
@@ -515,8 +516,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
     </a>
     <nav class="nav mono" aria-label="Principal">
       <a href="#portfolio" data-scramble data-i="nav.portfolio">Portfólio</a>
-      <a href="#brasil-paraguai" data-scramble data-i="nav.ponte">Brasil + Paraguai</a>
-      <a href="#latam" data-scramble data-i="nav.latam">Latam</a>
+      <a href="#latam" data-scramble data-i="nav.latam">América Latina</a>
       <a href="#como-fazemos" data-scramble data-i="nav.como">Como fazemos</a>
       <a href="#servicos" data-scramble data-i="nav.servicos">Serviços</a>
       <a href="#sobre" data-scramble data-i="nav.sobre">Sobre</a>
@@ -588,32 +588,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
     </div>
   </section>
 
-  <!-- BRASIL + PARAGUAI -->
-  <section class="sec ponte" id="brasil-paraguai" aria-labelledby="ponte-title">
-    <div class="wrap">
-      <div class="ponte-grid">
-        <div class="ponte-text rv">
-          <h2 id="ponte-title" class="display h2 rv-title" data-i="po.h2">Do Brasil para o Paraguai, sem se perder na tradução</h2>
-          <p data-i="po.p1">Cada vez mais empresas brasileiras produzem e vendem no Paraguai. A diretoria pensa em português; o cliente compra em espanhol, às vezes em guarani. <strong>Traduzir o anúncio não basta:</strong> humor, referências e jeito de falar mudam quando se cruza a fronteira.</p>
-          <p data-i="po.p2">Sou filho de pai paraguaio-argentino, tenho família no Paraguai e cresci entre os dois lados. Sei o que se perde quando uma campanha atravessa a fronteira só traduzida, e como adaptar para ela continuar funcionando.</p>
-          <div class="ctas"><a class="btn btn-primary magnetic" id="ponte-wa" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="po.cta">Falar sobre o seu projeto ↗</a></div>
-        </div>
-        <div class="ponte-sides">
-          <div class="side rv">
-            <span class="dir" aria-hidden="true">BR → PY</span>
-            <h3 data-i="po.a.h">Empresas brasileiras no Paraguai</h3>
-            <ul data-i="po.a.ul"><li>Adaptação de campanhas e identidade da matriz</li><li>Criação pensada para o público paraguaio</li><li>Ponte entre a diretoria no Brasil e a equipe local</li></ul>
-          </div>
-          <div class="side b rv">
-            <span class="dir" aria-hidden="true">PY → BR</span>
-            <h3 data-i="po.b.h">Marcas paraguaias de olho no Brasil</h3>
-            <ul data-i="po.b.ul"><li>Comunicação para entrar no mercado brasileiro</li><li>Linguagem e referências que o brasileiro reconhece</li><li>Campanhas para feiras e rodadas de negócios</li></ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- LATAM -->
   <section class="latam" id="latam" aria-labelledby="latam-title" style="border-top:1px solid var(--line)">
     <div class="latam-map" aria-hidden="true"><canvas id="map"></canvas></div>
@@ -625,7 +599,8 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
       <div class="latam-grid">
         <div class="latam-intro rv">
           <h2 id="latam-title" class="display h2" style="max-width:15ch" data-i="la.h2">Um criativo latino para marcas que querem ir longe</h2>
-          <p data-i="la.p">A América Latina tem cor, ritmo, humor e calor próprios. A Labamba traduz esse repertório em marca <strong>com o método e o acabamento que o mercado global exige</strong>, para agências e empresas de toda a região.</p>
+          <p data-i="la.p">A América Latina tem cor, ritmo, humor e calor próprios, e cada país tem os seus. Uma campanha que funciona em Goiânia não funciona igual em Assunção, Buenos Aires ou Bogotá: <strong>traduzir o anúncio não basta.</strong> Filho de pai paraguaio-argentino, cresci entre os dois lados da fronteira e sei adaptar uma marca para ela continuar funcionando do outro lado.</p>
+          <div class="ctas"><a class="btn btn-primary magnetic" id="ponte-wa" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="po.cta">Falar sobre o seu projeto ↗</a></div>
         </div>
         <div class="clock rv">
           <div class="clock-top mono muted"><span>Base · Goiânia, BR</span><span>GMT−3</span></div>
@@ -634,10 +609,17 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
           <div class="codes" id="codes" aria-hidden="true"></div>
         </div>
       </div>
-      <div class="latam-points">
-        <div class="lp"><h3 data-i="lp1.h">Olhar latino, sem clichê</h3><p data-i="lp1.p">Referências da nossa cultura usadas com critério, para criar marcas com personalidade e não caricatura.</p></div>
-        <div class="lp"><h3 data-i="lp2.h">Atendimento remoto na região</h3><p data-i="lp2.p">Do Brasil para a América Latina, com rotina de trabalho e entregas pensadas para times distribuídos.</p></div>
-        <div class="lp"><h3 data-i="lp3.h">Execução de nível global</h3><p data-i="lp3.p">Processo documentado, arquivos organizados e acabamento pronto para rodar em qualquer mercado.</p></div>
+      <div class="latam-sides">
+        <div class="side rv">
+          <span class="dir" aria-hidden="true">BR → LATAM</span>
+          <h3 data-i="po.a.h">Marcas brasileiras indo para a América Latina</h3>
+          <ul data-i="po.a.ul"><li>Adaptação de campanhas e identidade para cada país</li><li>Criação pensada para o público que fala espanhol</li><li>Ponte entre a matriz no Brasil e as equipes locais</li></ul>
+        </div>
+        <div class="side b rv">
+          <span class="dir" aria-hidden="true">LATAM → BR</span>
+          <h3 data-i="po.b.h">Marcas latino-americanas de olho no Brasil</h3>
+          <ul data-i="po.b.ul"><li>Comunicação para entrar no mercado brasileiro</li><li>Linguagem e referências que o brasileiro reconhece</li><li>Campanhas para feiras, lançamentos e rodadas de negócios</li></ul>
+        </div>
       </div>
     </div>
   </section>
@@ -817,20 +799,16 @@ const catLabel = c => (lang === 'es' ? (CAT_ES[c] || c) : c);
 
 /* Strings used by scripts */
 const UI = {
-  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'Solução', scope: 'Entregas', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, zoom: 'Ampliar imagem', prev: 'Anterior', next: 'Próxima', copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', top: 'Voltar ao topo', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', waPonte: 'Olá Victor! Vi a parte Brasil + Paraguai do site e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR' },
-  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'Solución', scope: 'Entregables', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, zoom: 'Ampliar imagen', prev: 'Anterior', next: 'Siguiente', copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', top: 'Volver arriba', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', waPonte: '¡Hola Victor! Vi la parte Paraguay + Brasil del sitio y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419' }
+  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'Solução', scope: 'Entregas', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, zoom: 'Ampliar imagem', prev: 'Anterior', next: 'Próxima', copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', top: 'Voltar ao topo', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', waPonte: 'Olá Victor! Vi a parte América Latina do site e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR' },
+  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'Solución', scope: 'Entregables', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, zoom: 'Ampliar imagen', prev: 'Anterior', next: 'Siguiente', copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', top: 'Volver arriba', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', waPonte: '¡Hola Victor! Vi la parte Latinoamérica del sitio y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419' }
 };
 
 /* Spanish (Latam) for every element marked data-i. Portuguese stays in the HTML. */
 const ES = {
-  'nav.ponte': 'Paraguay + Brasil',
-  'po.h2': 'De Brasil a Paraguay, sin perderse en la traducción',
-  'po.p1': 'Cada vez más empresas brasileñas producen y venden en Paraguay. La dirección piensa en portugués; el cliente compra en español, a veces en guaraní. <strong>Traducir el anuncio no alcanza:</strong> el humor, las referencias y la forma de hablar cambian al cruzar la frontera.',
-  'po.p2': 'Soy hijo de padre paraguayo-argentino, tengo familia en Paraguay y crecí entre los dos lados. Sé lo que se pierde cuando una campaña cruza la frontera solo traducida, y cómo adaptarla para que siga funcionando.',
   'po.cta': 'Hablemos de tu proyecto ↗',
-  'po.a.h': 'Empresas brasileñas en Paraguay', 'po.a.ul': '<li>Adaptación de campañas e identidad de la casa matriz</li><li>Creación pensada para el público paraguayo</li><li>Puente entre la dirección en Brasil y el equipo local</li>',
-  'po.b.h': 'Marcas paraguayas que miran a Brasil', 'po.b.ul': '<li>Comunicación para entrar al mercado brasileño</li><li>Lenguaje y referencias que el brasileño reconoce</li><li>Campañas para ferias y ruedas de negocios</li>',
-  'nav.portfolio': 'Portafolio', 'nav.latam': 'Latam', 'nav.como': 'Cómo lo hacemos', 'nav.servicos': 'Servicios', 'nav.sobre': 'Sobre mí', 'nav.cta': 'Iniciar proyecto →',
+  'po.a.h': 'Marcas brasileñas que van a Latinoamérica', 'po.a.ul': '<li>Adaptación de campañas e identidad para cada país</li><li>Creación pensada para el público hispanohablante</li><li>Puente entre la casa matriz en Brasil y los equipos locales</li>',
+  'po.b.h': 'Marcas latinoamericanas que miran a Brasil', 'po.b.ul': '<li>Comunicación para entrar al mercado brasileño</li><li>Lenguaje y referencias que el brasileño reconoce</li><li>Campañas para ferias, lanzamientos y ruedas de negocios</li>',
+  'nav.portfolio': 'Portafolio', 'nav.latam': 'Latinoamérica', 'nav.como': 'Cómo lo hacemos', 'nav.servicos': 'Servicios', 'nav.sobre': 'Sobre mí', 'nav.cta': 'Iniciar proyecto →',
   'hero.tag': 'Agenda abierta', 'hero.meta': 'Estudio creativo latinoamericano',
   'hero.h1': '<span class="ln">Creatividad</span><span class="ln">al <span class="hl">ritmo</span></span><span class="ln"><span class="hl">justo.</span></span>',
   'hero.p': '¿Plazos cortos, mucha demanda y el equipo al límite? <br class="lb">Llámanos. Labamba se vuelve tu equipo creativo: <br class="lb"><strong>entiende el brief a la primera, <br class="lb">entrega a tiempo y envía piezas listas para salir</strong>, <br class="lb">con el sabor latino que hace <br class="lb">que la marca se recuerde.',
@@ -841,7 +819,7 @@ const ES = {
   'pf.h2': 'Portafolio',
   'cl.h2': 'Marcas atendidas a lo largo de la carrera', 'cl.hint': 'Pasa el mouse para pausar',
   'la.h2': 'Un creativo latino para marcas que quieren llegar lejos',
-  'la.p': 'Latinoamérica tiene color, ritmo, humor y calidez propios. Labamba traduce ese repertorio en marca <strong>con el método y la terminación que exige el mercado global</strong>, para agencias y empresas de toda la región.',
+  'la.p': 'Latinoamérica tiene color, ritmo, humor y calidez propios, y cada país tiene los suyos. Una campaña que funciona en Brasil no funciona igual en Asunción, Buenos Aires o Bogotá: <strong>traducir el anuncio no alcanza.</strong> Hijo de padre paraguayo-argentino, crecí entre los dos lados de la frontera y sé adaptar una marca para que siga funcionando del otro lado.',
   'la.clock': 'En el huso horario de buena parte de Sudamérica',
   'lp1.k': 'Repertorio', 'lp1.h': 'Mirada latina, sin clichés', 'lp1.p': 'Referencias de nuestra cultura usadas con criterio, para crear marcas con personalidad y no caricaturas.',
   'lp2.k': 'Alcance', 'lp2.h': 'Atención remota en la región', 'lp2.p': 'De Brasil para toda Latinoamérica, con rutinas de trabajo y entregas pensadas para equipos distribuidos.',
