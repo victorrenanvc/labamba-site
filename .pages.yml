@@ -127,12 +127,43 @@ content:
           - name: entregas_es
             label: Entregas (espanhol)
             type: string
+          - name: resultado_pt
+            label: Resultado (português, opcional)
+            type: string
+            description: "Um número ou fato concreto. Ex.: 3 mil inscritos no evento. Se ficar vazio, não aparece."
+          - name: resultado_es
+            label: Resultado (espanhol, opcional)
+            type: string
           - name: galeria
             label: Galeria da ficha do case (até 8 imagens, qualquer formato)
             type: image
             options:
               multiple:
                 max: 8
+
+      - name: depoimentos
+        label: Depoimentos de clientes (a seção só aparece quando houver pelo menos um)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nome} · {empresa}"
+        fields:
+          - name: nome
+            label: Nome
+            type: string
+          - name: cargo
+            label: Cargo
+            type: string
+          - name: empresa
+            label: Empresa
+            type: string
+          - name: texto_pt
+            label: Depoimento (português)
+            type: text
+          - name: texto_es
+            label: Depoimento (espanhol)
+            type: text
 
       - name: imagens
         label: Imagens do site

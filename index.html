@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Labamba Studio · Criação no ritmo certo</title>
+<title>Labamba Studio · Direção de criação para marcas do Brasil e da América Latina</title>
 <meta name="theme-color" content="#0A0C10">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 23'%3E%3Crect width='10' height='10' fill='%233D4EFF'/%3E%3Crect y='13' width='10' height='10' fill='%233D4EFF'/%3E%3Crect x='13' y='13' width='10' height='10' fill='%23FF5B1F'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Labamba Studio · Criação no ritmo certo">
+<meta property="og:title" content="Labamba Studio · Direção de criação para marcas do Brasil e da América Latina">
 <meta property="og:description" content="Estúdio de criação latino-americano para agências e marcas, por Victor Renan.">
 <meta property="og:image" content="/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="Labamba Studio: estúdio de criação latino-americano para agências e marcas. Curadoria, método e qualidade.">
+<meta name="description" content="Direção de criação com cabeça de agência grande e contato direto com quem cria. Campanhas, identidade e key visual para marcas e agências do Brasil e da América Latina, em português e espanhol.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -111,6 +111,7 @@ img{max-width:100%;display:block}
 .hero-copy p{margin:0;font-size:clamp(18px,1.4vw,20px);line-height:1.5;max-width:52ch;color:#C9CCD6}
 @media (max-width:640px){.hero-copy br.lb{display:none}}
 .hero-copy strong{color:var(--fg);font-weight:700}
+.hero-copy .promise{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:clamp(22px,2vw,28px);line-height:1.2;color:var(--fg);margin-bottom:-14px}
 .ctas{display:flex;flex-wrap:wrap;gap:12px}
 
 /* Hero visual: retail post exploded into layers */
@@ -210,6 +211,7 @@ img{max-width:100%;display:block}
 .case-img .open{position:absolute;right:12px;bottom:12px;background:var(--bg);color:var(--fg);font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;transform:translateY(8px);opacity:0;transition:all .25s}
 .case:hover .open,.case:focus-visible .open{transform:none;opacity:1}
 @media (min-width:1000px){.grid-cases .case:first-child{grid-column:span 2;grid-row:span 2}.grid-cases .case:first-child h3{font-size:32px}}
+.case-res{margin:-6px 0 0;color:var(--signal);font-weight:700;font-size:16px}
 .case-meta{display:flex;justify-content:space-between;gap:16px}
 .case h3{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:24px;line-height:1.15}
 
@@ -341,6 +343,9 @@ img{max-width:100%;display:block}
 .card ul{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-family:var(--mono);font-size:14px}
 .card li{display:flex;gap:10px}
 .card li::before{content:"";width:8px;height:8px;background:var(--signal);margin-top:6px;flex:none}
+.card-cta{align-self:flex-start;margin-top:auto}
+.card-cta-alt{background:var(--fg);color:var(--bg)}
+.card-cta-alt:hover{background:#fff}
 .pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;background:var(--fg);color:var(--bg)}
 .card.alt .pill{background:var(--signal);color:var(--signal-ink)}
 
@@ -385,6 +390,25 @@ img{max-width:100%;display:block}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:4px}
 .facts div{background:var(--bg);padding:18px;display:flex;flex-direction:column;gap:6px}
 .facts b{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:22px}
+
+/* Depoimentos */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px}
+.quote{margin:0;border:1px solid var(--line);background:var(--surface);padding:clamp(22px,2.6vw,34px);display:flex;flex-direction:column;gap:18px}
+.quote blockquote{margin:0;font-size:clamp(19px,1.6vw,22px);line-height:1.45;color:var(--fg)}
+.quote figcaption{color:var(--muted);font-size:15px}
+.quote figcaption b{color:var(--fg);display:block;font-size:17px}
+
+/* Perguntas frequentes */
+.faq-grid{display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,80px);align-items:flex-start}
+.faq-grid > .h2{flex:1 1 320px;max-width:12ch}
+.faq{flex:2 1 520px;min-width:0;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:clamp(19px,1.7vw,23px);line-height:1.25}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:14px;height:14px;background:linear-gradient(var(--signal),var(--signal)) center/100% 2px no-repeat,linear-gradient(var(--signal),var(--signal)) center/2px 100% no-repeat;transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:hover{color:var(--accent-hi)}
+.faq details p{margin:0;padding:0 0 24px;max-width:62ch;color:#C9CCD6;font-size:18px}
 
 /* Contact */
 .contact{background:var(--signal);color:var(--signal-ink);overflow:hidden}
@@ -524,7 +548,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
         <button type="button" data-lang="pt" aria-pressed="true" title="Português">PT</button>
         <button type="button" data-lang="es" aria-pressed="false" title="Español">ES</button>
       </div>
-      <a class="btn btn-primary magnetic" href="#contato" data-i="nav.cta">Iniciar projeto →</a>
+      <a class="btn btn-primary magnetic" data-wa="geral" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="nav.cta">Pedir proposta ↗</a>
     </nav>
   </div>
 </header>
@@ -540,10 +564,11 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
         <h1 class="display" data-i="hero.h1"><span class="ln">Criação</span><span class="ln">no <span class="hl">ritmo</span></span><span class="ln"><span class="hl">certo.</span></span></h1>
       </div>
         <div class="hero-copy">
-          <p data-i="hero.p">Prazo curto, demanda alta e time no limite? <br class="lb">Pode chamar. A Labamba vira a sua criação: <br class="lb"><strong>entende o briefing de primeira, <br class="lb">entrega no prazo e manda arte pronta pra rodar</strong>, <br class="lb">com o molho latino que faz <br class="lb">a marca ser lembrada.</p>
+          <p class="promise" data-i="hero.promise">Cabeça de agência grande. <br class="lb">Contato direto com quem cria.</p>
+          <p data-i="hero.p">Há 18 anos eu penso campanhas inteiras, do problema do negócio à última peça, para marcas como <strong>Flamboyant, Novo Mundo e TV Anhanguera</strong>. Agora atendo marcas e agências do Brasil e da América Latina, em português e espanhol.</p>
           <div class="ctas">
-            <a class="btn btn-primary magnetic" href="#portfolio" data-i="hero.cta1">Ver portfólio <span aria-hidden="true">→</span></a>
-            <a class="btn btn-ghost magnetic" href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener" data-i="hero.cta2">Conectar no LinkedIn ↗</a>
+            <a class="btn btn-primary magnetic" data-wa="geral" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="hero.cta1">Pedir uma proposta ↗</a>
+            <a class="btn btn-ghost magnetic" href="#portfolio" data-i="hero.cta2">Ver o trabalho <span aria-hidden="true">↓</span></a>
           </div>
           <span class="status" id="agenda"><span class="dot blink" aria-hidden="true"></span><span data-i="hero.tag">Agenda aberta</span></span>
         </div>
@@ -637,6 +662,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
           <h3 data-i="pq.a.h">Um time criativo extra, sem aumentar a folha.</h3>
           <p data-i="pq.a.p">Entramos no seu fluxo quando a demanda aperta ou o job pede uma especialidade. Seguimos seu processo, sua marca e seu prazo, e a entrega sai com a assinatura da agência.</p>
           <ul data-i="pq.a.ul"><li>Sob demanda ou por fee mensal</li><li>White label, com sigilo total</li><li>Arquivos organizados para o seu time</li></ul>
+          <a class="btn btn-ghost card-cta" data-wa="agencia" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="pq.a.cta">Reforçar minha agência ↗</a>
         </article>
         <article class="card alt rv">
           <div class="slot" data-slot="empresas"></div>
@@ -644,6 +670,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
           <h3 data-i="pq.e.h">Direção criativa para marcas que querem subir de nível.</h3>
           <p data-i="pq.e.p">Da identidade visual à campanha, cuidamos da imagem da sua marca com o rigor de uma grande agência, num formato mais próximo e direto.</p>
           <ul data-i="pq.e.ul"><li>Especialistas em varejo</li><li>Projetos fechados ou recorrência</li><li>Contato direto com quem cria</li><li>Marca consistente em todo ponto de contato</li></ul>
+          <a class="btn card-cta card-cta-alt" data-wa="marca" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="pq.e.cta">Cuidar da minha marca ↗</a>
         </article>
       </div>
     </div>
@@ -709,20 +736,47 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
     </div>
   </section>
 
+  <!-- DEPOIMENTOS (aparece quando houver no painel) -->
+  <section class="sec" id="depoimentos" hidden style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="display h2 rv-title" style="max-width:16ch" data-i="dp.h2">Quem já trabalhou comigo</h2></div>
+      <div class="quotes" id="quotes"></div>
+    </div>
+  </section>
+
+  <!-- PERGUNTAS -->
+  <section class="sec" id="perguntas" style="border-top:1px solid var(--line)">
+    <div class="wrap faq-grid">
+      <h2 class="display h2 rv-title" data-i="fq.h2">Antes de chamar</h2>
+      <div class="faq">
+        <details><summary data-i="fq.1.q">Você só faz peças?</summary><p data-i="fq.1.a">Não. Começo pelo problema do negócio: quem precisa ser convencido, de quê, e em qual canal. A ideia vem daí, e as peças são o desdobramento dela. É assim que eu trabalho há 18 anos em agência.</p></details>
+        <details><summary data-i="fq.2.q">Você atende fora do Brasil?</summary><p data-i="fq.2.a">Sim. O trabalho é remoto, em português ou espanhol. Goiânia fica no mesmo fuso que Buenos Aires, Assunção e Montevidéu, e com poucas horas de diferença do resto da América Latina.</p></details>
+        <details><summary data-i="fq.3.q">Como funciona o orçamento?</summary><p data-i="fq.3.a">Você conta o desafio, o prazo e onde a peça vai rodar. Eu respondo com uma proposta sob medida, com escopo, etapas e investimento. Pedir a proposta não gera compromisso.</p></details>
+        <details><summary data-i="fq.4.q">Você atende agências?</summary><p data-i="fq.4.a">Sim. Entro como reforço do time de criação quando a demanda aperta, sigo o processo e a marca da agência, e a entrega sai com a assinatura dela, com sigilo total.</p></details>
+        <details><summary data-i="fq.5.q">Como é o pagamento para quem está fora do Brasil?</summary><p data-i="fq.5.a">A forma de pagamento é combinada na proposta, tanto para clientes no Brasil quanto no exterior.</p></details>
+        <details><summary data-i="fq.6.q">O que eu recebo no final?</summary><p data-i="fq.6.a">Os arquivos finais organizados e prontos para produção, para o seu time seguir rodando sem depender de mim.</p></details>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTATO -->
   <section class="sec contact" id="contato">
     <div class="wrap">
       <h2 class="display rv-title" data-i="ct.h2">Traga seu próximo projeto.</h2>
       <div class="contact-row">
-        <p data-i="ct.p">Conte o desafio, o prazo e onde a peça vai rodar. Respondo com uma proposta clara de escopo, etapas e investimento.</p>
+        <p data-i="ct.p">Conte o desafio, o prazo e onde a peça vai rodar. Eu respondo com uma proposta sob medida de escopo, etapas e investimento, sem compromisso.</p>
         <div class="channels">
-          <a class="li-card magnetic" href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener">
-            <span style="display:flex;flex-direction:column;gap:8px"><span class="l1">LinkedIn · Victor Renan</span><span class="l2" data-i="ct.li">Bora conectar</span></span>
+          <a class="li-card magnetic" data-wa="geral" href="https://wa.me/5562992960963" target="_blank" rel="noopener">
+            <span style="display:flex;flex-direction:column;gap:8px"><span class="l1">WhatsApp · Victor Renan</span><span class="l2" data-i="ct.li">Pedir proposta</span></span>
             <span class="ar" aria-hidden="true">↗</span>
           </a>
           <div class="channel">
             <span class="lbl">WhatsApp</span><span class="val" id="c-wpp">+55 62 99296-0963</span>
             <span class="acts"><a class="go" id="wpp-link" href="#" target="_blank" rel="noopener" data-i="ct.wa">Chamar ↗</a><button class="copy" type="button" data-copy="c-wpp">Copiar</button></span>
+          </div>
+          <div class="channel">
+            <span class="lbl">LinkedIn</span><span class="val">Victor Renan</span>
+            <span class="acts"><a class="go" href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener" data-i="ct.lk">Conectar ↗</a></span>
           </div>
           <div class="channel">
             <span class="lbl" data-i="ct.mail">E-mail</span><span class="val" id="c-mail">victor.renanvc@gmail.com</span>
@@ -756,6 +810,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
       <div><h4 class="mono muted" id="dlg-h1"></h4><p id="dlg-challenge"></p></div>
       <div><h4 class="mono muted" id="dlg-h2"></h4><p id="dlg-solution"></p></div>
       <div><h4 class="mono muted" id="dlg-h3"></h4><p id="dlg-scope"></p></div>
+      <div id="dlg-res" hidden><h4 class="mono muted" id="dlg-h4"></h4><p id="dlg-result"></p></div>
     </div>
     <div class="gallery" id="dlg-gallery"></div>
   </div>
@@ -791,28 +846,41 @@ const CASES = (C.cases || []).map((c, i) => ({
   challenge: { pt: c.desafio_pt || '', es: c.desafio_es || c.desafio_pt || '' },
   solution: { pt: c.solucao_pt || '', es: c.solucao_es || c.solucao_pt || '' },
   scope: { pt: c.entregas_pt || '', es: c.entregas_es || c.entregas_pt || '' },
+  result: { pt: c.resultado_pt || '', es: c.resultado_es || c.resultado_pt || '' },
   gallery: (c.galeria || []).filter(Boolean).map(asset)
 }));
 const SERVICES = (C.servicos || []).map(s => ({ pt: [s.nome_pt || '', s.descricao_pt || ''], es: [s.nome_es || s.nome_pt || '', s.descricao_es || s.descricao_pt || ''] }));
 const CONTACT = C.contato || DEFAULT_CONTENT.contato;
+const waURL = msg => 'https://wa.me/' + String(CONTACT.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent(msg);
 const catLabel = c => (lang === 'es' ? (CAT_ES[c] || c) : c);
 
 /* Strings used by scripts */
 const UI = {
-  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'Solução', scope: 'Entregas', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, zoom: 'Ampliar imagem', prev: 'Anterior', next: 'Próxima', copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', top: 'Voltar ao topo', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', waPonte: 'Olá Victor! Vi a parte América Latina do site e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR' },
-  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'Solución', scope: 'Entregables', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, zoom: 'Ampliar imagen', prev: 'Anterior', next: 'Siguiente', copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', top: 'Volver arriba', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', waPonte: '¡Hola Victor! Vi la parte Latinoamérica del sitio y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419' }
+  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'A ideia', scope: 'Desdobramento', result: 'Resultado', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, zoom: 'Ampliar imagem', prev: 'Anterior', next: 'Próxima', copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', top: 'Voltar ao topo', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', waPonte: 'Olá Victor! Vi a parte América Latina do site e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR', wam: { geral: 'Olá Victor! Vi o site da Labamba e quero pedir uma proposta. O projeto é: ', agencia: 'Olá Victor! Sou de uma agência e quero reforçar nossa criação. O que precisamos: ', marca: 'Olá Victor! Quero cuidar da imagem da minha marca. O projeto é: ' }, waSvc: 'Olá Victor! Vi no site e quero conversar sobre: ' },
+  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'La idea', scope: 'Despliegue', result: 'Resultado', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, zoom: 'Ampliar imagen', prev: 'Anterior', next: 'Siguiente', copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', top: 'Volver arriba', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', waPonte: '¡Hola Victor! Vi la parte Latinoamérica del sitio y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419', wam: { geral: '¡Hola Victor! Vi el sitio de Labamba y quiero pedir una propuesta. El proyecto es: ', agencia: '¡Hola Victor! Soy de una agencia y queremos reforzar nuestro equipo creativo. Lo que necesitamos: ', marca: '¡Hola Victor! Quiero cuidar la imagen de mi marca. El proyecto es: ' }, waSvc: '¡Hola Victor! Lo vi en el sitio y quiero conversar sobre: ' }
 };
 
 /* Spanish (Latam) for every element marked data-i. Portuguese stays in the HTML. */
 const ES = {
+  'hero.promise': 'Cabeza de gran agencia. <br class="lb">Trato directo con quien crea.',
+  'hero.p': 'Hace 18 años pienso campañas completas, del problema del negocio a la última pieza, para marcas como <strong>Flamboyant, Novo Mundo y TV Anhanguera</strong>. Ahora atiendo marcas y agencias de Brasil y de toda Latinoamérica, en español y portugués.',
+  'hero.cta1': 'Pedir una propuesta ↗', 'hero.cta2': 'Ver el trabajo <span aria-hidden="true">↓</span>', 'nav.cta': 'Pedir propuesta ↗',
+  'pq.a.cta': 'Reforzar mi agencia ↗', 'pq.e.cta': 'Cuidar mi marca ↗',
+  'dp.h2': 'Quienes ya trabajaron conmigo',
+  'fq.h2': 'Antes de escribir',
+  'fq.1.q': '¿Solo haces piezas?', 'fq.1.a': 'No. Empiezo por el problema del negocio: a quién hay que convencer, de qué y en qué canal. La idea sale de ahí, y las piezas son su despliegue. Así trabajo hace 18 años en agencia.',
+  'fq.2.q': '¿Atiendes fuera de Brasil?', 'fq.2.a': 'Sí. El trabajo es remoto, en español o portugués. Goiânia está en el mismo huso horario que Buenos Aires, Asunción y Montevideo, y a pocas horas del resto de Latinoamérica.',
+  'fq.3.q': '¿Cómo funciona el presupuesto?', 'fq.3.a': 'Me cuentas el desafío, el plazo y dónde va a salir la pieza. Respondo con una propuesta a medida, con alcance, etapas e inversión. Pedir la propuesta no genera compromiso.',
+  'fq.4.q': '¿Trabajas con agencias?', 'fq.4.a': 'Sí. Entro como refuerzo del equipo creativo cuando la demanda aprieta, sigo el proceso y la marca de la agencia, y la entrega sale con su firma, con total confidencialidad.',
+  'fq.5.q': '¿Cómo es el pago desde fuera de Brasil?', 'fq.5.a': 'La forma de pago se acuerda en la propuesta, tanto para clientes en Brasil como en el exterior.',
+  'fq.6.q': '¿Qué recibo al final?', 'fq.6.a': 'Los archivos finales organizados y listos para producción, para que tu equipo siga avanzando sin depender de mí.',
+  'ct.lk': 'Conectar ↗',
   'po.cta': 'Hablemos de tu proyecto ↗',
   'po.a.h': 'Marcas brasileñas que van a Latinoamérica', 'po.a.ul': '<li>Adaptación de campañas e identidad para cada país</li><li>Creación pensada para el público hispanohablante</li><li>Puente entre la casa matriz en Brasil y los equipos locales</li>',
   'po.b.h': 'Marcas latinoamericanas que miran a Brasil', 'po.b.ul': '<li>Comunicación para entrar al mercado brasileño</li><li>Lenguaje y referencias que el brasileño reconoce</li><li>Campañas para ferias, lanzamientos y ruedas de negocios</li>',
-  'nav.portfolio': 'Portafolio', 'nav.latam': 'Latinoamérica', 'nav.como': 'Cómo lo hacemos', 'nav.servicos': 'Servicios', 'nav.sobre': 'Sobre mí', 'nav.cta': 'Iniciar proyecto →',
+  'nav.portfolio': 'Portafolio', 'nav.latam': 'Latinoamérica', 'nav.como': 'Cómo lo hacemos', 'nav.servicos': 'Servicios', 'nav.sobre': 'Sobre mí',
   'hero.tag': 'Agenda abierta', 'hero.meta': 'Estudio creativo latinoamericano',
   'hero.h1': '<span class="ln">Creatividad</span><span class="ln">al <span class="hl">ritmo</span></span><span class="ln"><span class="hl">justo.</span></span>',
-  'hero.p': '¿Plazos cortos, mucha demanda y el equipo al límite? <br class="lb">Llámanos. Labamba se vuelve tu equipo creativo: <br class="lb"><strong>entiende el brief a la primera, <br class="lb">entrega a tiempo y envía piezas listas para salir</strong>, <br class="lb">con el sabor latino que hace <br class="lb">que la marca se recuerde.',
-  'hero.cta1': 'Ver portafolio <span aria-hidden="true">→</span>', 'hero.cta2': 'Conectar en LinkedIn ↗',
   'ro.k1': 'Brief', 'ro.v1': 'Recibido', 'ro.k2': 'Curaduría', 'ro.v2': 'En curso', 'ro.k3': 'Cómo lo hacemos', 'ro.v3': 'En marcha', 'ro.k4': 'Entrega', 'ro.v4': 'Impecable',
   'ly.1': '01 · Fondo', 'ly.2': '02 · Producto', 'ly.3': '03 · Tipografía', 'ly.4': '04 · Oferta', 'ly.5': '05 · CTA + marca',
   'pt.kick': 'Semana Brisa', 'pt.big': 'Súper<br>oferta', 'pt.cta': 'Compra ahora →',
@@ -852,8 +920,8 @@ const ES = {
   'ab.cta': 'Ver trayectoria en LinkedIn ↗',
   'tr.k': 'Trayectoria', 'tr.y': 'años de agencia',
   'ct.k': 'Próximo paso', 'ct.h2': 'Trae tu próximo proyecto.',
-  'ct.p': 'Cuéntame el desafío, el plazo y dónde va a salir la pieza. Respondo con una propuesta clara de alcance, etapas e inversión.',
-  'ct.li': 'Conectemos', 'ct.wa': 'Escribir ↗', 'ct.mail': 'Correo',
+  'ct.p': 'Cuéntame el desafío, el plazo y dónde va a salir la pieza. Respondo con una propuesta a medida de alcance, etapas e inversión, sin compromiso.',
+  'ct.li': 'Pedir propuesta', 'ct.wa': 'Escribir ↗', 'ct.mail': 'Correo',
   'ft.tag': 'Hecho en Latinoamérica · Goiânia, Brasil'
 };
 
@@ -882,7 +950,7 @@ function renderServices(){
   const words = SERVICES.map(s => s[lang][0]).concat([T().artDir]);
   $('#svcband').innerHTML = words.concat(words).map(w => `<span>${esc(w)}</span>`).join('');
   $('#services').innerHTML = SERVICES.map((s, i) => `
-    <a class="svc" href="#contato"><span class="n">${String(i+1).padStart(2,'0')}</span><span class="t">${esc(s[lang][0])}</span><span class="d">${esc(s[lang][1])}</span><span class="ar" aria-hidden="true">→</span></a>`).join('');
+    <a class="svc" target="_blank" rel="noopener" href="${esc(waURL(T().waSvc + s[lang][0]))}"><span class="n">${String(i+1).padStart(2,'0')}</span><span class="t">${esc(s[lang][0])}</span><span class="d">${esc(s[lang][1])}</span><span class="ar" aria-hidden="true">→</span></a>`).join('');
 }
 
 let current = 'all';
@@ -900,6 +968,7 @@ function renderCases(){
       </div>
       <div class="case-meta mono muted"><span>${esc(c.client)}</span><span>${esc(catLabel(c.cat))}</span></div>
       <h3>${esc(c.title[lang] || T().title(c.n))}</h3>
+      ${c.result[lang] ? `<p class="case-res">${esc(c.result[lang])}</p>` : ''}
     </button>`).join('');
 }
 $('#filters').addEventListener('click', e => {
@@ -918,6 +987,7 @@ $('#cases').addEventListener('click', e => {
   $('#dlg-challenge').textContent = c.challenge[lang] || t.chText;
   $('#dlg-solution').textContent = c.solution[lang] || t.soText;
   $('#dlg-scope').textContent = c.scope[lang];
+  $('#dlg-h4').textContent = t.result; $('#dlg-result').textContent = c.result[lang]; $('#dlg-res').hidden = !c.result[lang];
   $('#dlg-close').setAttribute('aria-label', t.close);
   const gal = $('#dlg-gallery');
   lbList = c.gallery.slice();
@@ -1079,6 +1149,14 @@ function renderCareer(){
   run();
 })();
 
+/* ================= Depoimentos ================= */
+const QUOTES = (C.depoimentos || []).filter(q => q && (q.texto_pt || q.texto_es));
+function renderQuotes(){
+  const sec = $('#depoimentos'); if (!sec) return;
+  sec.hidden = !QUOTES.length; if (!QUOTES.length) return;
+  $('#quotes').innerHTML = QUOTES.map(q => `<figure class="quote"><blockquote>“${esc((lang === 'es' ? q.texto_es : q.texto_pt) || q.texto_pt || q.texto_es)}”</blockquote><figcaption><b>${esc(q.nome || '')}</b>${esc([q.cargo, q.empresa].filter(Boolean).join(' · '))}</figcaption></figure>`).join('');
+}
+
 /* ================= Language ================= */
 const PT = {};
 document.querySelectorAll('[data-i]').forEach(el => { PT[el.dataset.i] = el.innerHTML; });
@@ -1099,8 +1177,9 @@ function setLang(next, animate){
   document.querySelectorAll('.copy').forEach(b => { b.textContent = T().copy; });
   $('#to-top').setAttribute('aria-label', T().top);
   $('#wpp-link').href = 'https://wa.me/' + String(CONTACT.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent(T().wa);
+  document.querySelectorAll('[data-wa]').forEach(a => { a.href = waURL(T().wam[a.dataset.wa] || T().wam.geral); });
   if ($('#ponte-wa')) $('#ponte-wa').href = 'https://wa.me/' + String(CONTACT.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent(T().waPonte);
-  renderServices(); renderFilters(); renderCases(); renderCareer();
+  renderServices(); renderFilters(); renderCases(); renderCareer(); renderQuotes();
   if (window.__reelCap) window.__reelCap();
   try { localStorage.setItem('labamba-lang', lang); } catch (_) {}
 }
