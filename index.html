@@ -788,11 +788,6 @@ footer .wrap{padding-block:72px}
     </div>
   </section>
 
-  <!-- IMAGE STRIP -->
-  <div class="band strip band-skew" aria-label="Galeria">
-    <div class="track" id="strip"></div>
-  </div>
-
   <!-- PORTFOLIO -->
   <section class="sec" id="portfolio">
     <div class="wrap">
@@ -1270,7 +1265,7 @@ document.querySelectorAll('[data-slot]').forEach(el => fillSlot(el, IMAGES[el.da
   const reps = Math.max(1, Math.ceil(8 / items.length));
   const half = Array.from({length: reps}, () => items).flat();
   const one = (o, hidden) => `<div class="slot${o.src ? ' has' : ''}"${hidden ? ' aria-hidden="true"' : ''}>${slotInner(o)}</div>`;
-  document.getElementById('strip').innerHTML = half.map((o, i) => one(o, i >= items.length)).join('') + half.map(o => one(o, true)).join('');
+  if (document.getElementById('strip')) document.getElementById('strip').innerHTML = half.map((o, i) => one(o, i >= items.length)).join('') + half.map(o => one(o, true)).join('');
 })();
 
 // Back to top: shows after the first screen, its bottom bar fills with scroll progress
