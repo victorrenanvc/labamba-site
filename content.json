@@ -159,12 +159,16 @@
       "cliente": "Tahto",
       "titulo_pt": "Dezembro Vermelho",
       "titulo_es": "Diciembre Rojo",
-      "desafio_pt": "[Qual era o problema ou objetivo do cliente.]",
-      "desafio_es": "[Cuál era el problema u objetivo del cliente.]",
-      "solucao_pt": "[A ideia central e por que ela funciona.]",
-      "solucao_es": "[La idea central y por qué funciona.]",
-      "entregas_pt": "[KV, mídia OOH, digital, social.]",
-      "entregas_es": "[KV, medios OOH, digital, social.]"
+      "capa": "/img/Campanha Dezembro Vermelho em Destaque-1.png",
+      "desafio_pt": "Falar de um tema delicado de maneira aberta e sem tabú.",
+      "desafio_es": "Hablar de un tema delicado de manera abierta y sin tabú. ",
+      "solucao_pt": "Um KV direto, quase que pesado, mas muito necessário e impactante visualmente.",
+      "solucao_es": "Un KV directo, casi contundente, pero muy necesario y visualmente impactante.",
+      "entregas_pt": "KV, mídia OOH, digital, social.",
+      "entregas_es": "KV, medios OOH, digital, social.",
+      "galeria": [
+        "/img/Carrossel Vermelho de Conscientização sobre HIV.png"
+      ]
     },
     {
       "categoria": "Social",
