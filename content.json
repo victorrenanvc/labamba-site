@@ -221,16 +221,22 @@
       ]
     },
     {
-      "categoria": "Identidade",
-      "cliente": "[CLIENTE]",
-      "titulo_pt": "[Título do projeto 06]",
-      "titulo_es": "[Título del proyecto 06]",
-      "desafio_pt": "[Qual era o problema ou objetivo do cliente.]",
-      "desafio_es": "[Cuál era el problema u objetivo del cliente.]",
-      "solucao_pt": "[A ideia central e por que ela funciona.]",
-      "solucao_es": "[La idea central y por qué funciona.]",
-      "entregas_pt": "[Rebranding completo.]",
-      "entregas_es": "[Rebranding completo.]"
+      "categoria": "Social",
+      "cliente": "PUC Goiás",
+      "titulo_pt": "Especializações",
+      "titulo_es": "Especializaciones",
+      "capa": "/img/4419_CampanhaDePos1920x1080.jpg",
+      "desafio_pt": "Campanha digital para cursos de especializações.",
+      "desafio_es": "Campaña digital para cursos de especializaciones.",
+      "solucao_pt": "Um material sóbrio, elegante e moderno para falar diretamente com a faixa etária alvo.",
+      "solucao_es": "Un material sobrio, elegante y moderno para dirigirse directamente al grupo de edad objetivo.",
+      "entregas_pt": "Redes sociais, KV, midia digital",
+      "entregas_es": "Redes sociales, KV, medios digitales",
+      "galeria": [
+        "/img/4419_CampanhaDePos1080x1080_Conceito.jpg",
+        "/img/4419_CampanhaDePos1080x1920_Conceito.jpg",
+        "/img/Campanha Digital PUC Goiás em Destaque.png"
+      ]
     }
   ],
   "imagens": {
