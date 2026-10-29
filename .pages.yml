@@ -106,8 +106,9 @@ content:
             label: Título (espanhol)
             type: string
           - name: capa
-            label: Imagem de capa (formato 4:3)
+            label: Imagem de capa (formato 3:2, ex. 1536 x 1024)
             type: image
+            description: Aparece inteira no card, sem corte, se estiver em 3:2.
           - name: desafio_pt
             label: Desafio (português)
             type: text
@@ -127,7 +128,7 @@ content:
             label: Entregas (espanhol)
             type: string
           - name: galeria
-            label: Galeria da ficha do case (até 8 imagens)
+            label: Galeria da ficha do case (até 8 imagens, qualquer formato)
             type: image
             options:
               multiple:

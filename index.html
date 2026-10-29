@@ -186,7 +186,7 @@ img{max-width:100%;display:block}
 .chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .grid-cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:28px 20px;perspective:1200px}
 .case{display:flex;flex-direction:column;gap:14px;text-align:left;background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer;animation:fadeup .6s var(--ease) both}
-.case-img{position:relative;aspect-ratio:4/3;max-width:100%;width:100%;overflow:hidden;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease), box-shadow .4s var(--ease);transform-style:preserve-3d}
+.case-img{position:relative;aspect-ratio:3/2;max-width:100%;width:100%;overflow:hidden;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease), box-shadow .4s var(--ease);transform-style:preserve-3d}
 .case:hover .case-img{box-shadow:0 24px 48px rgba(0,0,0,.45)}
 .case-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .case:hover .case-img img{transform:scale(1.05)}
@@ -387,8 +387,30 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
 .dlg-cols p{margin:0;color:#C9CCD6}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
 .gallery div{position:relative;overflow:hidden;aspect-ratio:16/10;max-width:100%;border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted)}
-.gallery div.has{border-style:solid}
-.gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gallery.has-imgs{display:block;columns:2 300px;column-gap:12px}
+.gallery .shot{display:block;width:100%;margin:0 0 12px;padding:0;border:1px solid var(--line);background:var(--surface-2);cursor:zoom-in;break-inside:avoid;position:relative;overflow:hidden}
+.gallery .shot img{display:block;width:100%;height:auto;transition:transform .5s var(--ease), opacity .3s}
+.gallery .shot:hover img{transform:scale(1.03)}
+.gallery .shot::after{content:'⤢';position:absolute;right:10px;bottom:10px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--fg);font-size:16px;opacity:0;transform:translateY(6px);transition:all .25s}
+.gallery .shot:hover::after,.gallery .shot:focus-visible::after{opacity:1;transform:none}
+.dlg-cover{margin:0;border:1px solid var(--line);cursor:zoom-in;padding:0;background:var(--surface-2);display:block;width:100%;overflow:hidden}
+.dlg-cover img{display:block;width:100%;height:auto}
+
+/* Lightbox */
+#lb{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;border:0;background:transparent;padding:0;overflow:hidden}
+#lb::backdrop{background:rgba(5,6,9,.94);backdrop-filter:blur(6px)}
+#lb[open]{display:flex;align-items:center;justify-content:center;animation:none}
+.lb-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:64px clamp(16px,7vw,96px)}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:lbIn .3s var(--ease)}
+.lb-btn{position:absolute;z-index:2;min-width:48px;min-height:48px;border:1px solid var(--line);background:rgba(10,12,16,.7);color:var(--fg);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb-btn:hover{background:var(--fg);color:var(--bg)}
+.lb-btn[hidden]{display:none}
+.lb-close{top:12px;right:12px}
+.lb-prev{left:12px;top:50%;transform:translateY(-50%)}
+.lb-next{right:12px;top:50%;transform:translateY(-50%)}
+.lb-count{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted)}
+@keyframes lbIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@media (max-width:640px){.lb-stage{padding:64px 12px 88px}.lb-prev,.lb-next{top:auto;bottom:12px;transform:none}.lb-count{bottom:28px}}
 .x{min-width:44px;min-height:44px;border:1px solid var(--line);background:transparent;color:var(--fg);font-size:20px;cursor:pointer}
 .x:hover{background:var(--fg);color:var(--bg)}
 
@@ -725,6 +747,14 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
   </div>
 </dialog>
 
+<dialog id="lb" aria-label="Imagem ampliada">
+  <div class="lb-stage" id="lb-stage"><img id="lb-img" src="" alt=""></div>
+  <button class="lb-btn lb-close" type="button" id="lb-close" aria-label="Fechar">×</button>
+  <button class="lb-btn lb-prev" type="button" id="lb-prev" aria-label="Anterior">←</button>
+  <button class="lb-btn lb-next" type="button" id="lb-next" aria-label="Próxima">→</button>
+  <span class="lb-count" id="lb-count"></span>
+</dialog>
+
 <script>
 /* ================= Conteúdo ================= */
 /* Tudo o que é editável no painel vive em content.json. Esta cópia é só a reserva caso o arquivo não carregue. */
@@ -755,8 +785,8 @@ const catLabel = c => (lang === 'es' ? (CAT_ES[c] || c) : c);
 
 /* Strings used by scripts */
 const UI = {
-  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'Solução', scope: 'Entregas', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', top: 'Voltar ao topo', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR' },
-  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'Solución', scope: 'Entregables', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', top: 'Volver arriba', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419' }
+  pt: { all: 'Todos', cats: { id: 'Identidade', camp: 'Campanha', social: 'Social', motion: 'Motion' }, title: n => `[Título do projeto ${n}]`, img: n => `[ Imagem do case ${n} ]`, open: 'Ver projeto →', openAria: 'Abrir projeto', challenge: 'Desafio', solution: 'Solução', scope: 'Entregas', chText: '[Qual era o problema ou objetivo do cliente.]', soText: '[A ideia central e por que ela funciona.]', gal: n => `[ Imagem ${n} ]`, zoom: 'Ampliar imagem', prev: 'Anterior', next: 'Próxima', copy: 'Copiar', copied: 'Copiado', selected: 'Selecionado', close: 'Fechar', top: 'Voltar ao topo', artDir: 'Direção de arte', wa: 'Olá Victor! Vi o portfólio da Labamba e quero conversar sobre um projeto.', filter: 'Filtrar projetos', lang: 'pt-BR' },
+  es: { all: 'Todos', cats: { id: 'Identidad', camp: 'Campaña', social: 'Social', motion: 'Motion' }, title: n => `[Título del proyecto ${n}]`, img: n => `[ Imagen del caso ${n} ]`, open: 'Ver proyecto →', openAria: 'Abrir proyecto', challenge: 'Desafío', solution: 'Solución', scope: 'Entregables', chText: '[Cuál era el problema u objetivo del cliente.]', soText: '[La idea central y por qué funciona.]', gal: n => `[ Imagen ${n} ]`, zoom: 'Ampliar imagen', prev: 'Anterior', next: 'Siguiente', copy: 'Copiar', copied: 'Copiado', selected: 'Seleccionado', close: 'Cerrar', top: 'Volver arriba', artDir: 'Dirección de arte', wa: '¡Hola Victor! Vi el portafolio de Labamba y quiero conversar sobre un proyecto.', filter: 'Filtrar proyectos', lang: 'es-419' }
 };
 
 /* Spanish (Latam) for every element marked data-i. Portuguese stays in the HTML. */
@@ -872,11 +902,53 @@ $('#cases').addEventListener('click', e => {
   $('#dlg-solution').textContent = c.solution[lang] || t.soText;
   $('#dlg-scope').textContent = c.scope[lang];
   $('#dlg-close').setAttribute('aria-label', t.close);
-  $('#dlg-gallery').innerHTML = c.gallery.length ? c.gallery.map(src => `<div class="has"><img src="${esc(src)}" alt="" loading="lazy"></div>`).join('') : [1,2,3,4].map(n => `<div class="mono">${esc(t.gal(n))}</div>`).join('');
+  const gal = $('#dlg-gallery');
+  lbList = c.gallery.slice();
+  gal.classList.toggle('has-imgs', lbList.length > 0);
+  gal.innerHTML = lbList.length ? lbList.map((src, k) => `<button type="button" class="shot" data-k="${k}" aria-label="${esc(t.zoom)} ${k + 1}"><img src="${esc(src)}" alt="" loading="lazy"></button>`).join('') : [1,2,3,4].map(n => `<div class="mono">${esc(t.gal(n))}</div>`).join('');
   if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
 });
 $('#dlg-close').addEventListener('click', () => dlg.close ? dlg.close() : dlg.removeAttribute('open'));
 dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+// Lightbox (imagem ampliada)
+let lbList = [], lbIdx = 0;
+const lb = $('#lb'), lbImg = $('#lb-img');
+function lbShow(k){
+  lbIdx = (k + lbList.length) % lbList.length;
+  lbImg.src = lbList[lbIdx];
+  lbImg.style.animation = 'none'; void lbImg.offsetWidth; lbImg.style.animation = '';
+  const many = lbList.length > 1;
+  $('#lb-prev').hidden = !many; $('#lb-next').hidden = !many;
+  $('#lb-count').textContent = many ? `${lbIdx + 1} / ${lbList.length}` : '';
+}
+function lbOpen(k){
+  if (!lbList.length) return;
+  const t = T();
+  $('#lb-close').setAttribute('aria-label', t.close);
+  $('#lb-prev').setAttribute('aria-label', t.prev);
+  $('#lb-next').setAttribute('aria-label', t.next);
+  lbShow(k);
+  if (typeof lb.showModal === 'function') lb.showModal(); else lb.setAttribute('open', '');
+}
+const lbClose = () => { lb.close ? lb.close() : lb.removeAttribute('open'); lbImg.src = ''; };
+$('#dlg-gallery').addEventListener('click', e => { const b = e.target.closest('.shot'); if (b) lbOpen(+b.dataset.k); });
+$('#lb-close').addEventListener('click', lbClose);
+$('#lb-prev').addEventListener('click', () => lbShow(lbIdx - 1));
+$('#lb-next').addEventListener('click', () => lbShow(lbIdx + 1));
+$('#lb-stage').addEventListener('click', e => { if (e.target.id === 'lb-stage') lbClose(); });
+lb.addEventListener('cancel', e => { e.preventDefault(); lbClose(); });
+lb.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') { e.preventDefault(); lbShow(lbIdx + 1); }
+  else if (e.key === 'ArrowLeft') { e.preventDefault(); lbShow(lbIdx - 1); }
+});
+let lbX = null;
+lb.addEventListener('touchstart', e => { lbX = e.touches[0].clientX; }, { passive: true });
+lb.addEventListener('touchend', e => {
+  if (lbX === null || lbList.length < 2) return;
+  const dx = e.changedTouches[0].clientX - lbX; lbX = null;
+  if (Math.abs(dx) > 50) lbShow(lbIdx + (dx < 0 ? 1 : -1));
+});
 
 // Copy buttons
 document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', () => {

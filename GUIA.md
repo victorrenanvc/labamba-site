@@ -64,6 +64,8 @@ Os textos das seções (títulos, chamadas, a história do nome) ficam no códig
 
 - Faixa: vertical 4:5 (por exemplo, 800 x 1000 px).
 - Cards Agências e Empresas: horizontal 16:9 (1200 x 675 px).
-- Serviços e capas de case: 4:3 (800 x 600 px).
+- Capas de case: 3:2 (1536 x 1024 px), aparecem inteiras no card.
+- Galeria do case: qualquer formato, a imagem aparece inteira e amplia ao clicar.
+- Serviços: 4:3 (800 x 600 px).
 - Logos: PNG com fundo transparente ou SVG, em branco ou claro.
 - Prefira JPG com até 300 KB por imagem para o site continuar rápido.
