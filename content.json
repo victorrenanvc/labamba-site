@@ -205,16 +205,20 @@
       ]
     },
     {
-      "categoria": "Campanha",
-      "cliente": "[CLIENTE]",
-      "titulo_pt": "[Título do projeto 05]",
-      "titulo_es": "[Título del proyecto 05]",
-      "desafio_pt": "[Qual era o problema ou objetivo do cliente.]",
-      "desafio_es": "[Cuál era el problema u objetivo del cliente.]",
-      "solucao_pt": "[A ideia central e por que ela funciona.]",
-      "solucao_es": "[La idea central y por qué funciona.]",
-      "entregas_pt": "[Conceito, desdobramentos.]",
-      "entregas_es": "[Concepto, despliegues.]"
+      "categoria": "Social",
+      "cliente": "Armazem AZ",
+      "titulo_pt": "Viva o Verão 26",
+      "titulo_es": "Viva el Verano 26",
+      "capa": "/img/Campanha Viva o Verão 26.png",
+      "desafio_pt": "Campanha de oportunidade nas redes sociais.",
+      "desafio_es": "Campaña de oportunidad para redes sociales.",
+      "solucao_pt": "Elementos leves e solares com bom gosto relativo à marca.",
+      "solucao_es": "Elementos livianos y solares con buen el buen gusto de la marca.",
+      "entregas_pt": "Conceito, desdobramentos.",
+      "entregas_es": "Concepto, despliegues.",
+      "galeria": [
+        "/img/Campanha Viva o Verão 26-1.png"
+      ]
     },
     {
       "categoria": "Identidade",
