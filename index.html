@@ -356,7 +356,7 @@ img{max-width:100%;display:block}
 .pillar p{margin:0;color:var(--muted);max-width:34ch;font-size:18px}
 
 .steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
-.step{position:relative;display:flex;flex-direction:column;gap:16px;padding:24px;min-height:260px;background:var(--surface);border:1px solid var(--line);transition:border-color .25s, background-color .25s}
+.step{position:relative;display:flex;flex-direction:column;gap:12px;padding:24px;min-height:0;background:var(--surface);border:1px solid var(--line);transition:border-color .25s, background-color .25s}
 .step:hover{border-color:var(--accent);background:var(--surface-2)}
 .step::after{content:"";position:absolute;left:-1px;right:-1px;bottom:-1px;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--ease)}
 .step:hover::after{transform:scaleX(1)}
@@ -565,7 +565,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
       </div>
         <div class="hero-copy">
           <p class="promise" data-i="hero.promise">Cabeça de agência grande. <br class="lb">Contato direto com quem cria.</p>
-          <p data-i="hero.p">Há 18 anos eu penso campanhas inteiras, do problema do negócio à última peça, para marcas como <strong>Flamboyant, Novo Mundo e TV Anhanguera</strong>. Agora atendo marcas e agências do Brasil e da América Latina, em português e espanhol.</p>
+          <p data-i="hero.p">18 anos de campanhas para marcas como <strong>Flamboyant, Novo Mundo e TV Anhanguera</strong>.</p>
           <div class="ctas">
             <a class="btn btn-primary magnetic" data-wa="geral" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="hero.cta1">Pedir uma proposta ↗</a>
             <a class="btn btn-ghost magnetic" href="#portfolio" data-i="hero.cta2">Ver o trabalho <span aria-hidden="true">↓</span></a>
@@ -624,7 +624,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
       <div class="latam-grid">
         <div class="latam-intro rv">
           <h2 id="latam-title" class="display h2" style="max-width:15ch" data-i="la.h2">Um criativo latino para marcas que querem ir longe</h2>
-          <p data-i="la.p">A América Latina tem cor, ritmo, humor e calor próprios, e cada país tem os seus. Uma campanha que funciona em Goiânia não funciona igual em Assunção, Buenos Aires ou Bogotá: <strong>traduzir o anúncio não basta.</strong> Filho de pai paraguaio-argentino, cresci entre os dois lados da fronteira e sei adaptar uma marca para ela continuar funcionando do outro lado.</p>
+          <p data-i="la.p">Cada país tem seu humor e seu jeito de falar. <strong>Traduzir o anúncio não basta:</strong> eu adapto a marca para ela funcionar do outro lado da fronteira.</p>
           <div class="ctas"><a class="btn btn-primary magnetic" id="ponte-wa" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="po.cta">Falar sobre o seu projeto ↗</a></div>
         </div>
         <div class="clock rv">
@@ -660,7 +660,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
           <div class="slot" data-slot="agencias"></div>
           <div class="card-top"><span class="pill" data-i="pq.a.k">Agências</span><span class="big" aria-hidden="true" style="color:var(--accent)">A</span></div>
           <h3 data-i="pq.a.h">Um time criativo extra, sem aumentar a folha.</h3>
-          <p data-i="pq.a.p">Entramos no seu fluxo quando a demanda aperta ou o job pede uma especialidade. Seguimos seu processo, sua marca e seu prazo, e a entrega sai com a assinatura da agência.</p>
+          <p data-i="pq.a.p">Reforço de criação quando a demanda aperta, com a assinatura da sua agência.</p>
           <ul data-i="pq.a.ul"><li>Sob demanda ou por fee mensal</li><li>White label, com sigilo total</li><li>Arquivos organizados para o seu time</li></ul>
           <a class="btn btn-ghost card-cta" data-wa="agencia" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="pq.a.cta">Reforçar minha agência ↗</a>
         </article>
@@ -668,7 +668,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
           <div class="slot" data-slot="empresas"></div>
           <div class="card-top"><span class="pill">Empresas</span><span class="big" aria-hidden="true">E</span></div>
           <h3 data-i="pq.e.h">Direção criativa para marcas que querem subir de nível.</h3>
-          <p data-i="pq.e.p">Da identidade visual à campanha, cuidamos da imagem da sua marca com o rigor de uma grande agência, num formato mais próximo e direto.</p>
+          <p data-i="pq.e.p">Da identidade à campanha, com rigor de agência grande e contato direto.</p>
           <ul data-i="pq.e.ul"><li>Especialistas em varejo</li><li>Projetos fechados ou recorrência</li><li>Contato direto com quem cria</li><li>Marca consistente em todo ponto de contato</li></ul>
           <a class="btn card-cta card-cta-alt" data-wa="marca" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="pq.e.cta">Cuidar da minha marca ↗</a>
         </article>
@@ -681,14 +681,14 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
     <div class="wrap">
       <div class="sec-head">
         <h2 class="display h2 rv-title" style="max-width:15ch" data-i="cf.h2">Como fazemos</h2>
-        <p data-i="cf.p">Do briefing à entrega em cinco etapas. Sem caixa-preta: você acompanha cada uma.</p>
+        <p data-i="cf.p">Cinco etapas, do briefing à entrega.</p>
       </div>
       <ol class="steps">
-        <li class="step"><span class="step-n" aria-hidden="true">1</span><h3 data-i="s1.h">Imersão</h3><p data-i="s1.p">Entendemos negócio, público, objetivo e restrições. Sai daqui um briefing que todo mundo assina.</p></li>
-        <li class="step"><span class="step-n" aria-hidden="true">2</span><h3 data-i="s2.h">Curadoria</h3><p data-i="s2.p">Pesquisa e seleção de referências para alinhar o caminho visual antes de qualquer arte.</p></li>
-        <li class="step"><span class="step-n" aria-hidden="true">3</span><h3 data-i="s3.h">Criação</h3><p data-i="s3.p">Desenvolvimento do conceito e das peças-chave, com a narrativa que sustenta cada escolha.</p></li>
-        <li class="step"><span class="step-n" aria-hidden="true">4</span><h3 data-i="s4.h">Refino</h3><p data-i="s4.p">Ajustes guiados por critério, rodadas combinadas e revisão técnica de cada detalhe.</p></li>
-        <li class="step"><span class="step-n" aria-hidden="true">5</span><h3>Entrega</h3><p data-i="s5.p">Arquivos finais organizados, prontos para produção e para o seu time seguir rodando.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">1</span><h3 data-i="s1.h">Imersão</h3><p data-i="s1.p">Entender o negócio e o público.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">2</span><h3 data-i="s2.h">Curadoria</h3><p data-i="s2.p">Definir o caminho visual.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">3</span><h3 data-i="s3.h">Criação</h3><p data-i="s3.p">Conceito e peças-chave.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">4</span><h3 data-i="s4.h">Refino</h3><p data-i="s4.p">Ajustes com critério.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">5</span><h3>Entrega</h3><p data-i="s5.p">Arquivos prontos para rodar.</p></li>
       </ol>
     </div>
   </section>
@@ -714,8 +714,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
           <div class="about-photo rv"><img src="img/victor.jpg" alt="Victor Renan, de chapéu e óculos escuros, sorrindo em frente a um muro grafitado" width="1000" height="1000" loading="lazy"><span class="photo-tag mono">Victor Renan – vulgo Labamba</span></div>
         </div>
         <div class="about-text rv">
-          <p data-i="ab.p1"><strong>Victor Renan</strong> é paranaense de nascimento e goianiense por escolha: adotou Goiânia como casa e foi lá que construiu toda a carreira. Está em agência desde 2008 e, desde 2023, é Coordenador de Criação, liderando times em contas de varejo, sua grande especialidade.</p>
-          <p data-i="ab.p2">Filho de pai paraguaio-argentino e mãe brasileira, cresceu com o melhor dos dois lados da fronteira: o jogo de cintura brasileiro e o molho latino de quem toma tereré e escuta cumbia sem pedir licença. Some a isso os anos como baterista profissional e fica fácil entender de onde vem o ritmo do trabalho.</p>
+          <p data-i="ab.p1"><strong>Victor Renan</strong>, paranaense de nascimento, goianiense por escolha e filho de pai paraguaio-argentino. Os anos como baterista profissional explicam o ritmo do trabalho.</p>
           <div class="facts">
             <div><span class="mono muted" data-i="ab.f1">Em agência</span><b data-i="ab.f1v">Desde 2008</b></div>
             <div><span class="mono muted" data-i="ab.f2">Coordenação de criação</span><b data-i="ab.f2v">Desde 2023</b></div>
@@ -724,7 +723,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
           </div>
           <div class="story">
             <h3 data-i="st.h">Um nome com molho</h3>
-            <p data-i="st.p1">Labamba vem de La Bamba, uma das músicas mais famosas da América Latina, daquelas que tiram todo mundo da cadeira em qualquer festa. O nome é uma homenagem às raízes do lado de lá da fronteira e um lembrete do que a gente busca em cada projeto: ritmo, personalidade e um pouco de graça.</p>
+            <p data-i="st.p1">La Bamba é a música latina que tira todo mundo da cadeira. O nome lembra as raízes do outro lado da fronteira e o que busco em cada projeto: ritmo e personalidade.</p>
           </div>
           <div class="ctas"><a class="btn btn-primary magnetic" href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener" data-i="ab.cta">Ver trajetória no LinkedIn ↗</a></div>
         </div>
@@ -863,7 +862,7 @@ const UI = {
 /* Spanish (Latam) for every element marked data-i. Portuguese stays in the HTML. */
 const ES = {
   'hero.promise': 'Cabeza de gran agencia. <br class="lb">Trato directo con quien crea.',
-  'hero.p': 'Hace 18 años pienso campañas completas, del problema del negocio a la última pieza, para marcas como <strong>Flamboyant, Novo Mundo y TV Anhanguera</strong>. Ahora atiendo marcas y agencias de Brasil y de toda Latinoamérica, en español y portugués.',
+  'hero.p': '18 años de campañas para marcas como <strong>Flamboyant, Novo Mundo y TV Anhanguera</strong>.',
   'hero.cta1': 'Pedir una propuesta ↗', 'hero.cta2': 'Ver el trabajo <span aria-hidden="true">↓</span>', 'nav.cta': 'Pedir propuesta ↗',
   'pq.a.cta': 'Reforzar mi agencia ↗', 'pq.e.cta': 'Cuidar mi marca ↗',
   'dp.h2': 'Quienes ya trabajaron conmigo',
@@ -887,34 +886,34 @@ const ES = {
   'pf.h2': 'Portafolio',
   'cl.h2': 'Marcas atendidas a lo largo de la carrera', 'cl.hint': 'Pasa el mouse para pausar',
   'la.h2': 'Un creativo latino para marcas que quieren llegar lejos',
-  'la.p': 'Latinoamérica tiene color, ritmo, humor y calidez propios, y cada país tiene los suyos. Una campaña que funciona en Brasil no funciona igual en Asunción, Buenos Aires o Bogotá: <strong>traducir el anuncio no alcanza.</strong> Hijo de padre paraguayo-argentino, crecí entre los dos lados de la frontera y sé adaptar una marca para que siga funcionando del otro lado.',
+  'la.p': 'Cada país tiene su humor y su forma de hablar. <strong>Traducir el anuncio no alcanza:</strong> adapto la marca para que funcione del otro lado de la frontera.',
   'la.clock': 'En el huso horario de buena parte de Sudamérica',
   'lp1.k': 'Repertorio', 'lp1.h': 'Mirada latina, sin clichés', 'lp1.p': 'Referencias de nuestra cultura usadas con criterio, para crear marcas con personalidad y no caricaturas.',
   'lp2.k': 'Alcance', 'lp2.h': 'Atención remota en la región', 'lp2.p': 'De Brasil para toda Latinoamérica, con rutinas de trabajo y entregas pensadas para equipos distribuidos.',
   'lp3.k': 'Estándar', 'lp3.h': 'Ejecución de nivel global', 'lp3.p': 'Proceso documentado, archivos organizados y terminación lista para salir en cualquier mercado.',
   'st.k': '¿Por qué Labamba?', 'st.h': 'Un nombre con sabor',
-  'st.p1': 'Labamba viene de La Bamba, una de las canciones más famosas de Latinoamérica, de esas que levantan a todos en cualquier fiesta. El nombre es un homenaje a las raíces del otro lado de la frontera y un recordatorio de lo que buscamos en cada proyecto: ritmo, personalidad y una poca de gracia.',
+  'st.p1': 'La Bamba es la canción latina que levanta a todos en cualquier fiesta. El nombre recuerda las raíces del otro lado de la frontera y lo que busco en cada proyecto: ritmo y personalidad.',
   'pl.now': 'Sonando ahora', 'pl.sub': 'Clásico latinoamericano',
   'pq.h2': 'Dos formas de trabajar con nosotros', 'pq.k': 'Para quién', 'pq.a.k': 'Agencias',
   'pq.a.h': 'Un equipo creativo extra, sin aumentar la nómina.',
-  'pq.a.p': 'Entramos en tu flujo cuando la demanda aprieta o el proyecto pide una especialidad. Seguimos tu proceso, tu marca y tus plazos, y la entrega sale con la firma de la agencia.',
+  'pq.a.p': 'Refuerzo creativo cuando la demanda aprieta, con la firma de tu agencia.',
   'pq.a.ul': '<li>Por demanda o con fee mensual</li><li>White label, con total confidencialidad</li><li>Archivos organizados para tu equipo</li>',
   'pq.e.h': 'Dirección creativa para marcas que quieren subir de nivel.',
-  'pq.e.p': 'De la identidad visual a la campaña, cuidamos la imagen de tu marca con el rigor de una gran agencia, en un formato más cercano y directo.',
+  'pq.e.p': 'De la identidad a la campaña, con rigor de gran agencia y trato directo.',
   'pq.e.ul': '<li>Especialistas en retail</li><li>Proyectos cerrados o recurrentes</li><li>Contacto directo con quien crea</li><li>Marca consistente en cada punto de contacto</li>',
   'pi.h2': 'Lo que sostiene cada entrega', 'pi.k': 'Pilares',
   'pi.1.h': 'Curaduría', 'pi.1.p': 'Antes de crear, elegimos. Referencias filtradas, repertorio amplio y criterio para separar la tendencia del acierto para la marca.',
   'pi.2.p': 'Cada proyecto pasa por las mismas etapas, con entregas y aprobaciones acordadas desde el inicio. Sabes qué viene, cuándo viene y por qué.',
   'pi.3.h': 'Calidad', 'pi.3.p': 'La terminación es parte del concepto. Revisión en capas, atención a cada píxel y archivos listos para producción, sin sorpresas a la hora de salir.',
-  'cf.h2': 'Cómo lo hacemos', 'cf.p': 'Del brief a la entrega en cinco etapas. Sin caja negra: acompañas cada una.',
-  's1.h': 'Inmersión', 's1.p': 'Entendemos negocio, público, objetivo y restricciones. De aquí sale un brief que todos firman.',
-  's2.h': 'Curaduría', 's2.p': 'Investigación y selección de referencias para alinear el camino visual antes de cualquier arte.',
-  's3.h': 'Creación', 's3.p': 'Desarrollo del concepto y de las piezas clave, con la narrativa que sostiene cada decisión.',
-  's4.h': 'Refinamiento', 's4.p': 'Ajustes guiados por criterio, rondas acordadas y revisión técnica de cada detalle.',
-  's5.p': 'Archivos finales organizados, listos para producción y para que tu equipo siga avanzando.',
+  'cf.h2': 'Cómo lo hacemos', 'cf.p': 'Cinco etapas, del brief a la entrega.',
+  's1.h': 'Inmersión', 's1.p': 'Entender el negocio y el público.',
+  's2.h': 'Curaduría', 's2.p': 'Definir el camino visual.',
+  's3.h': 'Creación', 's3.p': 'Concepto y piezas clave.',
+  's4.h': 'Refinamiento', 's4.p': 'Ajustes con criterio.',
+  's5.p': 'Archivos listos para salir.',
   'sv.h2': 'Lo que hacemos', 'sv.k': 'Servicios',
   'ab.h2': 'Quién está detrás', 'ab.k': 'Sobre mí', 'ab.photo': '[ Tu foto ]',
-  'ab.p1': '<strong>Victor Renan</strong> nació en Paraná, Brasil, y es goianiense por elección: adoptó Goiânia como su casa y ahí construyó toda su carrera. Trabaja en agencias desde 2008 y, desde 2023, es Coordinador Creativo, liderando equipos en cuentas de retail, su gran especialidad.',
+  'ab.p1': '<strong>Victor Renan</strong>, nacido en Paraná, goianiense por elección e hijo de padre paraguayo-argentino. Los años como baterista profesional explican el ritmo de su trabajo.',
   'ab.p2': 'Hijo de padre paraguayo-argentino y madre brasileña, creció con lo mejor de los dos lados de la frontera: la cintura brasileña y el sabor latino de quien toma tereré y escucha cumbia sin pedir permiso. Súmale los años como baterista profesional y es fácil entender de dónde viene el ritmo de su trabajo.',
   'ab.f1': 'En agencias', 'ab.f1v': 'Desde 2008', 'ab.f2': 'Coordinación creativa', 'ab.f2v': 'Desde 2023', 'ab.f3': 'Especialidad', 'ab.f3v': 'Retail',
   'ab.cta': 'Ver trayectoria en LinkedIn ↗',
@@ -1384,7 +1383,7 @@ if (!reduce) {
     list.addEventListener('pointerover', e => {
       const row = e.target.closest('.svc'); if (!row) return;
       const i = [...list.children].indexOf(row);
-      const o = IMAGES.services[i]; if (!o) return;
+      const o = IMAGES.services[i]; if (!o || !o.src) { fl.classList.remove('on'); return; }
       fl.innerHTML = `<div class="slot${o.src ? ' has' : ''}">${slotInner(o)}</div>`;
       if (!fl.classList.contains('on')) { const lr = list.getBoundingClientRect(); fx = tx = Math.min(e.clientX + 320, lr.right - 120); fy = ty = e.clientY - 10; }
       fl.classList.add('on'); if (!raf) raf = requestAnimationFrame(follow);

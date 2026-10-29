@@ -258,15 +258,18 @@
   ],
   "imagens": {
     "faixa": [
-      "/img/faixa-01.jpg",
-      "/img/faixa-02.jpg",
-      "/img/faixa-03.jpg",
-      "/img/faixa-04.jpg",
-      "/img/faixa-05.jpg",
-      "/img/faixa-06.jpg"
+      "/img/real/faixa-airfryer-1.jpg",
+      "/img/real/faixa-copa.jpg",
+      "/img/real/faixa-rally.jpg",
+      "/img/real/faixa-airfryer-2.jpg",
+      "/img/real/faixa-goianao.jpg",
+      "/img/real/faixa-puc.jpg",
+      "/img/real/faixa-verao.jpg",
+      "/img/real/faixa-airfryer-3.jpg",
+      "/img/real/faixa-dezembro.jpg"
     ],
-    "agencias": "/img/para-agencias.jpg",
-    "empresas": "/img/para-empresas.jpg"
+    "agencias": "/img/real/card-agencias.jpg",
+    "empresas": "/img/real/card-empresas.jpg"
   },
   "servicos": [
     {
@@ -274,42 +277,42 @@
       "descricao_pt": "Marca, sistema visual e manual para a marca ser reconhecida em qualquer lugar.",
       "nome_es": "Identidad visual",
       "descricao_es": "Marca, sistema visual y manual para que la marca sea reconocida en cualquier lugar.",
-      "imagem": "/img/servico-identidade.jpg"
+      "imagem": "/img/real/svc-identidade.jpg"
     },
     {
       "nome_pt": "Campanhas",
       "descricao_pt": "Conceito criativo e desdobramento para mídia on e off com unidade do começo ao fim.",
       "nome_es": "Campañas",
       "descricao_es": "Concepto creativo y despliegue para medios on y off, con unidad de principio a fin.",
-      "imagem": "/img/servico-campanhas.jpg"
+      "imagem": "/img/real/svc-campanhas.jpg"
     },
     {
       "nome_pt": "Key visual",
       "descricao_pt": "A imagem-mãe de um lançamento, evento ou temporada, pensada para desdobrar bem.",
       "nome_es": "Key visual",
       "descricao_es": "La imagen madre de un lanzamiento, evento o temporada, pensada para desplegarse bien.",
-      "imagem": "/img/servico-key-visual.jpg"
+      "imagem": "/img/real/svc-keyvisual.jpg"
     },
     {
       "nome_pt": "Social e conteúdo",
       "descricao_pt": "Linha editorial visual, templates e produção recorrente com consistência.",
       "nome_es": "Social y contenido",
       "descricao_es": "Línea editorial visual, plantillas y producción recurrente con consistencia.",
-      "imagem": "/img/servico-social.jpg"
+      "imagem": "/img/real/svc-social.jpg"
     },
     {
       "nome_pt": "Motion",
       "descricao_pt": "Animação de marca, vinhetas e peças em movimento para telas e redes.",
       "nome_es": "Motion",
       "descricao_es": "Animación de marca, viñetas y piezas en movimiento para pantallas y redes.",
-      "imagem": "/img/servico-motion.jpg"
+      "imagem": ""
     },
     {
       "nome_pt": "Apresentações",
       "descricao_pt": "Pitches e decks com narrativa e design à altura do que está sendo vendido.",
       "nome_es": "Presentaciones",
       "descricao_es": "Pitches y decks con narrativa y diseño a la altura de lo que se está vendiendo.",
-      "imagem": "/img/servico-apresentacoes.jpg"
+      "imagem": ""
     }
   ]
 }
