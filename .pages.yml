@@ -134,6 +134,10 @@ content:
           - name: resultado_es
             label: Resultado (espanhol, opcional)
             type: string
+          - name: destaque_home
+            label: Mostrar como adesivo na home
+            type: boolean
+            description: "Até 6 aparecem no computador e 3 no celular. Se marcar mais, o site sorteia a cada visita."
           - name: galeria
             label: Galeria da ficha do case (até 8 imagens, qualquer formato)
             type: image

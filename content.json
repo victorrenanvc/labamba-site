@@ -152,7 +152,8 @@
         "/img/69c8a3800a937a2e6fc303dd53d386dc.jpg",
         "/img/1bff007137b263dbe4e62f5149272cb6.jpg",
         "/img/827ade3b0843c74033ba21404d59f28a.jpg"
-      ]
+      ],
+      "destaque_home": true
     },
     {
       "categoria": "Campanha",
@@ -169,7 +170,8 @@
       "galeria": [
         "/img/Carrossel Vermelho de Conscientização sobre HIV.jpg",
         "/img/Campanha Dezembro Vermelho em Destaque-1.jpg"
-      ]
+      ],
+      "destaque_home": true
     },
     {
       "categoria": "Key visual",
@@ -185,7 +187,8 @@
       "entregas_es": "Key Visual",
       "galeria": [
         "/img/Job_4589_CopaGolzinho_KV2-1.jpg"
-      ]
+      ],
+      "destaque_home": true
     },
     {
       "categoria": "Key visual",
@@ -202,7 +205,8 @@
       "galeria": [
         "/img/Mockup do Rally da Mulher.jpg",
         "/img/Mockups do Rally da Mulher em Goiânia.jpg"
-      ]
+      ],
+      "destaque_home": true
     },
     {
       "categoria": "Social",
@@ -218,7 +222,8 @@
       "entregas_es": "Concepto, despliegues.",
       "galeria": [
         "/img/Campanha Viva o Verão 26-1.png"
-      ]
+      ],
+      "destaque_home": true
     },
     {
       "categoria": "Social",
@@ -236,7 +241,8 @@
         "/img/4419_CampanhaDePos1080x1080_Conceito.jpg",
         "/img/4419_CampanhaDePos1080x1920_Conceito.jpg",
         "/img/Campanha Digital PUC Goiás em Destaque.png"
-      ]
+      ],
+      "destaque_home": true
     },
     {
       "categoria": "Identidade",
@@ -253,7 +259,8 @@
       "galeria": [
         "/img/Mockups neon do evento Goiano Esports.png",
         "/img/Mockup Neon do Goianão de Esports.png"
-      ]
+      ],
+      "destaque_home": false
     }
   ],
   "imagens": {
