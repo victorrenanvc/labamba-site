@@ -141,7 +141,7 @@
       "cliente": "NovoMundo",
       "titulo_pt": "Air Fryer",
       "titulo_es": "Air Fryer",
-      "capa": "/img/Campanha Novo Mundo Air Fryer.png",
+      "capa": "/img/Campanha Novo Mundo Air Fryer.jpg",
       "desafio_pt": "O desafio foi vender um produto que, na época, não era muito conhecido. ",
       "desafio_es": "El desafío fue vender un producto que, en aquel momento, no era muy conocido.",
       "solucao_pt": "Decidi bater na tecla da principal vantagem do produto, que é fritar sem óleo e sem deixar o cheiro característico de cozinhar frituras.",
@@ -159,7 +159,7 @@
       "cliente": "Tahto",
       "titulo_pt": "Dezembro Vermelho",
       "titulo_es": "Diciembre Rojo",
-      "capa": "/img/Campanha Dezembro Vermelho em Destaque-1.png",
+      "capa": "/img/Campanha Dezembro Vermelho em Destaque.jpg",
       "desafio_pt": "Falar de um tema delicado de maneira aberta e sem tabú.",
       "desafio_es": "Hablar de un tema delicado de manera abierta y sin tabú. ",
       "solucao_pt": "Um KV direto, quase que pesado, mas muito necessário e impactante visualmente.",
@@ -167,32 +167,42 @@
       "entregas_pt": "KV, mídia OOH, digital, social.",
       "entregas_es": "KV, medios OOH, digital, social.",
       "galeria": [
-        "/img/Carrossel Vermelho de Conscientização sobre HIV.png"
+        "/img/Carrossel Vermelho de Conscientização sobre HIV.jpg",
+        "/img/Campanha Dezembro Vermelho em Destaque-1.jpg"
       ]
     },
     {
-      "categoria": "Social",
-      "cliente": "[CLIENTE]",
-      "titulo_pt": "[Título do projeto 03]",
-      "titulo_es": "[Título del proyecto 03]",
-      "desafio_pt": "[Qual era o problema ou objetivo do cliente.]",
-      "desafio_es": "[Cuál era el problema u objetivo del cliente.]",
-      "solucao_pt": "[A ideia central e por que ela funciona.]",
-      "solucao_es": "[La idea central y por qué funciona.]",
-      "entregas_pt": "[Linha editorial, templates, posts.]",
-      "entregas_es": "[Línea editorial, plantillas, posts.]"
+      "categoria": "Key visual",
+      "cliente": "JC Eventos",
+      "titulo_pt": "Copa Golzinho",
+      "titulo_es": "Copa Golzinho",
+      "capa": "/img/Job_4589_CopaGolzinho_KV2.jpg",
+      "desafio_pt": "Criar um evento infantil de competição esportiva.",
+      "desafio_es": "Crear un evento infantil de competición deportiva.",
+      "solucao_pt": "Um KV moderno, inspirado na Premier League.",
+      "solucao_es": "Un KV moderno, inspirado en la Premier League.",
+      "entregas_pt": "Key Visual",
+      "entregas_es": "Key Visual",
+      "galeria": [
+        "/img/Job_4589_CopaGolzinho_KV2-1.jpg"
+      ]
     },
     {
-      "categoria": "Motion",
-      "cliente": "[CLIENTE]",
-      "titulo_pt": "[Título do projeto 04]",
-      "titulo_es": "[Título del proyecto 04]",
+      "categoria": "Key visual",
+      "cliente": "JC Eventos",
+      "titulo_pt": "Rally da Mulher",
+      "titulo_es": "Rally de la Mujer",
+      "capa": "/img/Rally da Mulher_ Poeira e Poder.jpg",
       "desafio_pt": "[Qual era o problema ou objetivo do cliente.]",
       "desafio_es": "[Cuál era el problema u objetivo del cliente.]",
       "solucao_pt": "[A ideia central e por que ela funciona.]",
       "solucao_es": "[La idea central y por qué funciona.]",
-      "entregas_pt": "[Vinheta, animação de marca.]",
-      "entregas_es": "[Viñeta, animación de marca.]"
+      "entregas_pt": "KV, Redes sociais, Impressos",
+      "entregas_es": "KV, redes sociales, impresos.",
+      "galeria": [
+        "/img/Mockup do Rally da Mulher.jpg",
+        "/img/Mockups do Rally da Mulher em Goiânia.jpg"
+      ]
     },
     {
       "categoria": "Campanha",
