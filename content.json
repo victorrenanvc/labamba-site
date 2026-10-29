@@ -151,17 +151,14 @@
       "galeria": [
         "/img/69c8a3800a937a2e6fc303dd53d386dc.jpg",
         "/img/1bff007137b263dbe4e62f5149272cb6.jpg",
-        "/img/827ade3b0843c74033ba21404d59f28a.jpg",
-        "/img/1bff007137b263dbe4e62f5149272cb6.jpg",
-        "/img/69c8a3800a937a2e6fc303dd53d386dc.jpg",
         "/img/827ade3b0843c74033ba21404d59f28a.jpg"
       ]
     },
     {
       "categoria": "Campanha",
-      "cliente": "[CLIENTE]",
-      "titulo_pt": "[Título do projeto 02]",
-      "titulo_es": "[Título del proyecto 02]",
+      "cliente": "Tahto",
+      "titulo_pt": "Dezembro Vermelho",
+      "titulo_es": "Diciembre Rojo",
       "desafio_pt": "[Qual era o problema ou objetivo do cliente.]",
       "desafio_es": "[Cuál era el problema u objetivo del cliente.]",
       "solucao_pt": "[A ideia central e por que ela funciona.]",
