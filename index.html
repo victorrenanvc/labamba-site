@@ -719,6 +719,10 @@ footer .wrap{padding-block:72px}
 .intro{position:fixed;inset:0;z-index:2147483600;background:#121212;color:#F1ECE3;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:22px;font-weight:500;letter-spacing:-.02em;transition:transform 1s cubic-bezier(.76,0,.24,1)}
 .intro i{color:var(--signal);font-style:normal}
 .intro.out{transform:translateY(-100%)}
+
+/* processo em uma linha, dentro de Serviços */
+.process{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;margin:clamp(48px,6vw,88px) 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.process .steps-line{color:var(--fg)}
 </style>
 </head>
 <body style="margin:0">
@@ -737,7 +741,6 @@ footer .wrap{padding-block:72px}
     <nav class="nav" aria-label="Principal">
       <a href="#portfolio" data-roll data-i="nav.portfolio">Portfólio</a>
       <a href="#latam" data-roll data-i="nav.latam">América Latina</a>
-      <a href="#como-fazemos" data-roll data-i="nav.como">Como fazemos</a>
       <a href="#servicos" data-roll data-i="nav.servicos">Serviços</a>
       <a href="#sobre" data-roll data-i="nav.sobre">Sobre</a>
       <div class="lang" role="group" aria-label="Idioma / Language">
@@ -780,7 +783,7 @@ footer .wrap{padding-block:72px}
   <!-- MANIFESTO -->
   <section class="manifesto">
     <div class="wrap">
-      <p class="big-statement"><span class="accent" data-i="mf.a">Direção de criação com cabeça de agência grande.</span> <span data-i="mf.b">Ajudo marcas e agências do Brasil e da América Latina a se comunicar com ritmo, personalidade e resultado.</span></p>
+      <p class="big-statement"><span class="accent" data-i="mf.a">Campanhas que pensam o negócio, não só a peça.</span> <span data-i="mf.b">Ajudo marcas e agências do Brasil e da América Latina a se comunicar com ritmo, personalidade e resultado.</span></p>
       <a class="pill-link" href="#sobre" data-i="mf.cta">Sobre ↗</a>
     </div>
   </section>
@@ -798,6 +801,17 @@ footer .wrap{padding-block:72px}
         <div class="filters" role="group" aria-label="Filtro" id="filters"></div>
       </div>
       <div class="grid-cases" id="cases"></div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="sec" id="servicos" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="display h2" data-i="sv.h2">O que a gente faz</h2>
+      </div>
+      <div class="svc-acc" id="services"></div>
+      <p class="process mono"><span data-i="pr.k">Do briefing à entrega</span><span class="steps-line" data-i="pr.steps">Imersão → Curadoria → Criação → Refino → Entrega</span></p>
     </div>
   </section>
 
@@ -865,33 +879,6 @@ footer .wrap{padding-block:72px}
           <a class="btn card-cta card-cta-alt" data-wa="marca" href="https://wa.me/5562992960963" target="_blank" rel="noopener" data-i="pq.e.cta">Cuidar da minha marca ↗</a>
         </article>
       </div>
-    </div>
-  </section>
-
-  <!-- COMO FAZEMOS -->
-  <section class="sec" id="como-fazemos">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 class="display h2" style="max-width:15ch" data-i="cf.h2">Como fazemos</h2>
-        <p data-i="cf.p">Cinco etapas, do briefing à entrega.</p>
-      </div>
-      <ol class="steps">
-        <li class="step"><span class="step-n" aria-hidden="true">1</span><h3 data-i="s1.h">Imersão</h3><p data-i="s1.p">Entender o negócio e o público.</p></li>
-        <li class="step"><span class="step-n" aria-hidden="true">2</span><h3 data-i="s2.h">Curadoria</h3><p data-i="s2.p">Definir o caminho visual.</p></li>
-        <li class="step"><span class="step-n" aria-hidden="true">3</span><h3 data-i="s3.h">Criação</h3><p data-i="s3.p">Conceito e peças-chave.</p></li>
-        <li class="step"><span class="step-n" aria-hidden="true">4</span><h3 data-i="s4.h">Refino</h3><p data-i="s4.p">Ajustes com critério.</p></li>
-        <li class="step"><span class="step-n" aria-hidden="true">5</span><h3>Entrega</h3><p data-i="s5.p">Arquivos prontos para rodar.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- SERVIÇOS -->
-  <section class="sec" id="servicos" style="border-top:1px solid var(--line)">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 class="display h2" data-i="sv.h2">O que a gente faz</h2>
-      </div>
-      <div class="svc-acc" id="services"></div>
     </div>
   </section>
 
@@ -1054,9 +1041,10 @@ const UI = {
 
 /* Spanish (Latam) for every element marked data-i. Portuguese stays in the HTML. */
 const ES = {
+  'pr.k': 'Del brief a la entrega', 'pr.steps': 'Inmersión → Curaduría → Creación → Refinamiento → Entrega',
   'hero.h1sr': 'Labamba Studio · Creatividad al ritmo justo',
   'hero.giant': 'Creatividad al <span class="hl">ritmo</span> justo ·&nbsp;',
-  'mf.a': 'Dirección creativa con cabeza de gran agencia.', 'mf.b': 'Ayudo a marcas y agencias de Brasil y Latinoamérica a comunicar con ritmo, personalidad y resultados.', 'mf.cta': 'Sobre mí ↗',
+  'mf.a': 'Campañas que piensan el negocio, no solo la pieza.', 'mf.b': 'Ayudo a marcas y agencias de Brasil y Latinoamérica a comunicar con ritmo, personalidad y resultados.', 'mf.cta': 'Sobre mí ↗',
   'hero.hola': '¡Hola, Latam!', 'hero.hint': 'Arrastra las piezas · cada una abre el caso',
   'hero.promise': 'Cabeza de gran agencia. <br class="lb">Trato directo con quien crea.',
   'hero.p': '18 años de campañas para marcas como <strong>Flamboyant, Novo Mundo y TV Anhanguera</strong>.',
