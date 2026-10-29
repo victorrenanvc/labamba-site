@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 23'%3E%3Crect width='10' height='10' fill='%233D4EFF'/%3E%3Crect y='13' width='10' height='10' fill='%233D4EFF'/%3E%3Crect x='13' y='13' width='10' height='10' fill='%23FF5B1F'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Labamba Studio · Criação no ritmo certo">
-<meta property="og:description" content="Estúdio de criação latino-americano para agências e marcas. Curadoria, método e qualidade, por Victor Renan.">
+<meta property="og:description" content="Estúdio de criação latino-americano para agências e marcas, por Victor Renan.">
 <meta property="og:image" content="/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Labamba Studio: estúdio de criação latino-americano para agências e marcas. Curadoria, método e qualidade.">
@@ -88,7 +88,7 @@ img{max-width:100%;display:block}
 
 /* Hero */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero::before,.hero .spot{content:"";position:absolute;inset:0;pointer-events:none;background-size:48px 48px}
+.hero::before,.hero .spot{display:none;content:"";position:absolute;inset:0;pointer-events:none;background-size:48px 48px}
 .hero::before{
   background-image:linear-gradient(var(--line-soft) 1px, transparent 1px),linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
   -webkit-mask-image:radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%);mask-image:radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%)}
@@ -115,7 +115,7 @@ img{max-width:100%;display:block}
 
 /* Hero visual: retail post exploded into layers */
 .stage{--p:0;--rx:0deg;--ry:0deg;position:relative;flex:1 1 420px;min-width:0;max-width:600px;min-height:clamp(420px,44vw,580px);perspective:1800px;display:flex;align-items:center;justify-content:center}
-.stage::before{content:"";position:absolute;inset:4%;background-image:radial-gradient(var(--line) 1px, transparent 1.5px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(circle at 50% 50%, #000 40%, transparent 72%);mask-image:radial-gradient(circle at 50% 50%, #000 40%, transparent 72%)}
+.stage::before{display:none;content:"";position:absolute;inset:4%;background-image:radial-gradient(var(--line) 1px, transparent 1.5px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(circle at 50% 50%, #000 40%, transparent 72%);mask-image:radial-gradient(circle at 50% 50%, #000 40%, transparent 72%)}
 .post{position:relative;width:min(340px,66vw);aspect-ratio:4/5;max-width:100%;transform-style:preserve-3d;
   transform:rotateX(calc(var(--p) * 56deg + var(--rx))) rotateZ(calc(var(--p) * -36deg)) rotateY(var(--ry)) scale(calc(1 - var(--p) * .08))}
 .layer{position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(calc(var(--p) * var(--z)))}
@@ -160,6 +160,22 @@ img{max-width:100%;display:block}
 .readout .ok{color:var(--fg);display:inline-flex;align-items:center;gap:8px}
 .readout .k{color:var(--muted)}
 
+/* Hero reel: real work, cycling */
+.reel-stage{text-decoration:none;color:inherit;flex-direction:column;gap:18px;cursor:pointer}
+.reel{position:relative;width:min(560px,100%);aspect-ratio:3/2;max-width:100%}
+.reel figure{position:absolute;inset:0;margin:0;overflow:hidden;border:1px solid var(--line);background:var(--surface-2);box-shadow:0 30px 70px rgba(0,0,0,.55);
+  transition:transform 1s var(--ease), opacity .8s var(--ease), filter .8s var(--ease);transform-origin:50% 100%}
+.reel figure img{width:100%;height:100%;object-fit:cover}
+.reel figure[data-pos="0"]{transform:rotate(-2deg);z-index:3}
+.reel figure[data-pos="1"]{transform:translate(7%,-9%) rotate(5deg) scale(.92);z-index:2;filter:brightness(.55)}
+.reel figure[data-pos="2"]{transform:translate(-8%,-15%) rotate(-9deg) scale(.84);z-index:1;filter:brightness(.35)}
+.reel figure[data-pos="out"]{transform:translate(-30%,12%) rotate(-16deg) scale(1.02);opacity:0;z-index:4}
+.reel figure[data-pos="hide"]{transform:translate(-8%,-15%) rotate(-9deg) scale(.8);opacity:0;z-index:0}
+.reel-stage:hover figure[data-pos="0"]{transform:rotate(0deg) scale(1.03)}
+.reel-cap{display:flex;gap:14px;align-items:baseline;width:min(560px,100%);justify-content:space-between;color:var(--muted)}
+.reel-cap #reel-title{color:var(--fg);font-family:var(--display);font-stretch:112%;font-weight:800;font-size:20px;letter-spacing:0;text-transform:none}
+.status{display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:15px}
+
 /* Marquees */
 .band{overflow:hidden;border-bottom:1px solid var(--line)}
 .band-skew{transition:transform .2s linear;will-change:transform}
@@ -193,6 +209,7 @@ img{max-width:100%;display:block}
 .case-img .ph{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .case-img .open{position:absolute;right:12px;bottom:12px;background:var(--bg);color:var(--fg);font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;transform:translateY(8px);opacity:0;transition:all .25s}
 .case:hover .open,.case:focus-visible .open{transform:none;opacity:1}
+@media (min-width:1000px){.grid-cases .case:first-child{grid-column:span 2;grid-row:span 2}.grid-cases .case:first-child h3{font-size:32px}}
 .case-meta{display:flex;justify-content:space-between;gap:16px}
 .case h3{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:24px;line-height:1.15}
 
@@ -296,7 +313,7 @@ img{max-width:100%;display:block}
 
 /* Career timeline */
 .career{margin-top:clamp(48px,6vw,80px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
-.career-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px 24px;flex-wrap:wrap;margin-bottom:24px}
+.career-head{display:flex;justify-content:flex-start;align-items:baseline;gap:12px 24px;flex-wrap:wrap;margin-bottom:24px}
 .career-years{font-family:var(--display);font-stretch:125%;font-weight:850;text-transform:uppercase;font-size:clamp(28px,3.4vw,48px);line-height:1;letter-spacing:-.02em}
 .career-years b{color:var(--signal);font-variant-numeric:tabular-nums}
 .career-list{list-style:none;margin:0;padding:0;columns:2 440px;column-gap:clamp(24px,4vw,56px)}
@@ -340,6 +357,8 @@ img{max-width:100%;display:block}
 .step-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.08em}
 .step-top i{width:12px;height:12px;border:1.5px solid var(--muted);display:block}
 .step:last-child .step-top i{background:var(--signal);border-color:var(--signal)}
+.step-n{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:56px;line-height:.85;color:var(--accent-hi)}
+.step:last-child .step-n{color:var(--signal)}
 .step h3{margin:0;font-family:var(--display);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:24px;letter-spacing:-.01em}
 .step p{margin:0;font-size:16px;color:var(--muted)}
 
@@ -501,7 +520,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
       <a href="#como-fazemos" data-scramble data-i="nav.como">Como fazemos</a>
       <a href="#servicos" data-scramble data-i="nav.servicos">Serviços</a>
       <a href="#sobre" data-scramble data-i="nav.sobre">Sobre</a>
-      <a href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener" data-scramble>LinkedIn ↗</a>
       <div class="lang" role="group" aria-label="Idioma / Language">
         <button type="button" data-lang="pt" aria-pressed="true" title="Português">PT</button>
         <button type="button" data-lang="es" aria-pressed="false" title="Español">ES</button>
@@ -519,10 +537,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
       <div class="hero-grid">
       <div class="hero-left">
       <div class="hero-out">
-        <div class="hero-meta mono muted">
-          <span class="tag"><span class="dot blink" aria-hidden="true"></span><span data-i="hero.tag">Agenda aberta</span></span>
-          <span data-i="hero.meta">Estúdio de criação latino-americano</span>
-        </div>
         <h1 class="display" data-i="hero.h1"><span class="ln">Criação</span><span class="ln">no <span class="hl">ritmo</span></span><span class="ln"><span class="hl">certo.</span></span></h1>
       </div>
         <div class="hero-copy">
@@ -531,20 +545,13 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
             <a class="btn btn-primary magnetic" href="#portfolio" data-i="hero.cta1">Ver portfólio <span aria-hidden="true">→</span></a>
             <a class="btn btn-ghost magnetic" href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener" data-i="hero.cta2">Conectar no LinkedIn ↗</a>
           </div>
+          <span class="status" id="agenda"><span class="dot blink" aria-hidden="true"></span><span data-i="hero.tag">Agenda aberta</span></span>
         </div>
       </div>
-        <div class="stage" id="stage" role="img" aria-label="Peça de varejo separada em camadas: fundo, produto, tipografia, selo de oferta e chamada">
-          <div class="post" aria-hidden="true">
-            <div class="layer l1" data-layer="1" style="--z:0px"><div class="rays"></div><div class="grid"></div><span class="ltag" data-i="ly.1">01 · Fundo</span></div>
-            <div class="layer l2" data-layer="2" style="--z:70px">
-              <svg viewBox="0 0 120 200"><ellipse cx="60" cy="192" rx="46" ry="7" fill="rgba(0,0,0,.35)"/><rect x="22" y="22" width="76" height="166" rx="14" fill="#ECEDF1"/><rect x="22" y="22" width="76" height="20" rx="10" fill="#C9CCD6"/><rect x="34" y="10" width="52" height="16" rx="6" fill="#9A9EAA"/><rect x="22" y="70" width="76" height="62" fill="#FF5B1F"/><rect x="22" y="132" width="76" height="8" fill="#0A0C10"/><circle cx="60" cy="101" r="17" fill="#ECEDF1"/><path d="M53 101h14M60 94v14" stroke="#FF5B1F" stroke-width="4" stroke-linecap="round"/><rect x="30" y="152" width="40" height="5" rx="2" fill="#9A9EAA"/><rect x="30" y="162" width="26" height="5" rx="2" fill="#9A9EAA"/></svg>
-              <span class="ltag" data-i="ly.2">02 · Produto</span>
-            </div>
-            <div class="layer l3" data-layer="3" style="--z:140px"><div class="head"><span class="kick" data-i="pt.kick">Semana Brisa</span><span class="big" data-i="pt.big">Super<br>oferta</span></div><span class="ltag" data-i="ly.3">03 · Tipografia</span></div>
-            <div class="layer l4" data-layer="4" style="--z:210px"><div class="seal"><span>R$</span><b>9,99</b><span>-40%</span></div><span class="ltag" data-i="ly.4">04 · Oferta</span></div>
-            <div class="layer l5" data-layer="5" style="--z:280px"><div class="bar"><span class="cta" data-i="pt.cta">Compre agora →</span><span class="logo-b">brisa.</span></div><span class="ltag" data-i="ly.5">05 · CTA + marca</span></div>
-          </div>
-        </div>
+        <a class="stage reel-stage" href="#portfolio" id="reel" aria-label="Trabalhos recentes: ver portfólio">
+          <div class="reel" id="reel-cards"></div>
+          <div class="reel-cap mono"><span id="reel-client"></span><span id="reel-title"></span></div>
+        </a>
       </div>
     </div>
   </section>
@@ -617,7 +624,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
     <div class="wrap">
       <div class="latam-grid">
         <div class="latam-intro rv">
-          <span class="mono muted">Hecho en Latinoamérica</span>
           <h2 id="latam-title" class="display h2" style="max-width:15ch" data-i="la.h2">Um criativo latino para marcas que querem ir longe</h2>
           <p data-i="la.p">A América Latina tem cor, ritmo, humor e calor próprios. A Labamba traduz esse repertório em marca <strong>com o método e o acabamento que o mercado global exige</strong>, para agências e empresas de toda a região.</p>
         </div>
@@ -629,9 +635,9 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
         </div>
       </div>
       <div class="latam-points">
-        <div class="lp"><span class="mono muted" data-i="lp1.k">Repertório</span><h3 data-i="lp1.h">Olhar latino, sem clichê</h3><p data-i="lp1.p">Referências da nossa cultura usadas com critério, para criar marcas com personalidade e não caricatura.</p></div>
-        <div class="lp"><span class="mono muted" data-i="lp2.k">Alcance</span><h3 data-i="lp2.h">Atendimento remoto na região</h3><p data-i="lp2.p">Do Brasil para a América Latina, com rotina de trabalho e entregas pensadas para times distribuídos.</p></div>
-        <div class="lp"><span class="mono muted" data-i="lp3.k">Padrão</span><h3 data-i="lp3.h">Execução de nível global</h3><p data-i="lp3.p">Processo documentado, arquivos organizados e acabamento pronto para rodar em qualquer mercado.</p></div>
+        <div class="lp"><h3 data-i="lp1.h">Olhar latino, sem clichê</h3><p data-i="lp1.p">Referências da nossa cultura usadas com critério, para criar marcas com personalidade e não caricatura.</p></div>
+        <div class="lp"><h3 data-i="lp2.h">Atendimento remoto na região</h3><p data-i="lp2.p">Do Brasil para a América Latina, com rotina de trabalho e entregas pensadas para times distribuídos.</p></div>
+        <div class="lp"><h3 data-i="lp3.h">Execução de nível global</h3><p data-i="lp3.p">Processo documentado, arquivos organizados e acabamento pronto para rodar em qualquer mercado.</p></div>
       </div>
     </div>
   </section>
@@ -641,7 +647,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
     <div class="wrap">
       <div class="sec-head">
         <h2 class="display h2 rv-title" style="max-width:14ch" data-i="pq.h2">Dois jeitos de trabalhar com a gente</h2>
-        <span class="mono muted" data-i="pq.k">Para quem</span>
       </div>
       <div class="duo">
         <article class="card rv">
@@ -662,21 +667,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
     </div>
   </section>
 
-  <!-- PILARES -->
-  <section class="sec" style="background:var(--surface);border-block:1px solid var(--line)">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 class="display h2 rv-title" style="max-width:16ch" data-i="pi.h2">O que sustenta cada entrega</h2>
-        <span class="mono muted" data-i="pi.k">Pilares</span>
-      </div>
-      <div class="pillars">
-        <div class="pillar"><span class="n">01</span><h3 data-i="pi.1.h">Curadoria</h3><p data-i="pi.1.p">Antes de criar, a gente escolhe. Referências filtradas, repertório amplo e critério para separar tendência de tiro certo para a marca.</p></div>
-        <div class="pillar"><span class="n">02</span><h3>Método</h3><p data-i="pi.2.p">Cada projeto passa pelas mesmas etapas, com entregas e aprovações combinadas no início. Você sabe o que vem, quando vem e por quê.</p></div>
-        <div class="pillar"><span class="n">03</span><h3 data-i="pi.3.h">Qualidade</h3><p data-i="pi.3.p">Acabamento é parte do conceito. Revisão em camadas, atenção a cada pixel e arquivos prontos para produção, sem surpresa na hora de rodar.</p></div>
-      </div>
-    </div>
-  </section>
-
   <!-- COMO FAZEMOS -->
   <section class="sec" id="como-fazemos">
     <div class="wrap">
@@ -685,11 +675,11 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
         <p data-i="cf.p">Do briefing à entrega em cinco etapas. Sem caixa-preta: você acompanha cada uma.</p>
       </div>
       <ol class="steps">
-        <li class="step"><div class="step-top"><span>ETAPA 01</span><i aria-hidden="true"></i></div><h3 data-i="s1.h">Imersão</h3><p data-i="s1.p">Entendemos negócio, público, objetivo e restrições. Sai daqui um briefing que todo mundo assina.</p></li>
-        <li class="step"><div class="step-top"><span>ETAPA 02</span><i aria-hidden="true"></i></div><h3 data-i="s2.h">Curadoria</h3><p data-i="s2.p">Pesquisa e seleção de referências para alinhar o caminho visual antes de qualquer arte.</p></li>
-        <li class="step"><div class="step-top"><span>ETAPA 03</span><i aria-hidden="true"></i></div><h3 data-i="s3.h">Criação</h3><p data-i="s3.p">Desenvolvimento do conceito e das peças-chave, com a narrativa que sustenta cada escolha.</p></li>
-        <li class="step"><div class="step-top"><span>ETAPA 04</span><i aria-hidden="true"></i></div><h3 data-i="s4.h">Refino</h3><p data-i="s4.p">Ajustes guiados por critério, rodadas combinadas e revisão técnica de cada detalhe.</p></li>
-        <li class="step"><div class="step-top"><span>ETAPA 05</span><i aria-hidden="true"></i></div><h3>Entrega</h3><p data-i="s5.p">Arquivos finais organizados, prontos para produção e para o seu time seguir rodando.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">1</span><h3 data-i="s1.h">Imersão</h3><p data-i="s1.p">Entendemos negócio, público, objetivo e restrições. Sai daqui um briefing que todo mundo assina.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">2</span><h3 data-i="s2.h">Curadoria</h3><p data-i="s2.p">Pesquisa e seleção de referências para alinhar o caminho visual antes de qualquer arte.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">3</span><h3 data-i="s3.h">Criação</h3><p data-i="s3.p">Desenvolvimento do conceito e das peças-chave, com a narrativa que sustenta cada escolha.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">4</span><h3 data-i="s4.h">Refino</h3><p data-i="s4.p">Ajustes guiados por critério, rodadas combinadas e revisão técnica de cada detalhe.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">5</span><h3>Entrega</h3><p data-i="s5.p">Arquivos finais organizados, prontos para produção e para o seu time seguir rodando.</p></li>
       </ol>
     </div>
   </section>
@@ -699,7 +689,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
     <div class="wrap">
       <div class="sec-head">
         <h2 class="display h2 rv-title" data-i="sv.h2">O que a gente faz</h2>
-        <span class="mono muted" data-i="sv.k">Serviços</span>
       </div>
       <div class="services" id="services"></div>
     </div>
@@ -710,7 +699,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
     <div class="wrap">
       <div class="sec-head">
         <h2 class="display h2 rv-title" data-i="ab.h2">Quem está por trás</h2>
-        <span class="mono muted" data-i="ab.k">Sobre</span>
       </div>
       <div class="about">
         <div class="about-side">
@@ -726,7 +714,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
             <div><span class="mono muted">Base</span><b>Goiânia · GO</b></div>
           </div>
           <div class="story">
-            <span class="mono muted" data-i="st.k">Por que Labamba?</span>
             <h3 data-i="st.h">Um nome com molho</h3>
             <p data-i="st.p1">Labamba vem de La Bamba, uma das músicas mais famosas da América Latina, daquelas que tiram todo mundo da cadeira em qualquer festa. O nome é uma homenagem às raízes do lado de lá da fronteira e um lembrete do que a gente busca em cada projeto: ritmo, personalidade e um pouco de graça.</p>
           </div>
@@ -734,7 +721,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
         </div>
       </div>
       <div class="career" id="trajetoria">
-        <div class="career-head"><span class="mono muted" data-i="tr.k">Trajetória</span><span class="career-years"><b id="career-yrs">18</b> <span data-i="tr.y">anos de agência</span></span></div>
+        <div class="career-head"><span class="career-years"><b id="career-yrs">18</b> <span data-i="tr.y">anos de agência</span></span></div>
         <ol class="career-list" id="career"></ol>
       </div>
     </div>
@@ -743,7 +730,6 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
   <!-- CONTATO -->
   <section class="sec contact" id="contato">
     <div class="wrap">
-      <span class="tag mono" style="margin-bottom:32px" data-i="ct.k">Próximo passo</span>
       <h2 class="display rv-title" data-i="ct.h2">Traga seu próximo projeto.</h2>
       <div class="contact-row">
         <p data-i="ct.p">Conte o desafio, o prazo e onde a peça vai rodar. Respondo com uma proposta clara de escopo, etapas e investimento.</p>
@@ -770,7 +756,7 @@ dialog::backdrop{background:rgba(5,6,9,.78);backdrop-filter:blur(4px)}
   <div class="wrap">
     <div style="display:flex;flex-direction:column;gap:10px">
       <span class="display">LABAMBA</span>
-      <span class="mono muted" data-i="ft.tag">Curadoria · Método · Qualidade · Hecho en Latam</span>
+      <span class="mono muted" data-i="ft.tag">Hecho en Latinoamérica · Goiânia, Brasil</span>
     </div>
     <nav class="mono muted" aria-label="Links">
       <a href="https://www.linkedin.com/in/victorrenan/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -890,7 +876,7 @@ const ES = {
   'ct.k': 'Próximo paso', 'ct.h2': 'Trae tu próximo proyecto.',
   'ct.p': 'Cuéntame el desafío, el plazo y dónde va a salir la pieza. Respondo con una propuesta clara de alcance, etapas e inversión.',
   'ct.li': 'Conectemos', 'ct.wa': 'Escribir ↗', 'ct.mail': 'Correo',
-  'ft.tag': 'Curaduría · Método · Calidad · Hecho en Latam'
+  'ft.tag': 'Hecho en Latinoamérica · Goiânia, Brasil'
 };
 
 /* ================= Render ================= */
@@ -1032,7 +1018,7 @@ document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a => { a.href = '
 if ($('#c-wpp')) $('#c-wpp').textContent = CONTACT.whatsapp_exibicao || CONTACT.whatsapp;
 if ($('#c-mail')) $('#c-mail').textContent = CONTACT.email;
 const photo = document.querySelector('.about-photo img'); if (photo && C.foto) photo.src = asset(C.foto);
-if (CONTACT.agenda_aberta === false) { const tg = document.querySelector('.hero-meta .tag'); if (tg) tg.hidden = true; }
+if (CONTACT.agenda_aberta === false) { const tg = document.getElementById('agenda'); if (tg) tg.hidden = true; }
 const slotInner = (o) => o.src ? `<img src="${esc(o.src)}" alt="" loading="lazy">` : `<span class="f">${esc(o.file)}</span><span class="h">${esc(o.hint)}</span>`;
 function fillSlot(el, o){ el.classList.toggle('has', !!o.src); el.innerHTML = slotInner(o); }
 document.querySelectorAll('[data-slot]').forEach(el => fillSlot(el, IMAGES[el.dataset.slot]));
@@ -1086,6 +1072,35 @@ function renderCareer(){
   io.observe(out);
 })();
 
+/* ================= Hero reel (real work) ================= */
+(function(){
+  const box = document.getElementById('reel-cards'); if (!box) return;
+  const items = CASES.filter(c => c.img).slice(0, 6);
+  if (!items.length) { document.getElementById('reel').hidden = true; return; }
+  box.innerHTML = items.map((c, i) => `<figure data-pos="${i < 3 ? i : 'hide'}"><img src="${esc(c.img)}" alt="${esc(c.client + ' · ' + (c.title.pt || ''))}" ${i ? 'loading="lazy"' : ''}></figure>`).join('');
+  const figs = [...box.children];
+  let front = 0;
+  const cap = () => { const c = items[front]; document.getElementById('reel-client').textContent = c.client; document.getElementById('reel-title').textContent = c.title[lang] || c.title.pt; };
+  window.__reelCap = cap;
+  function place(){
+    figs.forEach((f, i) => { const d = (i - front + figs.length) % figs.length; f.dataset.pos = d < 3 ? d : 'hide'; });
+    cap();
+  }
+  place();
+  if (reduce || figs.length < 2) return;
+  let timer = null, paused = false;
+  const next = () => {
+    const leaving = figs[front]; leaving.dataset.pos = 'out';
+    front = (front + 1) % figs.length;
+    setTimeout(place, 380);
+  };
+  const run = () => { clearInterval(timer); timer = setInterval(() => { if (!paused && !document.hidden) next(); }, 3200); };
+  const stage = document.getElementById('reel');
+  stage.addEventListener('pointerenter', () => { paused = true; });
+  stage.addEventListener('pointerleave', () => { paused = false; });
+  run();
+})();
+
 /* ================= Language ================= */
 const PT = {};
 document.querySelectorAll('[data-i]').forEach(el => { PT[el.dataset.i] = el.innerHTML; });
@@ -1108,6 +1123,7 @@ function setLang(next, animate){
   $('#wpp-link').href = 'https://wa.me/' + String(CONTACT.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent(T().wa);
   if ($('#ponte-wa')) $('#ponte-wa').href = 'https://wa.me/' + String(CONTACT.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent(T().waPonte);
   renderServices(); renderFilters(); renderCases(); renderCareer();
+  if (window.__reelCap) window.__reelCap();
   try { localStorage.setItem('labamba-lang', lang); } catch (_) {}
 }
 document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang, true)));
