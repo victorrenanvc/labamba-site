@@ -95,7 +95,7 @@ content:
             label: Categoria (filtro)
             type: select
             options:
-              values: [Identidade, Campanha, Social, Motion, Key visual, Apresentações]
+              values: [Identidade, Campanha, Social, Motion, Key visual, Apresentações, Igrejas]
           - name: cliente
             label: Cliente
             type: string
