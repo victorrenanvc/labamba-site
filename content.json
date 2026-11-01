@@ -107,7 +107,7 @@
       "logo": "/img/logos/logo-01.png"
     },
     {
-      "nome": "Flamboyant",
+      "nome": "Flamboyant Shopping",
       "logo": "/img/logos/logo-02.png"
     },
     {
@@ -145,6 +145,12 @@
     },
     {
       "nome": "Agrex"
+    },
+    {
+      "nome": "Fujioka Distribuidor"
+    },
+    {
+      "nome": "Araguaia Shopping"
     }
   ],
   "cases": [
