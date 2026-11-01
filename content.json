@@ -133,6 +133,18 @@
     {
       "nome": "TV Anhanguera",
       "logo": "/img/logos/logo-08.png"
+    },
+    {
+      "nome": "PUC GO"
+    },
+    {
+      "nome": "Hohl John Deere"
+    },
+    {
+      "nome": "Casa do Pica-Pau"
+    },
+    {
+      "nome": "Agrex"
     }
   ],
   "cases": [
@@ -148,12 +160,12 @@
       "solucao_es": "Decidí centrarme en la principal ventaja del producto: freír sin aceite y sin dejar el olor característico de las frituras.",
       "entregas_pt": "Campanha 360",
       "entregas_es": "Campaña 360",
+      "destaque_home": true,
       "galeria": [
         "/img/69c8a3800a937a2e6fc303dd53d386dc.jpg",
         "/img/1bff007137b263dbe4e62f5149272cb6.jpg",
         "/img/827ade3b0843c74033ba21404d59f28a.jpg"
-      ],
-      "destaque_home": true
+      ]
     },
     {
       "categoria": "Campanha",
@@ -167,11 +179,11 @@
       "solucao_es": "Un KV directo, casi contundente, pero muy necesario y visualmente impactante.",
       "entregas_pt": "KV, mídia OOH, digital, social.",
       "entregas_es": "KV, medios OOH, digital, social.",
+      "destaque_home": true,
       "galeria": [
         "/img/Carrossel Vermelho de Conscientização sobre HIV.jpg",
         "/img/Campanha Dezembro Vermelho em Destaque-1.jpg"
-      ],
-      "destaque_home": true
+      ]
     },
     {
       "categoria": "Key visual",
@@ -185,10 +197,10 @@
       "solucao_es": "Un KV moderno, inspirado en la Premier League.",
       "entregas_pt": "Key Visual",
       "entregas_es": "Key Visual",
+      "destaque_home": true,
       "galeria": [
         "/img/Job_4589_CopaGolzinho_KV2-1.jpg"
-      ],
-      "destaque_home": true
+      ]
     },
     {
       "categoria": "Key visual",
@@ -202,11 +214,11 @@
       "solucao_es": "[La idea central y por qué funciona.]",
       "entregas_pt": "KV, Redes sociais, Impressos",
       "entregas_es": "KV, redes sociales, impresos.",
+      "destaque_home": true,
       "galeria": [
         "/img/Mockup do Rally da Mulher.jpg",
         "/img/Mockups do Rally da Mulher em Goiânia.jpg"
-      ],
-      "destaque_home": true
+      ]
     },
     {
       "categoria": "Social",
@@ -220,10 +232,10 @@
       "solucao_es": "Elementos livianos y solares con buen el buen gusto de la marca.",
       "entregas_pt": "Conceito, desdobramentos.",
       "entregas_es": "Concepto, despliegues.",
+      "destaque_home": true,
       "galeria": [
         "/img/Campanha Viva o Verão 26-1.png"
-      ],
-      "destaque_home": true
+      ]
     },
     {
       "categoria": "Social",
@@ -237,12 +249,12 @@
       "solucao_es": "Un material sobrio, elegante y moderno para dirigirse directamente al grupo de edad objetivo.",
       "entregas_pt": "Redes sociais, KV, midia digital",
       "entregas_es": "Redes sociales, KV, medios digitales",
+      "destaque_home": true,
       "galeria": [
         "/img/4419_CampanhaDePos1080x1080_Conceito.jpg",
         "/img/4419_CampanhaDePos1080x1920_Conceito.jpg",
         "/img/Campanha Digital PUC Goiás em Destaque.png"
-      ],
-      "destaque_home": true
+      ]
     },
     {
       "categoria": "Identidade",
@@ -256,11 +268,11 @@
       "solucao_es": "Utilizando una versión estilizada de la forma del estado de Goiás, creamos una marca a la altura de campeonatos a nivel mundial.",
       "entregas_pt": "KV, Redes Sociais, OHH",
       "entregas_es": "KV, Redes Sociales, OHH",
+      "destaque_home": false,
       "galeria": [
         "/img/Mockups neon do evento Goiano Esports.png",
         "/img/Mockup Neon do Goianão de Esports.png"
-      ],
-      "destaque_home": false
+      ]
     }
   ],
   "imagens": {
@@ -311,15 +323,13 @@
       "nome_pt": "Motion",
       "descricao_pt": "Animação de marca, vinhetas e peças em movimento para telas e redes.",
       "nome_es": "Motion",
-      "descricao_es": "Animación de marca, viñetas y piezas en movimiento para pantallas y redes.",
-      "imagem": ""
+      "descricao_es": "Animación de marca, viñetas y piezas en movimiento para pantallas y redes."
     },
     {
       "nome_pt": "Apresentações",
       "descricao_pt": "Pitches e decks com narrativa e design à altura do que está sendo vendido.",
       "nome_es": "Presentaciones",
-      "descricao_es": "Pitches y decks con narrativa y diseño a la altura de lo que se está vendiendo.",
-      "imagem": ""
+      "descricao_es": "Pitches y decks con narrativa y diseño a la altura de lo que se está vendiendo."
     }
   ]
 }
